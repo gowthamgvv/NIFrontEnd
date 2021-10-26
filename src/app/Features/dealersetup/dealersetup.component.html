@@ -1,0 +1,600 @@
+<!-- <div class="col-10 col-sm-11 col-md-11 col-lg-9 col-xl-10 p-0"> -->
+<div class="gradient_Profilebg">
+    <app-header></app-header>
+    <section id="insights" class="Dealer" style="margin-top: 73px;">
+        <div class="col-12 px-0 px-lg-3 d-flex align-items-center">
+            <h3> Dealer<span>Setup</span> </h3>
+            <div class="btn-group ml-4">
+                <button class="btn-gry" [ngClass]="{'active': srchst === 's' }" (click)="storeS('s')">store</button>
+                <button class="btn-gry" [ngClass]="{'active': srchst === 'u' }" (click)="storeS('u')">users</button>
+                <button class="btn-gry" *ngIf="roleid != 102" [ngClass]="{'active': srchst === 'd' }"
+                    (click)="storeS('d')">dealer terms</button>
+                <button class="btn-gry" [ngClass]="{'active': srchst === 'g' }" (click)="storeS('g')">groups</button>
+                <button class="btn-gry" [ngClass]="{'active': srchst === 'r' }" (click)="storeS('r')">roles</button>
+            </div>
+            <div class="col-lg-3 ml-auto" *ngIf="srchst === 's' && roleid == 102">
+                <div class="row gp-dd">
+                    <div class="col-lg-8 ml-5">
+                        <select class="col-lg-12" [(ngModel)]='dlrid' (change)="getDealerId($event.target.value)">
+                            <option>All Dealerships</option>
+                            <option *ngFor="let ds of GetDealershipsList" value="{{ds.dealer_id}}">
+                                {{ds.dealer_name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-12" *ngIf="srchst === 's'">
+        <div class="row mt-4 ml-3 dealer">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <h4 style="margin-bottom: 1rem;" class="pt-3">DETAILS</h4>
+                <form [formGroup]="dshipForm">
+                    <div class="form-group">
+                        <label></label>
+                        <div></div>
+                        <input type="text" class="form-control" id="brand" placeholder="Enter Dealership"
+                            formControlName="dship" maxlength="101">
+                        <small class="errormessage"
+                            *ngIf="submitted && dshipForm.controls.dship.hasError('required')">Dealership
+                            is required
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.dship.hasError('pattern')">
+                            Only alphabets are allowed for Dealership Group
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.dship.hasError('maxlength')">
+                            You have reached your maximum limit of characters allowed for
+                            Dealership Group
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" class="form-control" placeholder="Enter Address" formControlName="address"
+                            id="address1">
+                        <small class="errormessage"
+                            *ngIf="submitted && dshipForm.controls.address.hasError('required')">Address
+                            is required
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.address.hasError('maxlength')">
+                            You have reached your maximum limit of characters allowed for
+                            Address
+                        </small>
+                    </div>
+                    <!-- <div class="form-group">
+                        <input type="text" class="form-control" placeholder="address2" id="address2">
+                    </div> -->
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" class="form-control" placeholder="Enter City" id="city"
+                            formControlName="dcity">
+                        <small class="errormessage"
+                            *ngIf="submitted && dshipForm.controls.dcity.hasError('required')">City
+                            is required
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.dcity.hasError('maxlength')">
+                            You have reached your maximum limit of characters allowed for City
+                        </small>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 col-lg-8 form-group">
+                            <label></label>
+                            <select class="form-control" formControlName="state">
+                                <option value="">Select State</option>
+                                <option *ngFor="let i of getstatesresp" [value]="i.sg_id">{{i.sg_name}}</option>
+                            </select>
+                            <small class="errormessage"
+                                *ngIf="submitted && dshipForm.controls.state.hasError('required')">
+                                State is required
+                            </small>
+                        </div>
+                        <div class="col-4 col-lg-4 pl-0 form-group">
+                            <label></label>
+                            <input type="text" class="form-control" placeholder="Enter Zip" formControlName="zip">
+                            <small class="errormessage"
+                                *ngIf="submitted && dshipForm.controls.zip.hasError('required')">
+                                Zip is required
+                            </small>
+                            <small class="errormessage" *ngIf="dshipForm.controls.zip.hasError('maxlength')">
+                                You have reached your maximum limit of zip
+                            </small>
+                            <small class="errormessage"
+                                *ngIf="submitted && dshipForm.controls.zip.hasError('minlength')">
+                                Pls enter minimum limit of zip
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter Phone"
+                            formControlName="phone" (keypress)="allowNumbers($event)" pattern="[0-9+( )-]{14}$"
+                            maxlength="20" [textMask]="{mask: phoneFormat}">
+                        <small class="errormessage" *ngIf="submitted && dshipForm.controls.phone.hasError('required')">
+                            Phone number is required
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.phone.hasError('pattern')">
+                            Pls enter minimum length
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" class="form-control" placeholder="Enter Web Address" id="website"
+                            formControlName="webaddress">
+                        <small class="errormessage"
+                            *ngIf="submitted && dshipForm.controls.webaddress.hasError('required')">Website
+                            Address is required
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.webaddress.hasError('maxlength')">
+                            You have reached your maximum limit of characters allowed for
+                            Website Address
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" class="form-control" placeholder="Enter Google Map Link" id="gmaplink"
+                            formControlName="gmaplink" maxlength="1001">
+                        <small class="errormessage"
+                            *ngIf="submitted && dshipForm.controls.gmaplink.hasError('required')">Google
+                            Map Link is required
+                            <br>
+                        </small>
+                        <small class="errormessage" *ngIf="dshipForm.controls.gmaplink.hasError('maxlength')">
+                            You have reached your maximum limit of characters allowed for Google
+                            Map Link
+                        </small>
+                    </div>
+                    <div class="row mt-4 pt-4">
+                        <div class="col-12 col-lg-8">
+                            <h6>Logo &nbsp;<span><button type="button" data-target="#bsmodal" data-toggle="modal"
+                                        class="btn-view" (click)="openImgModal()">View</button></span></h6>
+                            <!-- <div class="image-preview" *ngIf="previewUrl">
+                                
+                                <img [src]="previewUrl" height="70" width="100" />
+
+                            </div> -->
+                            <!-- <img src=""> -->
+                            <!--input id="fileUpload" class="form-control browse-file-input" type="file" -->
+                            <!-- <div class="pt-4"><span>{{uploadedFileName}}</span></div> -->
+                            <div class="popover__wrapper">
+                                <a>
+                                    <h2 class="popover__title">{{uploadedFileName}}</h2>
+                                    <!-- <h2 class="popover_title">{{EditedLogoFile}}</h2> -->
+                                </a>
+                                <div class="popover__content ml-4">
+                                    <p class="popover__message">{{uploadedFileName}}</p>
+                                </div>
+                            </div>
+                            <div class="fileUpload btn">
+                                <span>Browse Files</span>
+                                <input id="fileUpload" type="file" class="upload" formControlName="fileUpload"
+                                    (change)="fileProgress($event)" />
+
+                                <!-- <div *ngIf="fileUploadProgress">
+                                    Upload progress: {{ fileUploadProgress }}
+                                </div>
+
+                                <div *ngIf="uploadedFilePath">
+                                    {{uploadedFilePath}}
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <h6>Brands<span><img class="pointer ml-1" src="assets/images/circle_icon.png"
+                                        data-target="#brandId" data-toggle="modal" (click)="addBrand()"></span></h6>
+                            <!-- <div class="col-lg-4"><a href="javascript:void(0);" data-toggle="modal"
+                                            data-target="#brandId" ><img
+                                                src="assets/Images/circle_icon.png"></a>
+                                    </div> -->
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" checked="true"
+                                    name="example1">
+                                <label class="custom-control-label" for="customCheck">{{displayBrands}}</label>
+                            </div>
+
+                            <div *ngIf="selectedBrandsList!='' && brandspopup == false">
+
+                                <div *ngFor="let item of selectedBrandLogo;let i=index" style="margin-top: -12px;"
+                                    class="mr-2">
+
+                                    <div class="custom-control custom-checkbox pt-3">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck{{i+1}}"
+                                            checked="true" name="example1">
+                                        <label class="custom-control-label" for="customCheck">{{item}}</label>
+                                    </div>
+                                    <!-- <img class="imglogo" src="{{ImagPath}}/{{item}}"> -->
+                                </div>
+
+                            </div>
+                            <!-- <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2" name="example2">
+                                <label class="custom-control-label" for="customCheck2">Rolls Roys</label>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    <hr class="w-100">
+                    <!-- <div class="row ml-0">
+                        <div class="save-btn">
+                            <button type="button" (click)="DealerEditOnSubmit()" class="btn-dark">Save</button>
+
+                        </div>
+                    </div> -->
+
+                </form>
+            </div>
+
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="col-12 px-lg-3 d-flex align-items-center">
+                    <label class="mt-2" style="font-size: 12px;">Week Start Day:</label>
+                    <div class="btn-group ml-4">
+                        <button class="btn-day">SUN</button>
+                        <button class="btn-day active">MON</button>
+                        <button class="btn-day">TUES</button>
+                        <button class="btn-day">WED</button>
+                        <button class="btn-day">THUR</button>
+                        <button class="btn-day">FRI</button>
+                        <button class="btn-day">SAT</button>
+                    </div>
+                </div>
+                <div class="col-lg-12 btnstitle text-center p-3">
+                    <a (click)="gettingSalesHours('sales');" [routerLink]=""
+                        [ngClass]="tabType == 'sales' ? 'active' : ''">SALES</a>
+                    <a (click)="gettingServiceHours('service');" [routerLink]="" style="margin: 0 15px;"
+                        [ngClass]="tabType == 'service' ? 'active' : ''">SERVICE</a>
+                    <a (click)="gettingPartsHours('parts');" [routerLink]=""
+                        [ngClass]="tabType == 'parts' ? 'active' : ''">PARTS</a>
+                </div>
+                <div class="hours_table">
+                    <table class="table w-100" style="font-size: 11px;">
+                        <thead>
+
+
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let x of dealersHoursTimings; let i = index">
+                                <td>
+                                    <input style="margin: 7px; width: 11px;" type="checkbox" name="hoursdaycheck"
+                                        [checked]="(x.ds_off == 'N' ? true : false)"
+                                        (change)="checkBoxChange(x,$event,i)" />
+                                    <span class="geekmark"></span>
+                                </td>
+                                <td>
+                                    {{x.week}}
+                                </td>
+                                <td class="lyest">
+                                    <div class="custom-slider">
+                                        <!-- {{x.options.disabled}}
+                                        {{x.ds_off}} -->
+                                        <label style="text-align: center;color:red"
+                                            *ngIf="x.options.disabled">Closed</label>
+                                        <ngx-slider (userChange)="changeVal(x.value,x.highValue)" [(value)]="x.value"
+                                            [(highValue)]="x.highValue" [options]="x.options" id="ngsslide{{i}}">
+                                        </ngx-slider>
+
+                                        <!-- <range-slider (userChange)="changeVal(x.value,x.highValue)" [(value)]="x.value"
+                           [(highValue)]="x.highValue" [options]="x.options"></range-slider> -->
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+
+                <div class="col-lg-12 gllco" *ngIf="showdata == true">
+                    <div class="table-responsive otau" [formGroup]="holidaysForm">
+                        <!-- <div class="contentpanel_bg"> -->
+                        <div class="row">
+                            <div class="col-4 mt-2" style="font-weight: bold; font-size: 11px;">
+                                Holiday closures
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="mt-0" formControlName="txtSearch" placeholder="search"
+                                    style="height: 23px; float: right;" (keyup)="onSearch()">
+                            </div>
+                            <div class="col-5 mt-0">
+                                <label style="font-weight: bold; font-size: 11px;">Add Holiday:</label> &nbsp;
+                                <img src="assets/images/circle_icon.png" style="cursor: pointer;" data-toggle="modal"
+                                    data-target="#modelId" (click)="addHoliday()">
+                            </div>
+                        </div>
+                        <div class="card-body" style="height: 180px !important;">
+                            <table>
+                                <thead class="tbltheadstyl">
+                                    <tr>
+                                        <td width="150px"></td>
+                                        <td width="150px"></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container
+                                        *ngIf="holidaysList | alphaFilter : alphaSrch: alphaColumns :'aa' as holidaydata;">
+                                        <tr *ngFor="let x of holidaydata">
+                                            <td class="tbltdstyle" style="font-size: 11px;">{{dtConv(x.Dh_start_date)}}
+                                            </td>
+                                            <td class="tbltdstyle" style="font-size: 11px;">{{x.Dh_holiday_name}}</td>
+                                            <td><a href="javascript:void(0);" data-toggle="modal"
+                                                    (click)="ShowUpdatePanel(x)" data-target="#modelId"><img
+                                                        src="assets/images/edit_gry_icon.png" width="12px;"></a>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="save-btn">
+            <button type="button" (click)="DealerEditOnSubmit()" class="btn-dark">Save</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-12" *ngIf="srchst === 'u'">
+        <app-users></app-users>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" *ngIf="srchst === 'd'">
+        <app-dealerterms></app-dealerterms>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" *ngIf="srchst === 'g'">
+        <app-groups></app-groups>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" *ngIf="srchst === 'r'">
+        <app-roles></app-roles>
+    </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="showHolidays">
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+        style="left: 20px;
+            top: 11%;">
+        <div class="modal-dialog tnemucod" role="document" [formGroup]="StrHldyform">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="col-lg-5">Add Holiday</h4>
+                    <!-- <div class="col-lg-3">Popular Holiday</div> -->
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <label for="frmDte">From Date<span style="color:red">*</span></label>
+                                <input type="date" class="form-control" formControlName="frmDte">
+                                <small style="color:red" class="errormessage"
+                                    *ngIf="submitted && StrHldyform.controls.frmDte.hasError('required')">
+                                    Form Date is required
+                                </small>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-10">
+                                <label id="records">No Records Found!!</label>
+                            </div>
+                        </div> -->
+                        <br>
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <label for="toDte">To Date<span style="color:red">*</span></label>
+                                <input type="date" class="form-control" formControlName="toDte">
+                                <small style="color:red" class="errormessage"
+                                    *ngIf="submitted && StrHldyform.controls.toDte.hasError('required')">
+                                    To Date is required
+                                </small>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <label for="hldyName">Holiday Name<span style="color:red">*</span></label>
+                                <input type="text" class="form-control" formControlName="hldyName" maxlength="51">
+                                <small style="color:red" class="errormessage"
+                                    *ngIf="submitted && StrHldyform.controls.hldyName.hasError('required')">
+                                    Holiday name is required
+                                </small>
+                                <small style="color:red" class="errormessage"
+                                    *ngIf="StrHldyform.controls.hldyName.hasError('pattern')">
+                                    Only alphabets are allowed for Holiday name
+                                    <br>
+                                </small>
+                                <small style="color:red" class="errormessage"
+                                    *ngIf="StrHldyform.controls.hldyName.hasError('maxlength')">
+                                    You have reached your maximum limit of characters allowed for Holiday name
+                                </small>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <div class="form-check" *ngIf="action=='U'">
+                                    <input type="checkbox" value="Y" (change)="checkstatus($event)"
+                                        [checked]="status =='Y'">
+
+                                    <label style="margin-left: 0.5rem;"> {{status =='Y'?' ACTIVE':' IN-ACTIVE'}}</label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 pt-lg-5 pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button type="button" class="savebutton"
+                                        (click)="Save('A')">Submit</button>&nbsp;&nbsp;&nbsp;
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="button" class="savebutton" (click)="ClosePopup();"
+                                        data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- </div> -->
+
+<!-- BrandsModal -->
+<!-- <div>    
+    <div class="modal fade" id="brandId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+        style="left: 20px;
+            top: 11%;">
+        <div class="modal-dialog tnemucod" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-lg-5">Add Brands</div>                    
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <input type="text" class="form-control" maxlength="100" formControlName="brand"
+                                    autofocus (keyup)="OnChangeEvent($event)" #txtbrand>
+                                <div class=" row" style="margin-left: 54px;">
+                                    <div *ngIf="showBrandDiv" class="autofillcls" #brandMenu>
+                                        <div *ngFor="let br of selectedBrands; let i=index" (mouseover)="selectRow(br)"
+                                            [ngClass]="{'highlight' : br.brand_name == selectedItem}">
+                                            <li style="list-style: none" (click)="selectItem($event, br,i)">
+                                                {{br.brand_name}}
+                                            </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+<div *ngIf="showBrands">
+    <div class="modal fade" id="brandId" tabindex="-1" aria-labelledby="modelTitleId" aria-hidden="true" style="left: 20px;
+    top: 11%;">
+        <div class="modal-dialog" role="document" style="max-width: 700px!important;" [formGroup]="brandforms">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container px-5">
+                        <div class="brand_heading">Brands</div>
+                        <div class="row mt-3"><span class="mt-2">Add Brand</span>
+                            <span class="ml-3"><input type="text" class="form-controls" style="height: 32px;"
+                                    formControlName="txtbrand" autofocus (keyup)="OnChange($event)" #brand></span>
+                        </div>
+                        <div class="row mt-2">
+                            <div *ngIf="showBrandAutofill" class="autofillcls" #brandmenu>
+                                <div style="background-color: grey;
+                                color: white;" *ngFor="let option of selectedBrands ; let i=index"
+                                    (mouseover)="highlightRow(option)"
+                                    [ngClass]="{'highlight' : option.brand_name == selectedItem}">
+                                    <li style="list-style: none;padding: 8px;cursor: pointer;"
+                                        (click)="selectItem($event, option,i)">{{option.brand_name}}</li>
+                                </div>
+                            </div>
+                            <div *ngIf="selectedBrandsList!=''" class="Brand_tags">
+
+                                <div *ngFor="let item of selectedBrandsList;let i=index" class="brandtags">
+                                    <div style="float: left;">{{item.brand_name}}</div>
+                                    <img src="../../assets/images/cancel-icon.png" class="closecls"
+                                        (click)="removeBrandTag(item.brand_name,i,item.brand_id)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-lg-2" style="margin-left: 165px;">
+                                <button type="submit" class="savebutton" style="width: 100px;"
+                                    (click)="closeModel()">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- imagepreviewinmodal -->
+<!-- <div *ngIf="showImagepreview">
+    <div class="modal fade" id="bsmodal" tabindex="-1" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container px-5">
+                        <div class="image-preview">
+
+                            <img [src]="previewUrl" height="70" width="100" />
+
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-lg-2" style="margin-left: 165px;">
+                                <button type="submit" class="savebutton" style="width: 100px;"
+                                    (click)="closeImagepreview()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div *ngIf="showImagepreview">
+    <div class="modal fade right" id="bsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel"
+        aria-hidden="true">
+        <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+            <!-- <div class="modal-content-full-width modal-content "> -->
+            <!-- <div class=" modal-header-full-width   modal-header text-center">                     -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span style="font-size: 1.3em; float: right;" aria-hidden="true">&times;</span>
+            </button>
+            <!-- </div> -->
+            <div class="modal-body">
+                <img [src]="previewUrl" class="ml-3" height="550" width="1000" />
+            </div>
+            <!-- <div class="modal-footer-full-width  modal-footer">
+                    <button type="button" class="btn btn-danger btn-md btn-rounded" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-md btn-rounded">Save changes</button>
+                </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

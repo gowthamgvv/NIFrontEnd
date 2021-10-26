@@ -1,0 +1,127 @@
+<div class="msg_bigprof container1">
+    <img [src]="GroupStorInfos[0].groupImage" onerror="this.src='../../../assets/images/msg_icons/user.png'" style="width: 70px;height: 70px;border-radius: 50px;" (click)="selectedFile.click()" class="image1"/>
+    <div class="middle">
+        <img src="assets/images/msg_icons/camera.png" alt="" class="text"/>
+        <input #selectedFile type="file" (change)="fileChangeEvent($event,template5)" style="visibility: visible;cursor:pointer;" />
+    </div>
+</div>
+<div class="msg_namebig" *ngIf="changeGrpName==true">{{GroupStorInfos[0].groupName}}</div>
+<input type="text" class="msg_namebig" [(ngModel)]="GroupStorInfos[0].groupName"  #namechange *ngIf="changedGrpName==true"
+(keypress)="closeEnter(GroupStorInfos[0].groupName,'N','',$event)">
+<div style="float:right; padding-right: 20px;position: relative;z-index: 2;cursor: pointer;" *ngIf="changeGrpName==true" (click)="changeGrpNameFunction()"> <img src="assets/images/msg_icons/edit_greyicon.png" height="11" alt=""/> </div>
+<div style="float:right; padding-right: 20px;position: relative;z-index: 2;cursor: pointer;" *ngIf="changedGrpName==true" (click)="changeGrpNames(GroupStorInfos[0].groupName,'N','')"> <img src="assets/images/msg_icons/checkmark.png" height="11" alt=""/> </div>
+<div class="msg_createdate">{{GroupStorInfos[0].createdDate | timeconvertion}}</div>
+<div class="media">
+    <div class="col-12">
+        <div class="row">
+            <div id="linksanddocs" style="width:85%">Links and Docs </div>
+            <div class="text-right mr-2" style="display: none;"><img src="assets/images/msg_icons/rgt_arwnew.png" width="6" height="9" alt=""/></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div *ngIf="GroupStorInfos[0].mediafiles.length > 0" class="col-11">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="ent_groupinfo" >
+        <div ngxSlickItem *ngFor="let groupInfoItem of GroupStorInfos[0].mediafiles">
+            <div class="media_thumb" *ngIf="groupInfoItem.type == 'I'"
+            (click)="openimg(popContent,groupInfoItem.type,groupInfoItem.document)"
+            [ngStyle]="{'background-image':'url('+groupInfoItem.document+') ','background-position':'center','background-size':'contain','background-repeat':'no-repeat','cursor':'pointer'}">
+            </div> 
+            <div class="media_thumb" *ngIf="groupInfoItem.type == 'F'" >
+                <a style="color:#fff;text-decoration: underline;cursor: pointer;" (click)="openGroupDocument(groupInfoItem.document)">
+                    <img [src]="groupInfoItem.document | convertHtml" style="height: 60px;"/>
+                </a>  
+            </div> 
+            <div class="media_thumb" *ngIf="groupInfoItem.type == 'V'">
+                <video  width="50" height="50" controls>
+                <source src="{{groupInfoItem.document}}" type="video/mp4">
+               </video>
+            </div> 
+            <div class="media_thumb audioImg" *ngIf="groupInfoItem.type == 'A'" (click)="openimg(popContent ,groupInfoItem.type,groupInfoItem.document)"></div>
+        </div>
+    </ngx-slick-carousel>
+    </div>
+    <div id="nofiles" style="padding: 20px 10px 0px 23px;" *ngIf="GroupStorInfos[0].mediafiles.length == 0">No Media, Links and Docs</div>
+</div>
+<div class="tagged_msg" style="display: none;">
+    <div class="col-12">
+        <div class="row">
+            <div  style="width:85%">Tagged messages</div>
+            <div class="text-right mr-2"><img src="assets/images/msg_icons/rgt_arwnew.png" width="6" height="9" alt=""/></div>        
+        </div>
+    </div>
+ </div> 
+<div class="participants" >{{GroupStorInfos[0].groupusers.length}} Participants</div>
+<div class="scroll_div_Participants" id="scrollMe" #scrollMe>
+   <div class="tagged_par" *ngFor="let  groupItems of GroupStorInfos[0].groupusers;let i=index">
+    <div class="tag_person"><img [src]="groupItems.userImage" onerror="this.src='../../../assets/images/msg_icons/user.png'" alt="" style="height: 35px;width: 35px;border-radius:50px;"/></div>
+     <div class="tag_person_name">{{(this.Userid == groupItems.userId) ? 'You' :(groupItems.userName)}}</div>
+      <div class="tag_person_desg">{{groupItems.roleName}}</div>
+ </div> 
+</div>                               
+ <ng-template #popContent let-modal>
+    <div>
+        <div class="desv">          
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 12px"
+                    data-dismiss="modal" (click)="ongroupcloseimg()"> &times;</span>
+            </div>
+        </div> 
+        <div *ngIf="grouptype == 'I'"
+         [ngStyle]="{'background-image':'url('+groupimage+') ','background-position':'center','background-size':'contain','background-repeat':'no-repeat','cursor':'pointer','width':'480px','height':'357px','margin':'10px'}">
+        </div> 
+        <div style="padding: 45px;text-align: center;"  *ngIf="grouptype == 'A'">
+            <audio autoplay controls="controls" width="150" height="100"><source  src="{{groupimage}}"></audio>          
+        </div>
+    </div>
+ </ng-template>
+ <ng-template #template5 let-modal>
+    <div>
+        <div class="desv">
+            <div class="name">Image</div>
+
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 26px"
+                    data-dismiss="modal" (click)="onclosemsg()"> &times;</span>
+            </div>
+        </div>
+       <div class="row" style="text-align: center;display:flex;justify-content:flex-end;align-items: center;margin: 0 !important;width: 100%;">
+        <div class="col-8" style="padding: 5px">
+            <div>
+                <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio"
+                [aspectRatio]="4 / 3"
+                [resizeToWidth]="256"
+                [resizeToHeight]="128" 
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()"
+                (loadImageFailed)="loadImageFailed()"
+                ></image-cropper>
+            </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+       
+        
+</div>
+<div class="row" style="text-align: center;display:flex;justify-content:center;align-items: center;margin: 0 !important">
+    <div class="col-8" style="padding: 5px">
+        <img [src]="croppedImage"  />
+
+    </div>
+    <div class="col-2">
+        </div>
+
+</div>
+<div style="text-align: center;padding: 5px;" >
+    <button (click)="update()" class="savebutton" style="cursor: pointer;font-size: 12px;font-weight: 600" *ngIf="selectedFile!= ''">Next</button>
+
+</div>
+
+
+    </div>
+</ng-template>

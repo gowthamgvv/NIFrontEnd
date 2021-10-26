@@ -1,0 +1,58 @@
+<div class="msg_bigprof">
+    <img [src]="ReceiverStorInfo[0].userImage" onerror="this.src='../../../assets/images/msg_icons/user.png'" style="width: 70px;height: 70px;border-radius: 50px;"/>
+</div>
+<div class="msg_namebig" style="width: 100%!important;">{{ReceiverStorInfo[0].userName}}</div>
+<div class="media">
+    <div class="col-12">
+        <div class="row">
+            <div style="width:85%">Links and Docs </div>
+            <div class="text-right mr-2" style="display: none;"><img src="assets/images/msg_icons/rgt_arwnew.png" width="6" height="9" alt=""/></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div *ngIf="ReceiverStorInfo[0].mediafiles.length > 0" class="col-11">
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="ent_personinfo" >
+        <div ngxSlickItem  *ngFor="let receiverInfoItem of ReceiverStorInfo[0].mediafiles">
+            <div class="media_thumb" *ngIf="receiverInfoItem.type == 'I'" (click)="openperimg(template4 ,receiverInfoItem.type,receiverInfoItem.document)"
+            [ngStyle]="{'background-image':'url('+receiverInfoItem.document+') ','background-position':'center','background-size':'contain','background-repeat':'no-repeat','cursor':'pointer'}">
+            </div> 
+            <div class="media_thumb" *ngIf="receiverInfoItem.type == 'F'">
+                <a style="color:#fff;text-decoration: underline;cursor: pointer;" (click)="openpersonDoc(receiverInfoItem.document)">
+                    <img [src]="receiverInfoItem.document | convertHtml" style="height: 60px;"/>
+                </a>  
+            </div> 
+            <div class="media_thumb" *ngIf="receiverInfoItem.type == 'V'">
+                <video  width="50" height="50" controls>
+                <source src="{{receiverInfoItem.document}}" type="video/mp4">
+               </video>
+            </div> 
+            <div class="media_thumb audioImg" *ngIf="receiverInfoItem.type == 'A'" (click)="openperimg(template4 ,receiverInfoItem.type,receiverInfoItem.document)"></div>
+        </div>
+    </ngx-slick-carousel>
+    </div>
+    <div style="padding: 20px 10px 0px 23px;" *ngIf="ReceiverStorInfo[0].mediafiles.length == 0">No Media, Links and Docs</div>
+</div>
+<div class="tagged_msg" style="display: none;">
+    <div class="col-12">
+        <div class="row">
+            <div  style="width:85%">Tagged messages</div>
+            <div class="text-right mr-2"><img src="assets/images/msg_icons/rgt_arwnew.png" width="6" height="9" alt=""/></div>        
+        </div>
+    </div>
+ </div>
+ <ng-template #template4 let-modal>
+    <div>
+        <div class="desv">          
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 12px"
+                    data-dismiss="modal" (click)="onpersoncloseimg()"> &times;</span>
+            </div>
+        </div> 
+        <div *ngIf="persontype == 'I'"
+         [ngStyle]="{'background-image':'url('+personimages+') ','background-position':'center','background-size':'contain','background-repeat':'no-repeat','cursor':'pointer','width':'480px','height':'357px','margin':'10px'}">
+        </div> 
+        <div style="padding: 45px;text-align: center;"  *ngIf="persontype == 'A'">
+            <audio autoplay controls="controls" width="150" height="100"><source  src="{{personimages}}"></audio>          
+        </div>
+    </div>
+ </ng-template>

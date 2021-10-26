@@ -1,0 +1,88 @@
+<div class="col-12">
+    <div class="row justify-content-center">
+         <div class="col-lg-11">
+             <div class="row">
+                 <div class="col-12 col-lg-12">
+                     <div class="recomend_details">
+                        <div class="col-12">
+                         <div class="row">
+                             <div class="col-12 col-lg-8">Recommendations - <span>{{InctvName}}</span></div>
+                             <div class="col-12 col-lg-4 pr-lg-5 d-none">Total Bonus Potential: <span>$150,000</span></div>
+                         </div>
+                         </div>
+                     </div>
+                     <div class="table-responsive recomend">
+                         <table>
+                             <thead>
+                                 <tr>
+                                     <th width="12%">Model</th>
+                                     <th width="12%">Incentive</th>
+                                     <th width="8%">Target</th>
+                                     <th width="10%">At Target</th>
+                                     <th width="9%">Sold MTD</th>
+                                     <th width="10%">In Stock *</th>
+                                     <th width="10%">Average </th>
+                                         <!-- <img src="assets/images/dwnarw_blk.png">  -->
+                                     <th width="8%">Pace</th>
+                                     <th width="12%">Potential</th>
+                                     <th width="10%">Trend</th>
+                                 </tr>
+                             </thead>
+                             <tbody *ngFor="let remnInfo of recomndInfo;let v=index;">
+                                 <tr (click)="checking(remnInfo)">
+                                     <td class="highlight">{{remnInfo.modelname}}</td>
+                                     <td>{{remnInfo.incentive}}</td>
+                                     <td>{{remnInfo.targetvalue}}</td>
+                                     <td class="highlight">$ {{remnInfo.attarget.toString() | number}}</td>
+                                     <td>{{remnInfo.soldmtd}}</td>
+                                     <td>
+                                        <div *ngIf="remnInfo.starvalue==0" style="text-align: left;margin-left: 45%;color:blue;cursor:pointer;" (click)="loadIntryByStk(remnInfo.modelyear,remnInfo.makeid,remnInfo.modelid)">{{remnInfo.stock}}</div>
+                                         <div *ngIf="remnInfo.starvalue==1" style="text-align: left;margin-left: 45%;color:blue;cursor:pointer;" (click)="loadIntryByStk(remnInfo.modelyear,remnInfo.makeid,remnInfo.modelid)">{{remnInfo.stock}}*</div>
+                                         <div *ngIf="remnInfo.starvalue==2" style="text-align: left;margin-left: 45%;color:blue;cursor:pointer;" (click)="loadIntryByStk(remnInfo.modelyear,remnInfo.makeid,remnInfo.modelid)">{{remnInfo.stock}}**</div>
+                                         <div *ngIf="remnInfo.starvalue==3" style="text-align: left;margin-left: 45%;color:blue;cursor:pointer;" (click)="loadIntryByStk(remnInfo.modelyear,remnInfo.makeid,remnInfo.modelid)">{{remnInfo.stock}}***</div>
+                                        </td>
+                                     <td>{{remnInfo.sales}}</td>
+                                     <td><div  [ngClass]="{'pace_grn':remnInfo.pacepercentage>80, 'pace_ornage': remnInfo.pacepercentage>=60 && remnInfo.pacepercentage<=80, 'pace_red':remnInfo.pacepercentage<60}">{{remnInfo.pace}}</div></td>
+                                     <td class="highlight">$ {{remnInfo.potential.toString() | number}}</td>
+                                     <td>
+                                        <div class="pointer" (click)="openDialog(remnInfo.TrendInfo)" *ngIf="remnInfo.pacepercentage==100"><img src="assets/images/trend_up.png"></div> 
+                                        <div class="pointer" (click)="openDialog(remnInfo.TrendInfo)" *ngIf="remnInfo.pacepercentage>=80"><img src="assets/images/trend_equal.png"></div> 
+                                        <div class="pointer" (click)="openDialog(remnInfo.TrendInfo)" *ngIf="remnInfo.pacepercentage>=60 && remnInfo.pacepercentage<80"><img src="assets/images/trrend_caution.png"></div> 
+                                        <div class="pointer" (click)="openDialog(remnInfo.TrendInfo)" *ngIf="remnInfo.pacepercentage<60"><img src="assets/images/trend_down.png"></div>                                       
+                                    </td>
+                                 </tr>
+                                 <tr class="empty">
+                                    <td colspan="10"></td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </div>
+                     <div class="row">
+                         <div class="col-12 col-lg-9">
+                             <div class="inv_notes px-5">
+                                <h6>Notes:</h6>
+                                <!-- <p>*A has 2 new styles coming into inventory by 12/27</p>
+                                <p>***Q8 can acheive sales of 10- 12 but has stock a shortfall <span> (Potential delaer trade with Audi Fort Worth for 3 units)</span></p> -->
+                                <div *ngFor="let remnInfo of recomndInfo;let n=index;">
+                                    <span *ngIf="remnInfo.starvalue==1"><p>* {{remnInfo.modelinfo}} has 2 new styles coming into inventory by 12/27</p></span>
+                                    <span *ngIf="remnInfo.starvalue==2"><p>** {{remnInfo.modelinfo}} -2 units are toohigh end and have been in inventory fo 365 days</p></span>
+                                    <span *ngIf="remnInfo.starvalue==3"><p>*** {{remnInfo.modelinfo}} can acheive sales of 10- 12 but has stock a shortfall (Potential delaer trade with Audi Fort Worth for 3 units)</p></span>
+                            </div>
+                            <div  (click)="viewInventory()" style="text-decoration: underline; color: blue; cursor: pointer; font-weight: 600; margin-top: 10px; margin-bottom: 30px;">View Inventory</div>
+                            </div>
+                         </div>
+                         <div class="col-12 col-lg-3">
+                             <div class="updated_timing text-right ml-auto">Updated: {{UpdatedDate}}</div>
+                         </div>
+                     </div>
+                     
+                 </div>
+                 
+             </div>
+         </div>
+         <div *ngIf="showInvntry" id="invntryPanel">
+            <div  class="spinner_overlay" (click)="hideInventory()"></div>
+            <div style="width:100%;"><app-inventory [storeDealerId]="storDealerId" [loadByStockInfo]="loadInvntryByStock" (xInvtryClick)="hideInventory()"></app-inventory></div>
+        </div>
+    </div>
+</div>

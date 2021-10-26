@@ -1,0 +1,565 @@
+<div class="bg">
+    <div>
+      <app-header></app-header>
+    </div>
+
+    <div class="container-fluid" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 mt-3">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="grp-dd">
+                        <select>
+                            <option>Group Performance</option>
+                            <option>New Car</option>
+                            <option>Certified Pre-Owned</option>
+                            <option>Facility</option>
+                            <option>Service</option>
+                            <option>Parts</option>
+                            <option>CSI</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                            <div class="row gp-dd">
+                            <div class="col-lg-6 mr-0">
+                            <select class="col-lg-12" style="padding:1px 2px 1px 32px;">
+                                <option>All Stores</option>
+                                <option  *ngFor="let ds of GetStoresList" value="{{ds.dealer_id}}"> {{ds.dealer_name}} </option>
+                            </select>
+                            </div>
+                            <div class="col-lg-6 ml-0">
+                                <select class="gp-dd col-lg-12" style="padding:1px 2px 1px 32px;">
+                                    <option>All Brands</option>
+                                    <option *ngFor="let list of Brands.response" value="{{list.brand_chrome_id}}">{{list.brand_name}}</option>
+                                </select>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+                <div class="row"> 
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                       <img src="assets/images/new_task_icon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        New Car 
+                                    </label>
+                                </div>
+    
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge">
+                                        <div class="grn">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/grn_up_arrow.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-1">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                        <img src="assets/images/cpo_b_icon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        CPO 
+                                    </label>
+                                </div>
+    
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge ">
+                                        <div class="org">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/org_dwn_arw.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-2">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                        <img src="assets/images/fac_bicon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        Facility 
+                                    </label>
+                                </div>
+    
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge ">
+                                        <div class="grn">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/grn_up_arrow.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-3">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                        <img src="assets/images/serv_bicon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        Service 
+                                    </label>
+                                </div>
+        
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge ">
+                                        <div class="red">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/red_dwn_arw.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-4">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                        <img src="assets/images/parts_bicon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        Parts 
+                                    </label>
+                                </div>
+        
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge ">
+                                        <div class="grn">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/grn_up_arrow.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-5">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <div class="col-lg-4 ">
+                    <div class="bg-card">
+                        <div class="fg-card">
+                            <div class="row pt-2">
+                                <div class="col-lg-6">
+                                    <label class="gp-icon">
+                                        <img src="assets/images/csi_bicon.png">
+                                    </label>
+                                    <label class="gp-list">
+                                        CSI 
+                                    </label>
+                                </div>
+        
+                                <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                                    <label class="percent-badge">
+                                       <div class="org">60%</div> 
+                                    </label>
+                                    <label style="float: right; padding-right: 1.5rem;">
+                                        <img src="assets/images/org_dwn_arw.png">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="potential"> POTENTIAL</div>
+                                   <div class="potential-val"> $3,450,275</div>
+                                </div>
+                                
+                                <div class="col-lg-6 ">
+                                    <div class="earned">EARNED</div>
+                                    <div class="earned-val">$2,242,679</div> 
+                                </div>
+                            </div>
+                            <hr class="cd-6">
+                            <div class="row d-down">
+                                <div class="col-lg-6">
+                                        <select class="dd">
+                                            <option>All Stores</option>
+                                            <option>Area 1</option>
+                                            <option>Area 2</option>
+                                            <option>Area 3</option>
+                                        </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <select class="dd">
+                                        <option>All Brands</option>
+                                        <option>Brand 1</option>
+                                        <option>Brand 2</option>
+                                        <option>Brand 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bt-card">
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Incentives</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;">Brands</div>
+                        <div class="col-lg-3" style="border-right: 1px solid black;" >Stores</div>
+                        <div class="col-lg-3">Recommend</div>
+                        </div>
+                    </div>
+        
+                </div>
+                
+                </div>
+           </div>
+        </div>
+    </div>
+
+
+    <div class="col-12" style="padding: 27px;">
+        <div class="row justify-content-center mb-4 px-4">
+            <div class="col-lg-11 col-12">
+                <div class="row">
+                    <div class="col-lg-4">
+                <div class="brand-dd" style="display: none;">
+                <select>
+                    <option>Audi-New Car</option>
+                    <option>New Car</option>
+                    <option>Certified Pre-Owned</option>
+                    <option>Facility</option>
+                    <option>Service</option>
+                    <option>Parts</option>
+                    <option>CSI</option>
+                </select>
+                </div>
+                    </div>
+                    <div class="col-lg-4">
+                    <div class="row gp-dd">
+                        <div class="col-lg-6 ml-0">
+                            <select #recmbrand class="gp-dd col-lg-12" style="padding:1px 2px 1px 32px;" (change)="getRecmBrandID(recmbrand.value)" [(ngModel)] = "recombrand" [disabled]="isDisabled">
+                                <option value="0">All Brands</option>
+                                <option *ngFor="let list of AudiBrands.response" value="{{list.brand_chrome_id}}">{{list.brand_name}}</option>
+                            </select>
+                        </div>
+                    <div class="col-lg-6 mr-0">
+                    <select #recmgroup class="col-lg-12" style="padding:1px 2px 1px 32px;" (change)="getRecmDealerID(recmgroup.value)" [(ngModel)] = "recomDealerShipId" [disabled]="isDisabled">
+                        <option value="0">All Stores</option>
+                        <option  *ngFor="let ds of GetAudistorelist" value="{{ds.dealer_id}}"> {{ds.dealer_name}} </option>
+                    </select>
+                    </div>
+                   
+                    </div>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-12 ">
+                <div *ngIf="DealerRecommendationData.length !=0;else NoRecords">
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="ent_brand">
+                        <div ngxSlickItem *ngFor="let slide of DealerRecommendationData;let j=index" class="slide">
+                            <div class="col-12">
+                
+                                <div class="block1">
+                                    <span>{{slide.DealerName}} </span>
+                                    <!-- <div class="brand_logo"></div> -->
+                                </div>
+                                <div class="bdrgrn"></div>
+                
+                                <div class="block2">
+                                    <div>
+                                        <span class="fntbld"></span>
+                                    </div>
+                                    <ng-template #popContent let-greeting="greeting">
+                                        <ng-container><div><div class="font-weight-bold text-center">Deadline Approaching</div><div class="font-weight-normal">This top performer incentive offer expires in {{greeting}} selling days</div></div></ng-container>
+                                    </ng-template>  
+                                    <div>
+                                        <span class="_itaLic" title="{{slide.IncentiveName.toString()}}">{{(slide.IncentiveName.toString().length > 30 ) ? (slide.IncentiveName.toString() | slice:0:30)+'..' : (slide.IncentiveName.toString())}}</span>
+                                        <button popoverClass="popover" container="body" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual"
+                                            #p1="ngbPopover" (mouseenter)="openDaysExpirePopup(p1,slide.LeftDays)"
+                                            (mouseleave)="openDaysExpirePopup(p1,slide.LeftDays)">
+                                           
+                                            <span style="width: 20px;height: 20px;padding-left:2px"> &#10711;</span>
+                                        </button>
+                                    </div>
+                                    <!-- <div>
+                                                        <span class="_itaLic">Top Performer Bonus</span>
+                                                    </div> -->
+                
+                                </div>
+                                <!-- <div class="block3">
+                                    <div>
+                                        <span class="fntbld">Consumer</span>
+                                    </div>
+                                    <div>
+                                        <span class="_itaLic">{{slide.Consumer[0].consumer1}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="_itaLic">${{slide.Consumer[0].consumer2 }}</span>
+                                    </div>
+                                </div> -->
+                                <div class="containerdiv">
+                                   
+                                        <div class="block3" *ngFor="let InvData of slide.Inventory">
+                                            <!-- <div>
+                                                <span class="fntbld"></span>
+                                            </div> -->
+                                            <div>
+                                                <span class="_itaLic">{{InvData.DR_DETAILS[0]}} </span>
+                                            </div>
+                                            <!-- <div>
+                                                <span class="_itaLic">{{slide.Inventory[0].DR_DETAILS[0].split(',')[1]}}</span>
+                                            </div> -->
+                                        </div>
+                                    
+                                </div>
+                                
+                               
+                                <!-- <div class="row block5 no-gutters">
+                                    <div class="col-6">
+                                        <div><span>potential</span></div>
+                                        <div class="fntbld">$ {{ConvertStringToNumber(slide.Potential[0].POTENTIAL) | number }}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div><span>earned</span></div>
+                                        <div class="fntbld">${{ConvertStringToNumber(slide.Potential[0].EARNED)|number }}</div>
+                                    </div>
+                                </div>
+                                <div class="block6">
+                                    <div>
+                                        <span class="fntbld">ROI</span>
+                                    </div>
+                                    <div>
+                                        <span class="fntbld">{{slide.ROI[0].ROI1}}%</span>
+                                    </div>
+                                    <div>
+                                        <span class="_itaLic" style="white-space: pre-line;">({{slide.ROI[0].ROI2}})</span>
+                                    </div>
+                                </div> -->
+                                <div class="blk_ftr">
+                
+                                </div>
+                
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <ng-template #NoRecords>
+        
+                    <div  style="text-align: center;width: 100%;">Select Brand!</div>
+                
+            </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>

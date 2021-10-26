@@ -1,0 +1,503 @@
+<div class="bg">
+    <div>
+        <app-header></app-header>
+      </div>    
+    <div class="container-fluid pt68" style="position: fixed;width: 100%;height: 100%;top:74px;">
+        <div class="row">
+            <div class="col-10 col-sm-11 col-md-11 col-lg-12 col-xl-12 p-0">
+                <div class="mesg_panel">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-lg-3 col-3 mesg_lft">
+                                <div class="mesg_headerlft">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-12">
+                                                <div><img src="assets/images/msg_icons/msg_logo2.png" alt=""/></div>
+                                            </div>
+                                            <div class="col-lg-4 col-12 align-self-center">
+                                                <div class="row justify-content-center">
+                                                    <!-- <div class="pr-2"><img src="assets/images/msg_icons/Broadcast.png" height="17"  alt=""/></div> -->
+                                                    <div  class="pr-2"><img src="assets/images/msg_icons/edit_whi.png"  alt="" (click)='Gettotalmembers();' style="cursor: pointer;"/></div>    
+                                                    <!-- <div  class="pr-2"><img src="assets/images/msg_icons/arrw_grey.png" height="6" alt=""/></div> -->
+                                                </div>
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+              
+                                </div>
+                                <!-- <div class="chatusers"> -->
+                                    <div class="scroll_div_user" id="scrollMe" #scrollMe *ngIf="chatlist==1">
+                                        <div class="navbar-form" role="search" >
+                                            <div class="input-group add-on">
+                                              <input class="form-control" placeholder="Search or start a new chat"  type="text" autocomplete="off" #myInput
+                                              [(ngModel)]="searchQuery" (ngModelChange)="searchFilter('1')">
+                                              <div class="input-group-btn">
+                                                <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                              </div>
+                                            </div>
+                                        </div>
+                                           <div class="mesg">
+                                            <div   *ngFor="let term of LeftInboxArray;let i=index">
+                                                <div [ngClass]="{'selecteduser': term.conversationId==selectedid, 'defaultuser': term.conversationId!=selectedid }" id="div_{{i}}" (click)="Getrightmessengerclick(term.conversationId,term.id,term.userName,term.userImage,term,i)" >
+                                                    <!-- <div [ngClass]="{'selecteduser': term.conversationId==selectedid, 'defaultuser': term.conversationId!=selectedid }" id="div_{{i}}" (click)="Getrightmessengerclick(term)" > -->       
+                                                      
+                                                        
+                                                        <div class="mesg_pic">                        
+                                                        <img [src]="term.userImage" onerror="this.src='../../../assets/images/msg_icons/user.png'"  alt="" style="width: 45px;height: 45px;margin: 0 .5rem 0 0; border-radius: 50px; border: 1px solid #ccc;"/>
+                                                        <div id="LeftCount_{{term.messageIDs}}" [ngClass]="{}" class="countsdiv" *ngIf="term.counts > '0'">
+                                                            <label class="countsdivone">{{term.counts >= 9 ? "9" + "+" : term.counts }}</label>
+                                                          </div>
+                                                    </div>
+                                                  
+                                                    <div style="padding: .8rem 0; width: 73%;">
+                                                        <div style="display: flex; justify-content: space-between;">                     
+                                                            <div class="msgname" style="width: 50%;">{{(term.userName.length>12)? (term.userName | slice:0:12)+'...':(term.userName)}}</div>        
+                                                            <div class="mesg_time" style="text-align: right; width: 50%;">{{term.date | utc : 'L'}}</div>
+                                                        </div>
+                                                        <div class="clear_both"></div><div class="clear_both"></div>
+                                                        <div *ngIf="term.messageType=='T'">
+                                                            <div *ngIf="term.groupMessengerName!=''">
+                                                                <div class="mesg_text" [innerHtml]="(term.groupMessengerName+': '+((term.description.toString() | slice:0:25) + (term.description.toString().length > 25 ? '...' : '') | chatlistunicode))"></div>
+                                                                <!-- <div class="mesg_text">{{(term.description.toString() | slice:0:25) + (term.description.toString().length > 25 ? '...' : '') | chatlistunicode}}</div> -->
+                                                            </div>
+                                                            <div *ngIf="term.groupMessengerName==''">
+                                                                <div class="mesg_text" [innerHtml]="(((term.description.toString() | slice:0:25) + (term.description.toString().length > 25 ? '...' : '') | chatlistunicode))"></div>
+                                                                <!-- <div class="mesg_text">{{(term.description.toString() | slice:0:25) + (term.description.toString().length > 25 ? '...' : '') | chatlistunicode}}</div> -->
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="term.messageType=='I'">
+                                                            <div *ngIf="term.groupMessengerName!=''">
+                                                                <div class="mesg_text" [innerHtml]="(term.groupMessengerName+': '+(term.messageType | convertLeftsidetextHtml)+' '+(term.description | chatlistunicode))"></div>
+                                                            </div>
+                                                            <div *ngIf="term.groupMessengerName==''">
+                                                                <div class="mesg_text" [innerHtml]="((term.messageType | convertLeftsidetextHtml)+' '+(term.description | chatlistunicode))"></div>
+                                                            </div>         
+                                                      </div>
+                                                        <div *ngIf="term.messageType=='F'">
+                                                            <div *ngIf="term.groupMessengerName!=''">
+                                                                <div class="mesg_text" [innerHtml]="(term.groupMessengerName+': '+(term.messageType | convertLeftsidetextHtml))"></div>
+                                                            </div>
+                                                            <div *ngIf="term.groupMessengerName==''">
+                                                                <div class="mesg_text" [innerHtml]="((term.messageType | convertLeftsidetextHtml))"></div>
+                                                            </div>                                                      
+                                                        </div>
+                                                        <div *ngIf="term.messageType=='A'">
+                                                            <div *ngIf="term.groupMessengerName!=''">
+                                                                <div class="mesg_text" [innerHtml]="(term.groupMessengerName+': '+(term.messageType | convertLeftsidetextHtml)+' '+(term.description))"></div>
+                                                            </div>
+                                                            <div *ngIf="term.groupMessengerName==''">
+                                                                <div class="mesg_text" [innerHtml]="((term.messageType | convertLeftsidetextHtml)+' '+(term.description))"></div>
+                                                            </div>                                                 
+                                                        </div>
+                                                        <div *ngIf="term.messageType=='V'">
+                                                            <div *ngIf="term.groupMessengerName!=''">
+                                                                <div class="mesg_text" [innerHtml]="(term.groupMessengerName+': '+(term.messageType | convertLeftsidetextHtml)+' '+(term.description))"></div>
+                                                            </div>
+                                                            <div *ngIf="term.groupMessengerName==''">
+                                                                <div class="mesg_text" [innerHtml]="((term.messageType | convertLeftsidetextHtml)+' '+(term.description))"></div>
+                                                            </div>                   
+                                                        </div>
+                                                        <div *ngIf="term.messageType=='U'">
+                                                            <!-- <div class="mesg_text" [innerHtml]="((term.description | chatlistunicode))"></div> -->
+                                                            <div class="mesg_text">{{(term.description.toString() | slice:0:25) + (term.description.toString().length > 25 ? '...' : '') | chatlistunicode}}</div>
+                                                        </div>
+                                                        <!-- <div class="mesg_text" [innerHtml]="((term.description | chatlistunicode))"></div> -->
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                            <div *ngIf="LeftInboxArray == null">
+                                                <div class="MessengerEmpty">
+                                                    <div class="MessengerEmptyRow">
+                                                        <div class="MessengerEmptyBody">
+                                                            <span style="color:darkgray;">Start any conversation by clicking on add new icon</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>              
+                                           </div>
+                                        
+                                    </div>
+                                    <div  *ngIf="chatlist==0">
+                                        <div class="navbar-form" role="search" >
+                                            <div class="input-group add-on">
+                                              <input class="form-control" placeholder="Search or start a new chat"  type="text" autocomplete="off" #myInput
+                                              [(ngModel)]="searchQuery" (ngModelChange)="searchFilter('0')">
+                                              <div class="input-group-btn">
+                                                <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="navbar-form" role="search" style="padding: 9px">
+                                            <div class="input-group add-on">
+                                               
+                                                <div class="col-2 align-self-center" style="cursor: pointer;">
+                                                        <img src="assets/images/msg_icons/groupg.png" height="90" width="180" class="img1" />
+                                
+                                                    </div>
+                                                    <div class="col-8 align-self-center" style="cursor: pointer;" (click)="opengroup(template1)">
+                                                        <div class="title" style="font-size: 15px;color:#17a256;font-weight: bold">Create New Group</div>
+                                                        
+                                
+                                                    </div>
+                                                    </div>
+                                        </div>
+                                           <!-- users list -->
+                                           <div class="scroll_div_user" id="scrollMe" #scrollMe  >
+                                            <div  class="flex-shrink-0" *ngFor="let term of totalusers;let i=index">
+                                                <div>
+        
+                                             
+                                                <div [ngClass]="{'alphabet': term.identifier=='0', 'user': term.identifier!='0' }" id="div_{{i}}" (click)="Getrightmessengerclick(term.convid,term.identifier,term.userName,term.fromImage,term,i)" >
+                                                    <!-- <div [ngClass]="{'alphabet': term.identifier=='0', 'user': term.identifier!='0' }" id="div_{{i}}" (click)="Getrightmessengerclick(term)" > -->
+
+                                                    <!---->
+                                                   
+                                                    <div *ngIf="term.identifier !='0'" class="mesg_pic">
+                                                        <img [src]="term.fromImage" onerror="this.src='../../../assets/images/msg_icons/user.png'"  alt="" style="width: 43px;height: 43px;border-radius: 50px;"/>
+                                                    </div>
+                                                    <div >
+                                                        <div  style="display: flex; white-space: nowrap;">
+                                                            <div [ngClass]="{'alphaname': term.identifier=='0', 'username': term.identifier!='0' }">{{term.userName}}</div>
+                                                           
+        
+                                                        </div>
+                                                        <div [ngClass]="{'alphaemail': term.identifier=='0', 'useremail': term.identifier!='0' }">{{term.email}}</div>
+                                                       
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>                
+                                        </div>
+                                           </div>
+                                    </div>
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                            <div class="mesg_mdl">
+                                <div class="mesg_headermdl">
+                                        <div class="team_profile" (click)="toggleMenu()">
+                                            <img [src]="displaypic" onerror="this.src='../../../assets/images/msg_icons/user.png'"  alt="" style="width: 40px;height: 40px;border-radius:50px;"/>
+                                        </div>
+                                         <div class="team_name">{{userName}}</div>      
+                                         <div class="msg_status">{{grpusrsname}}</div>
+                                </div>
+                                
+                                <div class="mesg_chat_bg" [ngClass]="statusClass" (click)="setActiveClass()">
+                                    <div id="scrollMe" style="height: calc(100% - 59px);
+                                    width: 100%;
+                                    flex-direction: column;
+                                    margin-left: -15px;
+                                    overflow-y: auto;
+                                    overflow-x: hidden;
+                                    padding: 2px 2px 2px 20px;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                                     <div *ngFor="let conUserItems of RightInboxArray;let i=index">
+                                        <div *ngIf="conUserItems.conversationId!=undefined">
+                                            <div class="row" *ngIf="i>0 && conUserItems.dt!= RightInboxArray[i-1].dt"
+                                                style="display: flex;align-items:center;">
+                                                <div class="col-1"></div>
+                                                <div class="col-4" style="border-bottom: 1px solid lightgray;"></div>
+                                                <div class="col-2"
+                                                    style="background: lightgray;padding:3px;color:black;text-align: center;border-radius: 5px;font-family: 'OpenSans-Semibold';">
+                                                    {{conUserItems.date | utcConvert: 'C'}}</div>
+                                                <div class="col-4" style="border-bottom: 1px solid lightgray;"></div>
+                                                <div class="col-1"></div>
+                                            </div>  
+                                    <div class="msg-arrow" [ngClass]="{'rep' : selectedIndex=== i}" (click)="replymessenger(i,conUserItems.messageId,conUserItems.message)"  *ngIf="conUserItems.messageFlag=='R' && conUserItems.messageType!='U'">
+                                        <span>{{conUserItems.userName}}</span>
+                                        <div class="msg-arrow_text"  *ngIf="conUserItems.messageType=='T'" [innerHTML]="conUserItems.message | unicodeconvert  | safeHtml"></div>
+                                        <div class="msg-arrow_text font_14" *ngIf="conUserItems.messageType=='U'" >{{conUserItems.message}}</div>
+                                        <div class="msg-arrow_text font_14" *ngIf="conUserItems.messageType=='F'" >
+                                            <a style="color:#fff;text-decoration: underline;cursor: pointer;" (click)="openDocument(conUserItems.document)">
+                                                <img [src]="conUserItems.document | convertHtml" style="height: 75px;"/>
+                                            </a>   
+                                        </div>
+                                        <div class="msg-arrow_text font_14" *ngIf="conUserItems.messageType=='I'" (click)="openmediaimg(template8,conUserItems.document)">     
+                                            <!-- <img [src]="conUserItems.document"  useImg  #myImage onError="this.src='../../../assets/images/msg_icons/user.png'" style="width: 150px;height:150px" /> -->
+                                            <div 
+                                            [ngStyle]="{'background':'url('+conUserItems.document+') ','no-repeat':'50%','background-size':'contain','cursor':'pointer','height':'100px','background-repeat':'no-repeat'}">
+                                           </div> 
+                                        </div>
+                                        <div>
+                                        <audio class="msg-arrow_text font_14" *ngIf="conUserItems.messageType=='A'" style="width:240px;" controls
+                                        controlsList="nodownload" (click)="playAudio(conUserItems.document, i)" src="{{conUserItems.document}}"
+                                        type="audio/wav"></audio>
+                                        </div>
+                                        <div>
+                                        <video class="msg-arrow_text font_14" controls *ngIf="conUserItems.messageType=='V'" width="250"
+                                        height="150">
+                                        <source src="{{conUserItems.document}}" type="video/mp4">
+                                       </video>
+                                       </div>
+                                        <label>{{conUserItems.date | utc : 'R'}}</label>
+                                    </div>
+                                    <div style="align-items: flex-end;display: flex;flex-direction:column;padding-top: .3rem;">
+                                    <div class="rlpmsg-arrow"  *ngIf="conUserItems.messageFlag=='S' && conUserItems.messageType!='U'">
+                                        <span>{{conUserItems.userName}}</span>
+                                        <div class="rlpmsg-arrow_text" *ngIf="conUserItems.messageType=='T'" [innerHTML]="conUserItems.message | unicodeconvert  | safeHtml"> </div>
+                                        <div class="rlpmsg-arrow_text font_14" *ngIf="conUserItems.messageType=='F'" >
+                                            <a style="color:#fff;text-decoration: underline;cursor: pointer;" (click)="openDocument(conUserItems.document)">
+                                                <img [src]="conUserItems.document | convertHtml" style="height: 75px;"/>
+                                            </a>
+                                        </div>
+                                        <div class="rlpmsg-arrow_text font_14" *ngIf="conUserItems.messageType=='I'" (click)="openmediaimg(template8,conUserItems.document)"> 
+                                           <!-- <img [src]="conUserItems.document" useImg  #myImage onError="this.src='../../../assets/images/msg_icons/user.png'" style="width: 150px;height: 150px;"/> -->
+                                           <div 
+                                           [ngStyle]="{'background':'url('+conUserItems.document+') ','no-repeat':'50%','background-size':'contain','cursor':'pointer','height':'100px','background-repeat':'no-repeat'}">
+                                          </div> 
+                                          </div>
+                                          <div>
+                                          <audio class="rlpmsg-arrow_text font_14" *ngIf="conUserItems.messageType=='A'" style="width:240px;" 
+                                            controls controlsList="nodownload" (click)="playAudio(conUserItems.document, i)" src="{{conUserItems.document}}"
+                                           type="audio/wav"></audio>
+                                          </div>
+                                          <div>
+                                           <video class="rlpmsg-arrow_text font_14" controls *ngIf="conUserItems.messageType=='V'" width="250"
+                                           height="150">
+                                           <source src="{{conUserItems.document}}" type="video/mp4">
+                                         </video>
+                                        </div>
+                                        <label>{{conUserItems.date | utc : 'R'}}</label>
+                                        <div id="divfortickmark_{{conUserItems.messageId}}"
+                                        [ngClass]="{'readStatusblueTick':conUserItems.readStatus =='N',' readStatusTick':conUserItems.readStatus == 'Y'}"
+                                        #doubleTick_conUserItems.messageId></div>
+                                    </div> 
+                                   
+                                   </div>
+                                   <div class="usr_definedmessage font_12  letter_spng_02px" *ngIf="conUserItems.messageType=='U'">
+                                    {{conUserItems.message}}</div>
+                                        
+                                        </div>
+                                     </div>
+                                    </div>
+                                    <div class="col-12">                                                                        
+                                        <div class="row justify-content-center">                                            
+                                            <!-- <div style="position:relative;z-index:1;float: left;width: 100%;top: -48px;left: 26px;">
+                                                <img src="assets/images/cancel_wht.png" width="16" tabindex="1" (click)="CloseMessageReply();" title="close" class="Reply_close" />
+                                                <div class="divmessage_reply" data-autoheight  data-autoheight-max='80' data-autoheight-min='40'>                                                     
+                                                    <div style="width: 100%;height: -webkit-fill-available;">
+                                                        <div style="width: 100%;">{{divrfor_reply}}</div>
+                                                    </div>                             
+                                                </div>
+                                            </div> -->
+                                            
+                                            <div class="chat_box" style="float: left;clear: left;">                                                                                        
+                                                <input type="text" placeholder="Type a message" (keydown.enter)="send($event)"
+                                                (blur)="onBlur()" (focus)="onFocus()" [(ngModel)]="emojitext">
+                                                <div>   
+                                                    <form [formGroup]="dshipForm">       
+                                                    <img src="assets/images/msg_icons/Attach-Icon1.png"  alt="" (click)="selectFile.click()" style="cursor: pointer;"/>
+                                                    <input style="display: none" type="file" name="image" formControlName="fileUpload" (change)="fileProgress($event)" #selectFile>
+                                                    </form>
+                                                </div>
+                                                <div class="px-3">      
+                                                  <img src="assets/images/msg_icons/Emoji.png" alt="" (click)="toggleEmojiPicker()" style="cursor: pointer;"/>                                                
+                                                </div>                                 
+                                            </div>                            
+                                        </div>
+                                      <div style="position: absolute;bottom: 0;right: 0;"><emoji-mart  class="emoji-mart" set="{{set}}" *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)" title="Pick your emoji…"></emoji-mart></div>  
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+
+                        <div class="mesg_rgt"  >
+                            <div class="mesg_headerrgt">
+                              <div class="pr-2" style="cursor: pointer;">
+                                <form [formGroup]="dshipForm">  
+                                  <img src="assets/images/msg_icons/Attach-Icon.png"  alt="" (click)="selectFile.click()"/>
+                                  <input style="display: none" type="file" name="image" formControlName="fileUpload" (change)="fileProgress($event)" #selectFile>
+                                </form>
+                                </div>
+                              <!-- <div><img src="assets/images/msg_icons/arrw_grey.png" alt=""/></div> -->
+                              <!-- <div *ngIf="isShown" (click)="toggleMenu()" style="cursor: pointer;">
+                                  <img src="assets/images/cancel-icon.png" alt=""/>
+                                </div> -->
+                           </div> 
+                           <div *ngIf="isShown" (click)="toggleMenu()" class="togglecss">
+                            <img src="assets/images/cancel_wht.png" alt="" width="16"/>
+                          </div> 
+                           <div *ngIf="RightBoard === 'Y'">                          
+                            <app-chatgroupinfo [Getgroupstorinfo]="GroupStorInfos" [Conv_id]="Conv_id"></app-chatgroupinfo>
+                           </div>
+                         <div *ngIf="RightSingleBoard === 'R'">
+                            <app-chatpersoninfo [GetReceiverStorInfo]="ReceiverStorInfo"></app-chatpersoninfo>
+                         </div>
+                      </div>
+                        </div>
+                      
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<ng-template #template1 let-modal>
+    <div>
+        <div class="des">
+            <div class="name">Create Group</div>
+
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 26px"
+                    data-dismiss="modal" (click)="onclosemsg()"> &times;</span>
+            </div>
+        </div>
+       <div class="row" style="text-align: center;display:flex;justify-content:center;align-items: center;margin: 0 !important">
+        <div class="col-2" style="padding: 5px;max-width:10% !important">
+            <img [src]="croppedImage" height="90" width="180" class="img2" onError="this.src='../../../assets/images/msg_icons/groupg.png'" (click)="selectedFile.click()" />
+
+                <!-- <img src="assets/images/msg_icons/groupg.png" /> -->
+                <input type="file" (change)="fileChangeEvent($event,template3)" style="display:none" #selectedFile/>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-8" style="display: flex;align-items:center;justify-content:center">
+                <div style="font-size: 15px;font-weight:550">Public</div>
+                    <!-- <div class="custom-control custom-switch"> -->
+                            <!-- <label>Public</label> -->
+                           
+                            <div  style="width:35%;padding-left: 0.6rem">  <label style="float:left;" class="switch">
+                                    <input  type="checkbox"  	[checked]="isstatus == 'N'" (change)="changesatus($event)">
+                                    <span class="slider round"></span>
+                                  </label>
+                                </div> 
+                            <!-- <label>Private</label> -->
+                          <!-- </div> -->
+                        <div style="font-size: 15px;font-weight:550">Private</div>
+
+            </div>
+            <br>
+            <div class="col-12" style="margin-left: 15px;margin-top: 20px;">
+                    <input type="text"  placeholder="Enter Group Name" [(ngModel)]="gpname" style="width:100%;padding:7px" > 
+            </div>
+
+
+</div>
+
+<div style="text-align: center;padding: 5px;margin-top: 170px" >
+        <button (click)="next(template2)" class="savebutton" style="cursor: pointer;font-size: 12px;font-weight: 600" *ngIf="gpname.length>= '3'">Next</button>
+
+</div>
+<!-- <div style="text-align: center;padding: 5px;margin-top: 100px" *ngIf="flag == 1">
+        <button (click)="onclosemsg()" style="cursor: pointer;font-size: 12px;font-weight: 600">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="addParticipants()" style="cursor: pointer;font-size: 12px;font-weight: 600">Create Group</button>
+
+</div> -->
+    </div>
+</ng-template>
+<ng-template #template3 let-modal>
+    <div>
+        <div class="des">
+            <div class="name">Image</div>
+
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 26px"
+                    data-dismiss="modal" (click)="onclosemsg()"> &times;</span>
+            </div>
+        </div>
+       <div class="row" style="text-align: center;display:flex;justify-content:flex-end;align-items: center;margin: 0 !important;width: 100%;">
+        <div class="col-8" style="padding: 5px">
+            <div>
+                <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio"
+                [aspectRatio]="4 / 3"
+                [resizeToWidth]="256"
+                [resizeToHeight]="128" 
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()"
+                (loadImageFailed)="loadImageFailed()"
+                ></image-cropper>
+            </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+       
+        
+</div>
+<div class="row" style="text-align: center;display:flex;justify-content:center;align-items: center;margin: 0 !important">
+    <div class="col-8" style="padding: 5px">
+        <img [src]="croppedImage"  />
+
+    </div>
+    <div class="col-2">
+        </div>
+
+</div>
+<div style="text-align: center;padding: 5px;" >
+    <button (click)="next(template1)" class="savebutton" style="cursor: pointer;font-size: 12px;font-weight: 600" *ngIf="selectedFile!= ''">Next</button>
+
+</div>
+
+<!-- <div style="text-align: center;padding: 5px;margin-top: 100px" *ngIf="flag == 1">
+        <button (click)="onclosemsg()" style="cursor: pointer;font-size: 12px;font-weight: 600">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="addParticipants()" style="cursor: pointer;font-size: 12px;font-weight: 600">Create Group</button>
+
+</div> -->
+    </div>
+</ng-template>
+<ng-template #template2 let-modal>
+    <div>
+        <div class="des">
+            <div class="name">Users</div>
+
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 26px"
+                    data-dismiss="modal" (click)="onclosemsg()"> &times;</span>
+            </div>
+        </div>
+        <div ss="scroll_div_user" id="scrollMe" #scrollMe  style="height: 50vh;overflow-y:scroll;overflow-x: hidden">
+            <div class="col-12 box" style="padding:12px" *ngFor="let user of addingusers">
+                <div class="row ">
+
+                    <div class="col-3">
+                        <label class="cont">
+                           
+                                <input type="checkbox" [(ngModel)]="user.Check" (change)="checkValue1(user)">
+                            <span class="checkmark"></span>
+                        </label>
+
+                    </div>
+                    <div class="col-2 align-self-center" style="padding: 15px;">
+                        <img [src]="user.fromImage" onerror="this.src='../../../assets/images/msg_icons/user.png'"  alt="" style="width: 43px;height: 43px;"/>
+                        <!-- <img src="assets/images/msg_icons/user.png" height="100" width="180" class="img1" /> -->
+
+                    </div>
+                    <div class="col-7 align-self-center" style="cursor: default;">
+                        <div class="title">{{user.userName}}</div>
+                        <div class="role">{{user.email}}</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+           
+        </div>
+        <div style="text-align: center;padding: 5px;">
+                <button (click)="addParticipants()" class="savebutton" *ngIf="addedurs1.length > 1">Create</button>
+    </div>
+
+    </div>
+</ng-template>
+
+<ng-template #template8 let-modal>
+    <div>
+        <div class="des">          
+            <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 12px"
+                    data-dismiss="modal" (click)="onmediacloseimg()"> &times;</span>
+            </div>
+        </div> 
+        <div 
+         [ngStyle]="{'background-image':'url('+mediaimage+') ','background-position':'center','background-size':'contain','background-repeat':'no-repeat','cursor':'pointer','width':'480px','height':'357px','margin':'10px'}">
+        </div>       
+    </div>
+ </ng-template>

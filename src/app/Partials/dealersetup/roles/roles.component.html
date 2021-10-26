@@ -1,0 +1,251 @@
+<div class="col-12 group">
+    <!-- <div class="row  ml-lg-4 mt-4">
+        <div class="col-4 RoleHeader">
+            <div>ROLES</div>
+        </div>
+    </div> -->
+    <div class="row groups ml-lg-4 mt-2">
+       
+        <div class="col-3 mt-3">
+            <div class="mb-4 RoleHeader">ROLES</div>
+            <div class="hol-grp mt-2">
+                <ul style="text-transform: none; font-size:16px;" id="grp" class="p-0" *ngFor="let item of Roles; let index = index"
+                    (click)="showSubItem(item,index,item.Role_UniqId,item.Role_Name)">
+                    <li class="parent">
+                        <img style="margin-right: 4px;" width="10" src="../../../../assets/images/edit_gry_icon.png"><img style="margin-right: 4px;" width="16"  src="../../../../assets/images/groupsicon.png"><span [ngClass]="{select: selectedUser === index}">{{item.Role_Name}}</span>
+                    </li>
+                </ul>
+                <ul id="grp" class="p-0 mt-3">
+                    <li class="parent">
+                       <a style="color: blue; font-size: 18px; text-transform: none;" (click)="showRolePopup()" data-toggle="modal" data-target="#addRoleId">
+                           Create New Role
+                           <img class="addIcon" src="../../../assets/images/add_white_icon.png">
+                        </a> 
+                    </li>
+                    </ul>
+            </div>
+        </div>
+        <!-- <div class="col-1"></div> -->
+
+        <div class="col-5 " [formGroup]="rolesForm">
+            <div class="col-lg-12">
+                <div class="row ">
+                    <div class="col-lg-1">
+</div>
+                    <div class="col-lg-3">
+
+
+                        <button class="btn-gry" [ngClass]="{'active': srchst=== 'p' }"
+                            (click)="ViewPermissions('p')">Permissions</button>
+                    </div>
+                    <div class="col-lg-5">
+                        <button class="btn-gry" [ngClass]="{'active': srchst===  'u' }"
+                            (click)="ViewUsers('u')">Users List</button>
+
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="col-12 permissionscard" *ngIf="permissions==true">
+            <div class="d-flex align-items-center" *ngIf="permissions==true">
+                <div class="col-9">
+                    <div style="font-size: 15px;"><br>
+                        <b> {{RoleName}} Role </b><br>
+                        <span> Select all the screens that can<br>br viewed by this role: </span>
+                    </div>
+
+
+                </div>
+                <!-- <div class="col-xs-12 col-sm-8 col-md-4 col-lg-7 choose">
+                    <div class="form-group">
+                        <input id="sch-strs" class="form-control" type="text" placeholder="Search"
+                            formControlName="txtSearch" (keyup)="onSearch()">
+                    </div>
+                </div> -->
+            </div>
+            <div class="mt-2" *ngIf="permissions==true">
+                <div class="box" >
+
+                    <ul class="custom-control custom-checkbox" *ngFor="let cms of cmsAdminlist; let i = index;">
+                        <li *ngIf="cms.smod_mod_id==0 && cms.checking=='A'">
+                            <input type="checkbox" class="parent custom-control-input" id="{{cms.mod_id}}"
+                                (change)="checkA(cms,$event)" name="example2" [checked]="cms.status == 'Y'">
+                            <label for="a{{cms.mod_id}}{{i}}"></label>
+                            <label class="custom-control-label" for="{{cms.mod_id}}"><b>{{cms.mod_name}}</b></label>
+
+                            <ul *ngFor="let subcms of cmsModules;let k=index; ">
+                                <li *ngIf="subcms.smod_mod_id == cms.mod_id && subcms.checking =='S'">
+                                    <input type="checkbox" class="custom-control-input"
+                                        (change)="checkS(subcms,cms,$event)" id="s{{subcms.smod_id}}{{k}}"
+                                        name="example2" [checked]="subcms.status == 'Y'"><label
+                                        for="s{{subcms.smod_id}}{{k}}"></label>
+                                    <label class="custom-control-label"
+                                        for="s{{subcms.smod_id}}{{k}}">{{subcms.mod_name}}</label>
+
+                                    <ul *ngFor="let subsubcms of cmsModules; let l = index;">
+                                        <li *ngIf="subsubcms.smod_id == subcms.smod_id && subsubcms.checking=='SS'">
+                                            <input type="checkbox" class=" custom-control-input"
+                                                (change)="checkSS(subsubcms,subcms,$event,cms)"
+                                                id="ss{{subsubcms.smod_privilege}}{{l}}" name="example2"
+                                                [checked]="subsubcms.status == 'Y'">
+                                            <label for="ss{{subsubcms.smod_privilege}}{{l}}"></label>
+                                            <label class="custom-control-label"
+                                                for="ss{{subsubcms.smod_privilege}}{{l}}">{{subsubcms.mod_name}}
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <ul *ngFor="let subadm of cmsModules; let j = index;">
+                                <li
+                                    *ngIf="subadm.smod_mod_id==0 && subadm.mod_id == cms.mod_id && subadm.checking=='AS'">
+                                    <input type="checkbox" class="custom-control-input"
+                                        (change)="checkAS(subadm,cms,$event)" id="as{{subadm.mod_privilege}}{{j}}"
+                                        [checked]="subadm.status == 'Y'">
+                                    <label for="as{{subadm.mod_privilege}}{{j}}"></label>
+
+                                    <label class="custom-control-label"
+                                        for="as{{subadm.mod_privilege}}{{j}}">{{subadm.mod_name}} </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                   
+                </div>
+                <div  *ngIf="permissions==true">
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            </div>
+    
+                        <div class="col-lg-5">
+                            <button type="submit" class="savebutton"
+                                (click)="saveModulePermissons(cmsModules)">Save</button>
+                        </div>
+    
+                    </div>
+                </div>
+             
+            </div>
+
+        </div>
+            <div class="col-10 card" *ngIf="users==true">
+                <div class="row" style="border-bottom: 1px solid black;">
+                    <div class="col-9">
+                        <div class="UserHeading">
+                            <b> {{RoleName}} Role </b><br>
+                            <span> Users with this role: </span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-3" (click)="ViewPermissions('p')">
+                        <div style="font-size: 2rem;float: right;cursor: pointer;padding-top: 15px;">
+                            <span style="color: rgb(8, 8, 8);cursor: pointer;" > &times;</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row"></div>
+                <div class="contentss">
+                    <table class="table table-stripped">
+
+                        <tbody *ngFor="let list of UsersData;let i=index">
+                            <tr class="tabledata">
+                                <td class="username" > {{list.Du_First_Name}}{{list.Du_Last_Name}}</td>
+                                <td class="close" (click)="DeleteUser(list)">&times;</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <div *ngIf="UsersData.length==0" class="row justify-content-center">
+                        No Users Found with this Role!!!</div>
+                </div>
+              <div>
+                  <span>
+                      Add User
+                  </span>
+                  <a style="cursor: pointer;" (click)="AddUser(template1)"><img src="assets/images/circle_icon.png"></a>
+              </div>
+          
+            </div>
+           <div *ngIf="showAddRolePopup">
+        <div class="modal fade" data-backdrop="static" id="addRoleId" tabindex="-1" aria-labelledby="modelTitleId" aria-hidden="true" style="left: 20px;
+        top: 11%;">
+            <div class="modal-dialog" role="document" style="max-width: 700px!important;" [formGroup]="addRolePopup">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container px-5">
+                            <div class="brand_heading">Add Role</div>
+                            <div class="row mt-3">
+                                <div class="ml-4">
+                                    <input type="text" class="form-control txtbxwidth" placeholder="Enter role name" formControlName="rolename" maxlength="50">   
+                                    <small class="errormessage" *ngIf="submitted && addRolePopup.controls.rolename.hasError('required')">
+                                        Role name is required
+                                    </small>                                 
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-lg-2" class="popupbtns">
+                                    <button type="submit" class="savebuttonPopup" style="width: 100px;" (click)="addRole()" >save</button>
+                                </div>
+                                <div class="col-lg-2" >
+                                  <button class="savebuttonPopup" style="width: 100px;" (click)="closeModel()">Cancel</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <ng-template #template1 let-modal>
+                <div>
+                    <div class="des">
+                        <div class="name">Add Users</div>
+            
+                        <div aria-label="Close" style="font-size: 1.5rem;float: right;cursor: pointer;">
+                            <span aria-hidden="true" style="color: white;cursor: pointer;position: relative;bottom: 26px"
+                                data-dismiss="modal" (click)="onclosemsg()"> &times;</span>
+                        </div>
+                    </div>
+                    <div ss="scroll_div_user" id="scrollMe" #scrollMe  style="height: 50vh;overflow-y:scroll;overflow-x: hidden">
+                        <div class="col-12 box" style="padding:12px" *ngFor="let user of UsersListData">
+                            <div class="row ">
+            
+                                <div class="col-3">
+                                    <label class="cont">
+                                       
+                                            <input type="checkbox" [(ngModel)]="user.Check" (change)="checkuser(user,$event)" [ngModelOptions]="{standalone: true}">
+                                        <span class="checkmark"></span>
+                                    </label>
+            
+                                </div>
+                                <div class="col-1" style="padding: 15px;">
+                                    <!-- <img [src]="user.fromImage" onerror="this.src='../../../assets/images/msg_icons/user.png'"  alt="" style="width: 43px;height: 43px;"/>
+                                    <img src="assets/images/msg_icons/user.png" height="100" width="180" class="img1" /> -->
+            
+                                </div>
+                                <div class="col-7 align-self-center" style="cursor: default;">
+                                    <div class="username">{{user.Du_First_Name}}{{user.Du_Last_Name}}</div>
+                                    <!-- <div class="role">{{user.email}}</div> -->
+            
+                                </div>
+            
+                            </div>
+                            <div *ngIf="UsersListData.length==0" class="row justify-content-center">
+                               No Users Found with this Role!!
+                            </div>
+            
+                        </div>
+           
+                       
+                    </div>
+                    <div style="text-align: center;padding: 5px;">
+                            <button (click)="onSubmit()" class="savebutton" *ngIf="addedurs1.length>0">Save</button>
+                          
+                </div>
+            
+                </div>
+            </ng-template>

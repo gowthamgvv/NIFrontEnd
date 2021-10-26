@@ -1,0 +1,191 @@
+<div class="gradient_Profilebg">
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0">
+  <app-header></app-header>
+
+    <section id="insights" class="profileNav">
+            <div class="col-12 px-0 px-lg-5 d-flex align-items-center">
+                <h3> Profile</h3>
+            </div>
+    </section>
+
+
+ <form [formGroup]="userProfileForm" >   
+    <div class="col-12">
+        <div class="row mt-5 Profile pl-lg-5 " >
+            <div class="col-2 ml-lg-2 mt-2 text-center">
+                <div class="prof">
+                    <img *ngIf="previewUrl" [src]="previewUrl" onerror="this.src='assets/images/default.png'" class="pro_img">
+                    <!-- <div style="width:150px" *ngIf="showCropper">
+                      <button class="fa fa-times" aria-hidden="true" style=" float: right;" (click)="removeimg()">
+                        <img width="3px" height="5px" src="assets/Images/cancelicon.png">
+                      </button>
+                      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4" [resizeToWidth]="128"
+                          [resizeToHeight]="128" format="png" (imageCropped)="imageCropped($event)"
+                          (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+                    </div> -->
+                    <input style="display: none" type="file" name="image" formControlName="fileUpload" (change)="processFile($event)" #selectFile/>
+                </div>
+                <div class="cam_iconDiv">
+                  <img src="../../../assets/images/cam_icon.png" (click)="selectFile.click()" title="browse"  >
+                </div>
+                <div class="mt-3" style="margin-top: 1vw;">
+                  <label class="userName">{{getFname}}{{getLname}}</label><br>
+                  <label class="userRole">{{getRole}}</label>
+                </div>
+                <div class="mt-2 mx-auto"><img (click)="LogOut()" class="pointer" src="../../../assets/images/Log-Out_prof.png"></div>
+            </div>
+            <div class="col-4 ml-3">
+                <div class="container-fluid p-0 m-0">
+                        <div class="form-group">
+                          <input style="width: 90%;" formControlName="firstname" maxlength="50" id="fname" class="form-control" type="text" placeholder="First Name">
+                          <small class="errormessage" *ngIf="submitted && userProfileForm.controls.firstname.hasError('required')">
+                            First name is required
+                          </small>
+                        </div>
+                        <div class="form-group">
+                            <input style="width: 90%;" formControlName="lastname" maxlength="50" id="lname" class="form-control" type="text" placeholder="Last Name">
+                            <small class="errormessage" *ngIf="submitted && userProfileForm.controls.lastname.hasError('required')">
+                                Last name is required
+                              </small>
+                        </div>
+
+                      <div class="form-group">
+                        <input style="width: 90%;" formControlName="title" maxlength="50" id="title" class="form-control" type="text" placeholder="Title">
+                        <small class="errormessage" *ngIf="submitted && userProfileForm.controls.title.hasError('required')">
+                            Title is required
+                          </small>
+                      </div>
+                      <div class="form-group">
+                        <input style="width: 90%;" formControlName="email" maxlength="50" id="email" class="form-control" type="email" placeholder="Email">
+                        <small class="errormessage" *ngIf="submitted &amp;&amp; userProfileForm.controls.email.errors" class="text-danger">
+                            <small class="errormessage" *ngIf="userProfileForm.controls.email.errors.required">Email is required</small>
+                            <small class="errormessage" *ngIf="userProfileForm.controls.email.errors.pattern">Email  must be a valid email</small>
+                         </small>
+                        <a class="pt-2 px-3" (click)="addEmail()" *ngIf="showMailText"><img class="addIcon" src="../../../assets/images/add_white_icon.png">&nbsp; Add another email</a>
+                      </div>
+                      <div class="form-group" *ngIf="addMailBox">
+                        <div class="icon">
+                          <input style="width: 90%;" formControlName="email2" maxlength="50" id="email2" class="form-control" type="email" placeholder="Email">
+                          <img class="closeIcon" (click)="cancelEmail()" width="10px" height="10px" title="remove" src="../../../assets/images/cancel-icon.png">
+                        </div>
+                        <small class="errormessage" *ngIf="submitted &amp;&amp; userProfileForm.controls.email2.errors" class="text-danger">
+                            <small class="errormessage" *ngIf="userProfileForm.controls.email2.errors.required">Email is required</small>
+                            <small class="errormessage" *ngIf="userProfileForm.controls.email2.errors.pattern">Email  must be a valid email</small>
+                         </small>
+                      </div>
+                      <div class="form-group">
+                        <input style="width: 90%;" formControlName="phone" maxlength="12" pattern="[0-9+( )-]{14}$" maxlength="20"
+                        [textMask]="{mask: phoneFormat}" (keypress)="_keyPress($event)" id="phone" class="form-control" type="tel" placeholder="Phone">
+                        <small class="errormessage" *ngIf="submitted && userProfileForm.controls.phone.hasError('required')">
+                            Phone is required
+                        </small>
+                        <a class="pt-2 px-3" (click)="addPhoneNum()" *ngIf="showPhoneText"><img class="addIcon" src="../../../assets/images/add_white_icon.png">&nbsp; Add another phone</a>
+                      </div>
+                      <div class="form-group" *ngIf="addPhone">
+                        <div class="icon">
+                        <input style="width: 90%;" formControlName="phone2" maxlength="12" pattern="[0-9+( )-]{14}$" maxlength="20"
+                        [textMask]="{mask: phoneFormat}" (keypress)="_keyPress($event)" id="phone2" class="form-control" type="tel" placeholder="Phone">
+                        <img class="closeIcon" (click)="cancelPhone()"  width="10px" height="10px" title="remove" src="../../../assets/images/cancel-icon.png">
+                        </div>
+                        <small class="errormessage" *ngIf="submitted && userProfileForm.controls.phone2.hasError('required')">
+                            Phone is required
+                        </small>
+                      </div>
+
+                      <div class="form-group d-flex align-items-center">
+                        <input formControlName="password" maxlength="50" id="password" class="form-control" type="password" placeholder="Set Password" style="width: 70%;">
+                        <small class="errormessage" *ngIf="submitted && userProfileForm.controls.password.hasError('required')">
+                            Password is required
+                        </small>
+                        <a class="ml-2" (click)="openDialog()">Reset Password</a> 
+                      </div>
+
+                    <!-- <div class="form-group">
+                        <select formControlName="state" class="form-control">
+                            <option value="">Select State</option>
+                            <option *ngFor="let state of states" [value]="state.sg_id">{{state.sg_name}}</option>
+                        </select>
+                        <small class="errormessage" *ngIf="submitted && userProfileForm.controls.state.hasError('required')">
+                          State is required
+                        </small>
+                        <a class="px-3"><img class="addIcon" src="../../../assets/images/add_white_icon.png">&nbsp; Add another location</a>
+
+                      </div> -->
+                  </div>
+            </div>
+            <div class="col-4 ml-5" id="style-2">
+               <!-- <h6>Access</h6>
+                 <form class="users">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="aa1" name="example1">
+                      <label class="custom-control-label" for="aa1">Jaguar</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="aa1" name="example2">
+                        <label class="custom-control-label" for="aa1">Rolls Roys</label>
+                    </div>
+                </form> -->
+                <div class="row pb-4">
+                    <div class="col-6">
+                    <h6><b>Role:</b></h6>
+                    <form>
+                        <div>
+                          <label>{{getRole}}</label>
+                        </div>
+                        
+                    </form>
+                    </div>
+                </div>
+                <div class="row pb-4">
+                  <div class="col-6">
+                  <h6><b>Custom Privileges:</b></h6>
+                  <form >
+                      <div>
+                        <label>Not Available</label>
+                      </div>
+                      
+                  </form>
+                  </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-6">
+                  <h6><b>Stores:</b></h6>
+                <form >
+                    <div>
+                    </div>
+                    
+                </form>
+                </div>
+            </div> -->
+
+              <div class="row">
+                <div class="col-6 access-scrl">
+                  <h6 class="storeshdng"><b>Stores:</b></h6>
+                <form>                  
+                  <div class="custom-control custom-checkbox mb-3" *ngFor="let dship of getDealershipNames; let i = index">
+                    <input type="checkbox" [checked]="allChecked"  [value]="dship.dealerid" class="custom-control-input" id="customCheck{{i+1}}">
+                    <label class="custom-control-label" style="width: 90%;"for="customCheck{{i+1}}">{{dship.dealershipName}}</label>
+                  </div>
+
+                  <div>
+                    <label>{{ifNoStores}}</label>
+                  </div>                   
+                </form>
+                </div>
+            </div>
+            </div>
+            <div class="col-11 ml-lg-4">
+                <hr>
+            </div>
+        </div>
+        <div class="row ml-lg-4 mt-3 pl-lg-5 pb-5 bk-sv-btn">
+          <button type="button" class="btn btn-dark sv-btn" (click)="updateProfile()" >Save</button>
+            <!-- <button type="button" (click)="OnCancel()" class="btn bk-btn">Back</button> -->
+        </div>
+    </div>
+
+</form>
+
+</div>
+</div>

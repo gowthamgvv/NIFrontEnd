@@ -1,0 +1,262 @@
+<!-- <h1>{{parentMessage}}</h1>
+<h1>hello</h1> -->
+<!-- <p>sold-units-data works!</p> -->
+<div class="col-12">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="inventory_panel">
+                <div class="head">
+                    <div class="row">
+                        <div class="col-12 col-lg-3 d-flex align-items-center">
+                            <!-- Use last 8: 
+                            <input type="text" maxlength="1"  [formControl]="txtVin1" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin2" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin3" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin4" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin5" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin6" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin7" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)">
+                            <input type="text" maxlength="1" [formControl]="txtVin8" style="color:#fff;text-transform:capitalize;" (keyup)="keytab($event)"> -->
+                        </div>
+                        <div class="col-10 col-lg-6 align-self-center">
+                            <h6 style="text-align: center;">Sales Data</h6>
+                        </div>
+                        <div class="col-2 col-lg-3 align-self-center text-right">
+                            <img src="assets/images/cancel_wht.png" style="cursor:pointer;" (click)="onInvClose()">
+                        </div>
+                    </div>
+                </div>
+                <div class="content invntryScroll">
+                    <div class="inv_details">
+                        <table>
+                            <!-- <thead>
+                            <tr>
+                                <th width="1%">&nbsp;</th>
+                                <th width="4%">Select</th>
+                                <th width="5%">N/U/CPO</th>
+                                <th width="5%">Year</th>
+                                <th width="4%">Make</th>
+                                <th width="20%">Model</th>
+                                <th width="10%">trim</th>
+                                <th width="5%">Ext.Color</th>
+                                <th width="5%">Int.color</th>
+                                <th width="5%">Last 8</th>
+                                <th width="2%">Age</th>
+                                <th width="5%">MSRP</th>
+                                <th width="5%">OEM <br>Bonus</th>
+                                <th width="10%">Customer <br>Incentives</th>
+                            </tr>
+                            <tr>
+                              
+                                    <th  width="1%">&nbsp;</th>
+                                    <th  width="4%">&nbsp;</th>
+                                
+                                    <th  width="5%">
+                                        <select [formControl]="ddlStock" (change)="assignDropDown('S')">
+                                            <option value="0">All</option>
+                                            <option value="NEW">NEW</option>
+                                            <option value="USED">USED</option>
+                                            <option value="CPO">CPO</option>
+                                        </select>
+                                    </th>
+                                    <th  width="5%">
+                                        <select [formControl]="ddlYear" (change)="assignDropDown('Y')">
+                                            <option value="0">All</option>
+                                            <option *ngFor="let yearInfo of ddlYearInfo" value="{{yearInfo.InvntryInfo}}">'{{yearInfo.InvntryInfo1.toString().substr(yearInfo.InvntryInfo1.toString().length-2)}}</option>
+                                        </select>
+                                    </th>
+                                    <th  width="10%">
+                                        <select [formControl]="ddlMake" (change)="assignDropDown('MK')">
+                                                <option value="0">All</option>
+                                                <option *ngFor="let makeInfo of ddlMakeInfo" value="{{makeInfo.InvntryInfo}}">{{makeInfo.InvntryInfo1}}</option>
+                                        </select>
+                                    </th>
+                                    <th  width="15%">
+                                        <select [formControl]="ddlModel" (change)="assignDropDown('MD')">
+                                                <option value="0">All</option>
+                                                <option *ngFor="let modelInfo of ddlModelInfo" value="{{modelInfo.InvntryInfo}}">{{modelInfo.InvntryInfo1}}</option>
+                                        </select>
+                                    </th>
+                                    <th  width="10%">
+                                        <select [formControl]="ddlTrim" (change)="assignDropDown('T')">
+                                                <option value="0">All</option>
+                                                <option *ngFor="let trimInfo of ddlTrimInfo" value="{{trimInfo.InvntryInfo}}">{{trimInfo.InvntryInfo}}</option>
+                                        </select>
+                                    </th>
+                                    <th  width="5%">
+                                        <select [formControl]="ddlExtrColor" (change)="assignDropDown('E')">
+                                                <option value="0">All</option>
+                                                <option *ngFor="let extClrInfo of ddlExtClrInfo" value="{{extClrInfo.InvntryInfo}}">{{extClrInfo.InvntryInfo}}</option>
+                                        </select>
+                                    </th>
+                                    <th  width="5%">
+                                        <select [formControl]="ddlIntrColor" (change)="assignDropDown('I')">
+                                                <option value="0">All</option>
+                                                <option *ngFor="let intClrInfo of ddlIntClrInfo" value="{{intClrInfo.InvntryInfo}}">{{intClrInfo.InvntryInfo}}</option>
+                                        </select>
+                                    </th>
+                                
+                                    <th  width="5%">&nbsp;</th>
+                                    <th  width="2%">&nbsp;</th>
+                                    <th  width="5%">&nbsp;</th>
+                                    <th  width="5%">&nbsp;</th>
+                                    <th  width="5%">&nbsp;</th>
+                               
+                            </tr>
+                            </thead> -->
+                            <thead>
+                                <tr>
+                                    <!-- <th>DealerID</th>
+                                    <th>Brand</th>
+                                    <th>ModelName</th>
+                                    <th>{{record}}</th> -->
+                                    <!-- <th *ngIf="solddata[0].PriceType==1">MSRP</th>
+                                    <th *ngIf="solddata[0].PriceType==0">SalePrice</th> -->
+
+                                  
+                                    <!-- <th>PriceType</th>
+                                    <th>salePrice</th> -->
+                                    <th>VIN</th>
+                                    <th>YEAR</th>
+                                    <th>BRAND</th>
+                                    <th>MODELNAME</th>
+                                    <th>{{record}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- <ng-container *ngIf="invntryDetails; else noinvntryItems">
+                                    <ng-container *ngFor="let invntryInfo of invntryDetails;let invIndex=index;">
+
+                                        <tr [ngClass]="{'activeInvtry': globalInvntryIndx === invIndex}">
+                                            <td width="1%" (click)="expandRow(invIndex)">{{invIndex+1}}</td>
+                                            <td width="2%" (click)="onRadioClick(invIndex)">
+                                                <div style="position: relative;top: 4px;left: -15px;"
+                                                    class="custom-control custom-radio">
+                                                    <img style="float:left;"
+                                                        [src]="globalRadioIndex === invIndex ? radioOn : radioOff"
+                                                        width="13" height="13">
+                                                </div>
+                                            </td>
+                                            <td width="5%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.StockType.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="5%" (click)="expandRow(invIndex)">
+                                                '{{invntryInfo.Year.toString().substr(invntryInfo.Year.length - 3)}}
+                                            </td>
+                                            <td width="4%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.MakeName.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="20%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.ModelName.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="10%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.Trim.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="5%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.ExteriorColor.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="5%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.InteriorColor.toString() | ifEmpty:'--':''}}</td>
+                                            <td width="5%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.Vin.toString().substr(invntryInfo.Vin.length - 9)}}</td>
+                                            <td width="2%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.Age.toString()| number | ifEmpty:'--':''}}</td>
+                                            <td width="7%" (click)="expandRow(invIndex)">
+                                                {{invntryInfo.Price.toString()| number | ifEmpty:'--':'msrp' }}</td>
+                                            <td width="5%"><img src="assets/images/tag_off.png"></td>
+                                            <td width="10%"><img src="assets/images/tag_off.png"></td>
+                                        </tr>
+
+                                        <tr colspan="14" *ngIf="globalInvntryIndx === invIndex">
+                                            <td colspan="14" style="background:#0f0f0f !important;">
+
+                                                <div style="max-width:100%;height:125px;" id="scrollFeatures">
+                                                    <div
+                                                        style="height:125px;float:left;margin-left:68px;width:50%;margin-top:10px;">
+                                                        <div
+                                                            style="float:left;font-size:11px;font-weight:bold;text-transform:uppercase;">
+                                                            Highlighted Features</div>
+                                                        <div style="margin-top:22px;">
+                                                            <ul id="hghexpLft">
+                                                                <li style="text-align:left;">Smart Cruise Control</li>
+                                                                <li style="text-align:left;">Electronic Stability
+                                                                    Control</li>
+                                                                <li style="text-align:left;">Vehicle Stability
+                                                                    Management</li>
+                                                                <li style="text-align:left;">Harmen/Karden Sound System
+                                                                    w/External Amplifier and Subwoofer</li>
+                                                                <li style="text-align:left;">UVO Link w/Navigation</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        style="color:#fff;background:#0f0f0f;float:left;margin-top:10px;width:35%;">
+                                                        <div
+                                                            style="float:left;font-size:11px;font-weight:bold;text-transform:uppercase;">
+                                                            Included Options</div>
+                                                        <div style="margin-top:22px;">
+                                                            <ul id="optexpLft">
+                                                                <li style="text-align:left;">7 Speed Dual Clutch
+                                                                    Transmission</li>
+                                                                <li style="text-align:left;">Cruise Control</li>
+                                                                <li style="text-align:left;">Back-Up Camera</li>
+                                                                <li style="text-align:left;">235/45 R18 Tires</li>
+                                                                <li style="text-align:left;">6 Speakers</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div style="float:right;margin-right: 10px;cursor:pointer;color:#609ee3;"
+                                                        (click)="expandRow(invIndex)">
+                                                        <label
+                                                            style="text-decoration:underline;cursor:pointer;">close</label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </ng-container>
+                                    <ng-container *ngIf="!invntryDetails.length && !intStatus"
+                                        [ngTemplateOutlet]="noinvntryItems"></ng-container>
+
+                                </ng-container>
+                                <ng-template #noinvntryItems>
+                                    <tr style="height: 2.5rem">
+                                        <td colspan="14">{{this.Result}}</td>
+                                    </tr>
+                                </ng-template> -->
+                                <!-- <div class="norecords">{{Result}}</div> -->
+
+                                <ng-container *ngIf="unitprice; else noinvntry">
+
+                                    <ng-container *ngFor="let soldinfo of unitprice;">
+                                        <!-- <tr></tr> -->
+                                        <tr>
+                                            <td>{{soldinfo.Vin}}</td>
+                                            <td>{{soldinfo.Year}}</td>
+                                            <!-- <td>{{soldinfo.DealerID}}</td> -->
+                                            <td>{{soldinfo.Brand}}</td>
+                                            <td>{{soldinfo.ModelName}}</td>
+                                            <!-- <td *ngFor="let price of unitprice;">{{Price.value}}</td> -->
+                                             <td>${{soldinfo.value | number}}</td>
+                                            <!-- <td>{{soldinfo.SalePrice}}</td>  -->
+                                          
+                                        </tr>
+                                      
+
+                                    </ng-container>
+                                    <ng-container *ngIf="!unitprice.length" [ngTemplateOutlet]="noinvntry">
+                                    </ng-container>
+                                </ng-container>
+                                <ng-template #noinvntry>
+                                    <tr style="height: 2.5rem" *ngIf="visible=='Y'">
+                                        <td colspan="8">{{this.Result}}</td>
+                                    </tr>
+                                </ng-template>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>

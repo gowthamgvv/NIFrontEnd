@@ -1,0 +1,280 @@
+<div>
+  <!-- <app-header></app-header> -->
+
+  <div class="container-fluid pt64">
+      <div class="row">
+
+  
+        <div class="col-12">
+  
+          <div class="row justify-content-center py-4 pl-lg-3 pr-lg-4">
+              <div class="col-12 cpl-lg-12">
+                  <div>
+        
+                      <div class="clearfix"></div>
+                      <form [formGroup]="SearchDealerUsers">
+                      <div>   
+                        <!-- <div class="col-12 col-lg-6 d-flex align-items-left" *ngIf="showgrid">
+                          <div class="col-2" >
+                            <h4 class="userHeading">Users &nbsp;</h4>
+                          </div>
+                             <a class="pointer" (click)="showAddpanel()" ><img class="addIcon" src="assets/images/add_white_icon.png"></a>
+
+                             <div class="search">
+                              <input type="text" placeholder="Search" formControlName="txtSearch" autofocus (keyup)="onSearch()">
+                            </div> 
+                        </div>  -->
+
+                        <div class="col-12" >
+                          <div class="row">
+                            <div class="col-10 d-flex align-items-left">
+                                  <div class="row">
+                                     <div class="col-0 ">
+                                        <h4 > <a *ngIf="showgrid">Users &nbsp;</a> <img *ngIf="showAddIcon" class=" ml-2 addIcon pointer" (click)="showAddpanel()" src="assets/images/add_white_icon.png"></h4>
+                                     </div>
+                                  
+                                    <div class="search" *ngIf="showSearchIcon">
+                                      <input type="text" placeholder="Search" formControlName="txtSearch" autofocus (keyup)="onSearch()">
+                                    </div>
+                                 </div>
+                            </div>
+                         </div>
+                      </div>
+
+   
+                          <div class="contentss" *ngIf="showgrid">
+                              <table class="table table-striped">
+                                <thead>
+                                    <th></th>
+                                  <th class="tddispname">Name</th>
+                                  <th class="tddispname">Title</th>
+                                  <th class="tddispname">Role</th>
+                                  <th class="tddispname">email</th>
+                                  <th class="tddispname">phone</th>
+                                  <!-- <th class="tddispname">access</th> -->
+                                  <th class="tdstatus">Status</th>
+
+                                </thead>
+                                  <tbody>
+                                    <ng-container *ngIf="userArray | alphaFilter : alphaSrch: alphaColumns :'aa' as userData; else noItems">
+                                      <tr *ngFor="let list of userData ; let i = index">
+                                          <td></td>
+                                          <td class="tddispname">{{list.Du_First_Name}}{{list.Du_Last_Name}}</td>
+                                          <td class="tddispname">{{list.Du_Job_Title}}</td>
+                                          <td class="tddispname">{{list.rolename}}</td>
+                                          <td class="tdemail">{{list.Du_Login_Id}}</td>
+                                          <td class="tddispname">{{list.Du_Phone}}</td>
+                                          <td style="display: none;">{{list.Du_Id}}</td>
+                                          <td style="display: none;">{{list.Du_Role}}</td>
+                                          <td style="display: none;">{{list.Du_Gender}}</td>
+                                          <td style="display: none;">{{list.Du_Date_Of_Joining}}</td>
+                                          <td style="display: none;">{{list.Du_Job_Title}}</td>
+                                          <td style="display: none;">{{list.Du_date_Of_Birth}}</td>
+                                          <td style="display: none;">{{list.Du_address1}}</td>
+                                          <td style="display: none;">{{list.Du_address2}}</td>
+                                          <td style="display: none;">{{list.Du_password}}</td>
+                                          <td style="display: none;">{{list.Du_City}}</td>
+                                          <td style="display: none;">{{list.Du_State}}</td>
+                                          <td style="display: none;">{{list.Du_Zip}}</td>
+                                          <td style="display: none;">{{list.Du_Image}}</td>
+                                          <td style="display: none;">{{list.User_Enable}}</td>
+                                          <td style="display: none;">{{list.DU_User_Type}}</td>
+                                
+                                          <!-- <td class="tdaccess">-</td> -->
+                                          <td *ngIf="list.Du_Status == 'Y'" class="tdstatus"> 
+                                            <span class="ifActive">Active</span>|<span class="pointer" (click)="onInactiveClick(i, list.Du_Id, list.Du_Dealer_Id, list.Du_Dealer_Group_Id, list.Du_First_Name, list.Du_Last_Name, list.Du_Gender, list.Du_Date_Of_Joining, list.Du_Job_Title, list.Du_date_Of_Birth, list.Du_address1,list.Du_address2, list.Du_Login_Id,list.Du_password,list.Du_City,
+                                            list.Du_State,list.Du_Zip,list.Du_Phone,list.Du_Role,list.Du_Image,list.User_Enable,list.DU_User_Type)">Inactive</span>
+                                            
+                                          </td>    
+                                          <td *ngIf="list.Du_Status == 'N'" class="tdstatus"> 
+                                            <span class="pointer" (click)="onActiveClick(i, list.Du_Id, list.Du_Dealer_Id, list.Du_Dealer_Group_Id, list.Du_First_Name, list.Du_Last_Name, list.Du_Gender, list.Du_Date_Of_Joining, list.Du_Job_Title, list.Du_date_Of_Birth, list.Du_address1,list.Du_address2, list.Du_Login_Id,list.Du_password,list.Du_City,
+                                            list.Du_State,list.Du_Zip,list.Du_Phone,list.Du_Role,list.Du_Image,list.User_Enable,list.DU_User_Type)">Active</span>|<span class="ifInActive">Inactive</span>
+                                            
+                                          </td>    
+                                      </tr>
+                                      <ng-container *ngIf="!userData.length && hide" [ngTemplateOutlet]="noItems"></ng-container>
+                                      </ng-container>
+            
+                                  <ng-template #noItems>
+                                     <tr>
+                                       <td colspan="9" style="text-align: center;">No Users Available!</td>
+                                     </tr>
+                                  </ng-template>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+</form>
+        <!-- ------------------add panel------------- -->
+        <form [formGroup]="addUserForm" >
+                      <div *ngIf="addClick">
+                        
+                        
+                        
+                        <div class="col-12">
+                          <div class="row">
+                              <div class="col-10">
+                                  <div class="row">
+                                    <div class="col-2" style="text-align: right;">
+                                      <h4 >Users &nbsp;</h4>
+                                    </div>
+                                    <a class="pointer"><img class="addIcon" src="assets/images/add_white_icon.png"></a>
+
+                                              <div class="col-4 mr-5">
+                                                  <div class="container-fluid p-0 m-0">
+                                                          <div class="form-group">
+                                                            <input formControlName="firstname" maxlength="50" class="form-control" type="text" placeholder="First Name">
+                                                            <small class="errormessage" *ngIf="submitted && addUserForm.controls.firstname.hasError('required')">
+                                                              First name is required
+                                                            </small>
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <input formControlName="lastname" maxlength="50" class="form-control" type="text" placeholder="Last Name">
+                                                              <small class="errormessage" *ngIf="submitted && addUserForm.controls.lastname.hasError('required')">
+                                                                Last name is required
+                                                              </small>
+                                                          </div>
+                              
+                                                        <div class="form-group">
+                                                          <input formControlName="title" maxlength="50" class="form-control" type="text" placeholder="Title">
+                                                          <small class="errormessage" *ngIf="submitted && addUserForm.controls.title.hasError('required')">
+                                                            Title is required
+                                                          </small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                          <input formControlName="email" maxlength="50" class="form-control" type="email" placeholder="Email">
+                                                          <small class="errormessage" *ngIf="submitted &amp;&amp; addUserForm.controls.email.errors" class="text-danger">
+                                                            <small class="errormessage" *ngIf="addUserForm.controls.email.errors.required">Email is required</small>
+                                                            <small class="errormessage" *ngIf="addUserForm.controls.email.errors.pattern">Email  must be a valid email</small>
+                                                         </small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                          <input formControlName="password" maxlength="50" class="form-control" type="password" placeholder="Set Password">
+                                                          <small class="errormessage" *ngIf="submitted && addUserForm.controls.password.hasError('required')">
+                                                            Password is required
+                                                          </small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                          <input formControlName="phone" maxlength="12" pattern="[0-9+( )-]{14}$" maxlength="20"
+                                                          [textMask]="{mask: phoneFormat}" (keypress)="_keyPress($event)" class="form-control" type="text" placeholder="Phone">
+                                                          <small class="errormessage" *ngIf="submitted && addUserForm.controls.phone.hasError('required')">
+                                                            Phone is required
+                                                          </small>
+                                                        </div>
+                                                      <div class="form-group">
+                                                          <select formControlName="state" class="form-control">
+                                                              <option value="">Select State</option>
+                                                              <option *ngFor="let state of states" [value]="state.sg_id">{{state.sg_name}}</option>
+                                                          </select>
+                                                          <small class="errormessage" *ngIf="submitted && addUserForm.controls.state.hasError('required')">
+                                                            State is required
+                                                          </small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                          <select formControlName="role" class="form-control" >
+                                                            <option value="">Select Role</option>
+                                                            <option *ngFor="let role of rolesArray"  [value]="role.Role_UniqId">{{role.Role_Name}}</option>
+                                                        </select>
+                                                        <small class="errormessage" *ngIf="submitted && addUserForm.controls.role.hasError('required')">
+                                                          Role is required
+                                                        </small>
+                                                        </div>
+                                                    </div>
+                                              </div>
+                                              <!-- <div class="col-4 access-scrl">
+                                                  <h5 class="accessHeading">Access</h5>
+
+                                                  <div class="checkbox">
+                                                    <div class="tag">All</div>
+                                                    <input type="checkbox" [checked]="allChecked" (click)="all(!allChecked)"class="input-assumpte" id="input-confidencial">
+                                                    <label for="input-confidencial"></label>
+                                                  </div> 
+                                                  <div class="checkbox" *ngFor="let checklist of data; let i=index">
+                                                    <div class="tag">{{checklist.name}}</div>
+                                                    <input type="checkbox" [checked]="checklist.checked" class="input-assumpte" id="input-confidencial{{i+1}}">
+                                                    <label for="input-confidencial{{i+1}}"></label>
+                                                  </div>                                    
+
+                                              </div> -->
+                                              
+                      
+                                  </div>
+
+                                  <!-- <hr> -->
+            <div class="row" style="margin-top:3rem;">
+                <div class="col-2"> </div>
+
+
+                <div class="col-10">
+                    <!-- <div class="row">
+                    <div class="col-5  ml-2">
+                        <h4 class="col-5  ml-2"><b>Role</b></h4>
+                        <div class="checkbox">
+                          <div class="tag">Administrator</div>
+                          <input type="checkbox" class="input-assumpte" id="input-confidencial1">
+                          <label for="input-confidencial1"></label>
+                        </div>  
+                        <div class="checkbox">
+                          <div class="tag">Management</div>
+                          <input type="checkbox" class="input-assumpte" id="input-confidencial2">
+                          <label for="input-confidencial2"></label>
+                        </div>
+                        <div class="checkbox">
+                          <div class="tag">User</div>
+                          <input type="checkbox" class="input-assumpte" id="input-confidencial3">
+                          <label for="input-confidencial3"></label>
+                        </div> 
+
+                        <div>
+                          <div style="display: flex; margin-top: 1rem;">
+                            <div style="margin-top: 10px;">
+                                <h4 class="col-5  ml-2">Manage/Add Roles:</h4>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-7">
+                                <div class="form-group">
+                                    <select formControlName="role" class="form-control" >
+                                        <option value="">Select Role</option>
+                                        <option *ngFor="let role of rolesArray"  [value]="role.Role_UniqId">{{role.Role_Name}}</option>
+                                    </select>
+                                    <small class="errormessage" *ngIf="submitted && addUserForm.controls.role.hasError('required')">
+                                      Role is required
+                                    </small>
+                                  </div>
+                            </div>
+                            <a class="pointer" style="margin-top: 0.4rem;"><img class="addRoleIcon" src="assets/images/add_white_icon.png"></a>
+                          </div>
+                    </div>
+                    </div>
+                </div> -->
+<!-- <hr> -->
+
+                <div class="row bk-sv-btn ml-4">
+                    <button type="button" (click)="showGridpanel()" class="btn bk-btn">Back</button>
+                    <button type="button" class="btn btn-dark sv-btn" (click)="saveUser()">Save</button>
+                </div>
+                </div>
+            </div>
+
+                              </div>
+                          </div>
+                      </div>
+                      
+                      
+                      </div>
+                    </form>
+        <!-- ------------------add panel------------- -->
+
+                  </div>
+              </div>
+          </div>
+        
+        
+        </div>            
+  
+    </div>
+  </div>
+
+
+
+
+</div>

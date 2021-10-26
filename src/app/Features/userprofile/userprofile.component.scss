@@ -1,0 +1,153 @@
+.Profile{
+    h5{font-size: .9rem;font-family: 'Gotham\ Bold'!important; display: flex; align-items: center; }
+    h6{font-size: .8rem;font-family: 'Gotham\ Bold'!important; display: flex; align-items: center; }
+
+    .form-group{margin-bottom: .5rem;
+    a{color: #1665f8; font-size: .6rem; cursor: pointer; text-decoration: none; display: flex; align-items: center;}
+    }
+    input{height: 35px; font-size: .8rem; color: #333;}
+    input::placeholder{color: #ccc;}
+    select{height: 35px;color: #333}
+    select option{color: #333;}
+     .custom-control-label::before{top: .05rem;}
+     .custom-checkbox .custom-control-label::before{border: 1px solid #333;background: #ffffff;}
+     .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background: #669b43;}
+     .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after{background: transparent;}
+    .custom-control.custom-checkbox{padding-left: 0;}
+
+    label.custom-control-label {
+      position: relative;
+      padding-right: 1.5rem;
+    }
+    
+    label.custom-control-label::before, label.custom-control-label::after{
+      right: 0;
+      left: auto;
+    }
+}
+  .prof{
+      .pro_img {     
+        height: 10vw; 
+        width: 10vw; 
+       border: 2px solid #fff;
+       border-radius: 50%;
+       border: 2px solid #659a43;
+       display: inline-block;
+       margin-left: auto;
+       margin-right: auto;}
+  }
+
+  .cam_iconDiv {
+    margin-top: -20%;
+    margin-right: -63%;
+    cursor: pointer;
+}
+
+  .edtbtn{
+    padding:3px 10px;
+   // text-transform: uppercase;
+    margin: 0 1.5rem 1rem 0;
+    color: white;
+    background: #000;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+  }
+
+  .bk-sv-btn{
+    margin-top: 2rem;  
+    .bk-btn{
+    background-color: rgb(160, 156, 156);
+    }
+    .btn{
+      padding:0 40px;
+    //  text-transform: uppercase;
+      margin-right: 1.5rem;
+      color: white;
+
+    }
+    }
+
+    .errormessage {
+      color: red;
+    }
+
+    .addIcon{
+      filter: invert(1);
+      width: 3%;
+    }
+
+    .pointer{
+      cursor: pointer;
+    }
+
+    .userName{font-weight: bolder;font-size: 18px;margin-top: 1vw;}
+    .userRole{font-weight: bolder;font-size: 12px}
+
+    .profileNav {
+      box-shadow: 5px 5px 5px #d1d2d3;
+      background: #a4a4a4;
+  //    margin-top: 5%;
+      height: 40px;
+      color: #000;
+   h3 {
+    font-size: 2rem;
+    margin: 0 .75rem 0 0;
+    font-family: Harabara;
+    padding-top: 5px;
+  span{ color: #ccc;}
+  }
+  }
+
+  .gradient_Profilebg{width: 100%; height: 100%; //background: url(../../../assets/images/Gradient_bg.jpg) no-repeat; 
+    background-size: 100% 100%, cover;padding: 74px 0 0 0; } 
+
+    .closeIcon{
+    filter: invert(1);
+   // margin-top: -4vw;
+    //margin-left: 30vw;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-left: 8px;
+    }
+    .icon{
+      display:flex;
+    }
+
+    .access-scrl{
+      width: 110px;
+      height: 200px;
+      overflow: auto;
+    }
+
+
+    /* width */
+    .access-scrl::-webkit-scrollbar {
+      width: 5px;
+      height: 4px;
+      background-color: #cbcbcd;
+      border-radius: 3px;
+}
+
+/* Track */
+.access-scrl::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey; 
+border-radius: 10px;
+}
+
+/* Handle */
+.access-scrl::-webkit-scrollbar-thumb {
+width: 5px;
+height: 4px;
+background-color: #00a453;
+border-radius: 3px;
+}
+
+/* Handle on hover */
+.access-scrl::-webkit-scrollbar-thumb:hover {
+background: #00a453; 
+}
+
+.storeshdng{
+position: -webkit-sticky; position: sticky; top: 0px;font-size: .8rem;font-family: 'Gotham\ Bold'!important; display: flex; align-items: center;}

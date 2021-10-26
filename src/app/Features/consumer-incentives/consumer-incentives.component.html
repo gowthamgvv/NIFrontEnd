@@ -1,0 +1,144 @@
+<div class="bg">
+    <div>
+        <app-header></app-header>
+      </div>
+      <a class="pointer" style="float: right; color: #02a54f;" [routerLink]="['/consumerIncentives']">Back</a>
+<div style="text-align: center; font-weight: bold; font-size: 28px;padding: 20px;">Consumer Incentives</div>
+    <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-12 ">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="ent_brand" >
+                    <div ngxSlickItem class="slide">
+                        <div class="col-12">                         
+                            <div class="block2">                           
+                            <table style="width: 100%;">
+                                <tr>
+                                    <th class="leftTD">Program ID:</th>
+                                    <td class="rightTD">{{Consumer.programId}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Program Number:</th>
+                                    <td class="rightTD">{{Consumer.programNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Program Name:</th>
+                                    <td class="rightTD">{{Consumer.programName}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Program Description:</th>
+                                    <td class="rightTD">{{Consumer.programDescription}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Category ID:</th>
+                                    <td class="rightTD">{{Consumer.categoryId}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Category Description:</th>
+                                    <td class="rightTD">{{Consumer.categoryDescription}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">GEO Description:</th>
+                                    <td class="rightTD">{{Consumer.geoDescription}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">National:</th>
+                                    <td class="rightTD">{{Consumer.national}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Market:</th>
+                                    <td class="rightTD">{{Consumer.market}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Effective Date:</th>
+                                    <td class="rightTD">{{Consumer.effectiveDate}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Expiry Date:</th>
+                                    <td class="rightTD">{{Consumer.expiryDate}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">End Recipient:</th>
+                                    <td class="rightTD">{{Consumer.endRecipient}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Source:</th>
+                                    <td class="rightTD">{{Consumer.source}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Tax Rule:</th>
+                                    <td class="rightTD">{{Consumer.taxRule}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Type:</th>
+                                    <td class="rightTD">{{Consumer.type}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Offer Type:</th>
+                                    <td class="rightTD">{{Consumer.offerType}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Group Affiliation Id:</th>
+                                    <td class="rightTD">{{Consumer.groupAffiliationId}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Group Affiliation:</th>
+                                    <td class="rightTD">{{Consumer.groupAffiliation}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Group Affiliation Detail:</th>
+                                    <td class="rightTD">{{Consumer.groupAffiliationDetail}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Previous Ownership Id:</th>
+                                    <td class="rightTD">{{Consumer.previousOwnershipId}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Previous Ownership:</th>
+                                    <td class="rightTD">{{Consumer.previousOwnership}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="leftTD">Market Scope:</th>
+                                    <td class="rightTD">{{Consumer.marketScope}}</td>
+                                </tr>
+                            </table>
+                           
+                            <div class="block2" >
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <th style="color: #f2ad2d;">TYPE</th>
+                                        <th style="color: #f2ad2d;">DESCRIPTION</th>
+                                       
+                                    </tr>
+                                    <tr *ngFor="let Rules of Consumer.programRules">
+                                        <td style="width: 20%; color: #02a54f;">{{Rules.type}}</td>
+                                        <td style="width: 80%; padding: 10px; text-align: left; ">{{Rules.description}}</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <div *ngIf="Consumer.programValues.valueVariations[0].programValues[0].terms != undefined" class="block2" style="margin-left: 25%; background: none;" >
+                                <table class="ml-5" style="width: 35%;">
+                                    <tr>
+                                        <th style="color: #f2ad2d; width: 25%;">Month</th>
+                                        <th style="color: #f2ad2d; width: 25%;">From</th>
+                                        <th style="color: #f2ad2d; width: 25%;">To</th>
+                                        <th style="color: #f2ad2d; width: 25%;">Value</th>
+                                    </tr>
+                                    <tr *ngFor="let programVal of Consumer.programValues.valueVariations[0].programValues[0].terms">
+                                        <td style="padding: 6px;"> {{programVal.month}} </td>
+                                        <td> {{programVal.from}} </td>
+                                        <td> {{programVal.to}} </td>
+                                        <td> {{programVal.valueType}} {{programVal.value | number}} </td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,390 @@
+.bg{
+     background: url(../../../assets/images/new_bg.png) ;
+     background-size: cover;
+    width: 100%;  
+ height: 100%;
+padding: 74px;
+ }
+.gp-dd {
+    font-family: 'OpenSans-Regular';
+  }
+  
+  .gp-dd select {
+    margin: 0;
+    font-family: inherit;
+    font-size: .8rem;
+    line-height: inherit;
+    border-radius: 0.3rem;
+    padding: 0.1rem 2.1rem;
+    background-color: rgba(230, 228, 228, 0.782);
+    cursor: pointer;
+  }
+  
+  .grp-dd select {
+    background-color: transparent;
+    outline: none;
+    color: black;
+    border: none;
+    font-size: 1.4rem;
+    -webkit-appearance: none;
+    font-family: 'OpenSans-Bold';
+    background: transparent;
+    background-image: url("../../../assets/images/dropdwn_arw.png");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 65%;
+    padding-right: 1.5rem;
+    letter-spacing: -0.1rem;
+  }
+  
+ 
+  .grp-dd select option {
+    font-size: 0.75rem;
+    width: 50%;
+    background-color: white;
+    color: black;
+    float: right;
+    padding: .5rem !important;
+    margin-left: 4rem !important;
+  }
+  
+  .grp-dd select.decorated option:hover {
+    background-color: red;
+  }
+  
+  .card1 .bg-card .fg-card .percent-badge {
+    background-color: green;
+  }
+  
+  .card2 .bg-card .fg-card .percent-badge {
+    background-color: orangered;
+  }
+  
+  .card3 .bg-card .fg-card .percent-badge {
+    background-color: green;
+  }
+  
+  .card4 .bg-card .fg-card .percent-badge {
+    background-color: red;
+  }
+  
+  .card5 .bg-card .fg-card .percent-badge {
+    background-color: green;
+  }
+  
+  .card6 .bg-card .fg-card .percent-badge {
+    background-color: orangered;
+  }
+  
+  .bg-card {
+    background: #8d8d8d;
+    color: white;
+    border-radius: 0.3rem;
+    text-align: center; margin-top: 1.5rem;
+  }
+  
+  .bg-card .fg-card {
+    font-family: 'OpenSans-Regular';
+    background-image: linear-gradient(to right, #424242 ,#7d7d7d);
+    border-radius: 0.3rem;
+    padding: .6rem 0 0;
+  }
+  
+  .bg-card .fg-card .gp-icon {
+    float: left;
+    padding-left: 1.5rem;
+  }
+  
+  .bg-card .fg-card .gp-list {
+    vertical-align: bottom;
+    font-family: 'OpenSans-Bold';
+    font-size: 1.1rem;
+    float: left;
+    padding-left: 0.5rem;
+  }
+  
+  .bg-card .fg-card .percent-badge{
+    vertical-align: bottom;
+    font-size: 1rem;
+    font-family: 'OpenSans-Bold';
+    margin-right: .5rem;
+    .grn{background-color: #00a453;padding: 0.1rem 0.5rem;border-radius: 0.2rem;}
+    .org{background-color: #f57a00;padding: 0.1rem 0.5rem;border-radius: 0.2rem;}
+    .red{background-color: #fc0404;padding: 0.1rem 0.5rem;border-radius: 0.2rem;}
+   
+  }
+
+  .bg-card .fg-card {
+    .potential{
+    font-size: 0.6rem;
+    color: #999999;
+    font-family: 'OpenSans-Bold';
+    height: 1.5rem;
+    }
+  
+   .earned {
+    font-size: 0.6rem;
+    color: #fff;
+    font-family: 'OpenSans-Bold';
+    height: 1.5rem;
+  }
+}
+  .bg-card .fg-card {
+    .potential-val{
+        color: #999999;
+        font-size: 1.4rem;
+        font-family: 'OpenSans-Bold';
+    }
+    .earned-val {
+        color: #fff;
+        font-size: 1.4rem;
+        font-family: 'OpenSans-Bold';
+      }
+  } 
+  
+  .bg-card .fg-card .cd-1 {
+    border: 1px solid red;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-1 {
+    border: 1px solid green;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-2 {
+    border: 1px solid orangered;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-3 {
+    border: 1px solid green;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-4 {
+    border: 1px solid red;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-5 {
+    border: 1px solid green;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .cd-6 {
+    border: 1px solid orangered;
+    margin-bottom: 0%;
+    margin-top: 0.5rem;
+  }
+  
+  .bg-card .fg-card .dd {
+    background-color: transparent;
+    outline: none;
+    color: white;
+    border: none;
+    font-size: 0.6rem;
+    -webkit-appearance: none;
+    font-family: 'OpenSans-Regular';
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='15' height='13' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 1px;
+    padding-right: 1.2rem;
+  }
+  
+  .bg-card .fg-card select option {
+    background: black;
+    color: white;
+  }
+  
+  .bg-card .fg-card .d-down {
+    background-color: #525151;
+    margin: 0%;
+    padding: .3rem 0;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .bg-card .bt-card {
+    text-align: center;
+    font-size: 0.5rem;
+    line-height: 1rem;
+  }
+
+
+  
+  .brand-dd select {
+    outline: none;
+    color: black;
+    border: none;
+    font-size: 1.4rem;
+    -webkit-appearance: none;
+    font-family: 'OpenSans-Bold';
+    background: transparent;
+    background-image: url("../../../assets/images/dropdwn_arw.png");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 65%;
+    letter-spacing: -0.1rem;
+  }
+  
+ 
+  .brand-dd select option {
+    font-size: 0.75rem;
+    background-color: white;
+    color: black;
+    float: right;
+    padding: .5rem !important;
+    margin-left: 4rem !important;
+  }
+.bdrgrn{
+    box-shadow: 0 0 11px 0px #5d5d5d; background: #02a54f;height: 5px;
+  }
+  .bdrorg{
+    box-shadow: 0 0 11px 0px #5d5d5d; background: #f57903;height: 5px;
+  }
+  .bdrred{
+    box-shadow: 0 0 11px 0px #5d5d5d; background: #c70000;height: 5px;
+  }
+  .brand_logo{
+    width: 100%;  height: 15px; background:url(../../../assets/images/Norton.png) no-repeat right; 
+    background-size: contain;display: flex;align-items: center;
+  }
+  .block1 {
+    background: linear-gradient(45deg, #282828, #575757);
+    color: #fff;
+    height: 45px;
+    padding:0 15px;
+    border-radius: 5px 5px 0 0;
+    font-family: 'OpenSans-Bold' !important;
+    display: flex;
+    align-items: center;
+    font-size: .9rem;;
+}
+.block2{
+    background: linear-gradient(105deg, #373737, #707070);
+    color: #fff;
+    text-align: center;
+    padding: 35px 6px;
+    height: 130px;
+}
+.block3{
+    background: linear-gradient(105deg, #414141, #7d7d7d);
+    color: #fff;
+    text-align: center;
+    padding: 25px 6px;
+    height: 110px;
+}
+
+div.containerdiv > div:nth-of-type(odd) {
+  background: linear-gradient(105deg, #3c3c3c, #707070);
+  // color: #fff;
+  // text-align: center;
+  padding: 25px 6px;
+}
+
+.block4{
+    background: linear-gradient(105deg, #3c3c3c, #707070);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+.block5{
+    background: linear-gradient(105deg, #4c4b4b, #7d7d7d);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    line-height: 1;
+
+ span{font-size: .6rem; color: #ccc; text-transform: uppercase;}
+}
+.block6{
+    background: linear-gradient(105deg, #4a4a4a, #707070);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+.fntbld{
+    font-weight: 700;font-size: 1rem;
+}
+._itaLic{
+    font-style: italic;
+}
+.blk_ftr{background: linear-gradient(45deg, #282828, #575757); height: 40px; 
+    text-align: center; padding: 5px; border-radius: 0 0 5px 5px;}
+
+    .popover__title {
+      font-size: 18px;
+      text-decoration: none;
+      color: rgb(233, 213, 213);
+      text-align: center;
+      padding: 5px 0;
+      }
+      .tooptip{
+        background-color: whitesmoke;
+        color:black
+      }
+    
+      .popover__content {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left:60px;
+     // bottom:20px;
+      transform: translate(40px, 10px);
+      background-color: white;
+      padding: 1rem;
+      box-shadow: 0 2px 5px 0 rgba(243, 234, 234, 0.26);
+     width: auto;
+      }
+    
+      
+      .popover__content:before {
+        position: absolute;
+        /*  z-index: -1; */
+        content: "";
+        left: calc(50% - 10px);
+        bottom: -9px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;   
+        border-top: 10px solid white;
+        
+        
+        
+        }
+     
+        .popover__wrapper:hover .popover__content {
+        z-index: 10;
+        opacity: 1;
+        visibility: visible;
+        transform: translate(80px, 0);
+        transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+       margin-top: -5rem;
+       // margin-bottom: 5rem;
+        }
+     
+        .popover__message {
+          text-align: center;
+          color:rgb(15, 15, 15);
+          position: relative;
+          }
+          button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+          }
+          #tipContent{
+            background-color: whitesmoke;
+            color: rgb(22, 21, 21);
+          }

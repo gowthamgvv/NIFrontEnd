@@ -1,0 +1,323 @@
+.group{
+    h3{font-size: 1.3rem;font-family: 'GothamMedium'!important; margin: 0;}
+    h6{font-size: .9rem;font-family: 'Gotham\ Bold'!important; margin: 0;
+      span{font-family: 'Gotham\ Book\ Regular';}
+    }
+    input{height: 35px; font-size: .8rem; color: #333;}
+    input::placeholder{color: #ccc;}
+  
+    .form-group{margin: 0;}
+    .custom-control-label::before{top: .05rem;}
+    .custom-checkbox .custom-control-label::before{border: 1px solid #333;background: #ffffff;}
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background: #669b43;}
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after{background: transparent;}
+  
+  }
+  
+  .hol-grp{
+  width: auto;
+  height: 400px;
+  overflow: auto;
+  font-size: .8rem;
+  text-transform: uppercase;
+  #grp ul{padding: 0;}
+  #grp li{list-style: none;font-family:'Gotham\ Bold'!important; cursor: pointer;}  
+  #grp ul.sub-nav {padding: 0;
+      li{list-style: none; font-size: .7rem; padding-left: .8rem;font-family: 'Gotham\ Book\ Regular'!important;}
+    }
+  #grp ul.visible {display: block;}
+  
+  }
+  
+  .save_btn{width: 100px; height: 25px; border-radius: 5px; cursor: pointer; text-transform: uppercase; padding:3px; background: #00a453 !important; color: #ffffff; text-align: center;;;}
+  /* width */
+  .hol-grp::-webkit-scrollbar {
+  width: 5px;
+  }
+  
+  /* Track */
+  .hol-grp::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  }
+  
+  /* Handle */
+  .hol-grp::-webkit-scrollbar-thumb {
+  background: rgba(0, 128, 0, 0.808); 
+  border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .hol-grp::-webkit-scrollbar-thumb:hover {
+  background: green; 
+  }
+  
+  
+  .choose{
+  input{height: 25px;}
+  }
+  .choose-str{
+  width: auto;
+  height: 300px;
+  overflow: auto;
+  
+  label {
+      display: flex;
+      align-items: center;
+    }
+    input[type=checkbox]{
+      flex: none;
+      margin-top: 10px;
+    }
+    
+  }
+  
+  .RoleHeader{
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  /* width */
+  .choose-str::-webkit-scrollbar {
+  width: 5px;
+  }
+  
+  /* Track */
+  .choose-str::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  }
+  
+  /* Handle */
+  .choose-str::-webkit-scrollbar-thumb {
+  background: rgba(0, 128, 0, 0.808); 
+  border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .choose-str::-webkit-scrollbar-thumb:hover {
+  background: green; 
+  }
+
+  .select {
+    color: #669b43;
+    font-weight: bold;
+  }
+  .box{
+    height: 300px; 
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+// .box>* {
+//   flex: 1 1 80px; 
+ 
+// }
+  .savebutton {
+    background: #669b43;
+    border: 1px solid #669b43;
+    border-radius: 3px;
+    padding: 5px;
+    outline: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+   }
+   .btn-gry{width: 120px; text-align: center; padding: 2px 5px;  border-radius: 3px; cursor: pointer; color: #fff; margin: 0 5px;
+    background: #ccc; border: none; text-transform: uppercase;}
+    .btn-gry:hover, .btn-gry.active{background: #669b43;}
+    
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+      height: 60%;
+      background-color: #fbfdff;
+    }
+    
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .permissionscard{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+      height: 90%;
+   //   background-color: #fbfdff;
+      background-image: linear-gradient(white, rgb(235, 235, 255));
+    }
+    .permissionscard:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    .UserHeading{
+     // padding-top: 5px;
+      padding:15px 0 15px 2px;
+      font-family: 'OpenSans-Regular'!important;
+      font-size: 18px;
+    //  border-bottom: 1px solid black;
+    }
+   
+    .tabledata:hover  .close {
+      cursor: pointer;
+      background: rgb(211, 208, 208);
+      color: black;
+      display:flex;
+    }
+
+    .close{
+    display: none;
+    }
+    .username{
+      font-size: 16px;
+      text-transform: capitalize;
+    }
+    .scroll_div_user {
+      height: calc(100% - 59px);
+      width: 100%;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: absolute;
+     padding: 2px 2px 2px 2px;
+     }
+    #scrollMe::-webkit-scrollbar-track
+{
+ -webkit-box-shadow: inset 0 0 6px #101110;
+ background-color: #F5F5F5;
+}
+
+#scrollMe::-webkit-scrollbar
+{
+ width: 6px;
+ background-color: #F5F5F5;
+}
+
+#scrollMe::-webkit-scrollbar-thumb
+{
+ background-color: #17a256;;
+}
+    .title{font-size: 12.5px; overflow: hidden; font-weight: bold;  text-overflow: ellipsis;font-family: "OpenSans-Bold" !important; }
+    .contentss {width: 100%;height:500px;overflow-x: hidden;}
+    .contentss::-webkit-scrollbar {width: 5px;height: 8px;background-color: #3f3f3f;}
+     .contentss::-webkit-scrollbar-thumb {width: 5px;height: 8px;background-color: #00a453;border-radius: 3px;}
+
+     .cont {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      left:25px;
+      top:10px;
+    }
+    .cont input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #eee;
+      border: 1px solid #4e4848;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .cont:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+    
+    /* When the checkbox is checked, add a blue background */
+    .cont input:checked ~ .checkmark {
+     // background-color: #2196F3;
+   background-color: #669b43;
+    }
+    
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    /* Show the checkmark when checked */
+    .cont input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    /* Style the checkmark/indicator */
+    .cont .checkmark:after {
+      left: 8px;
+      top: 4px;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  .des{
+      background-color: #669b43;;
+      padding: 15px;
+      }
+      .name{
+          color:white;
+          font-size: 18px;
+          font-weight: 600;
+      }
+
+      .addIcon{
+        filter: invert(1);
+        width: 6%;
+        cursor: pointer;
+      }
+    
+          //------------------popup---------------------------------------------------------------
+          .brand_heading{font-size: 18px;text-align: center;text-decoration: underline;color: #00a453;}
+          .modal-content{position: relative;display: flex;flex-direction: column;width: 80%;pointer-events:auto;background-color: white;background-clip: padding-box;border: 1px solid rgba(0,0,0,.2);border-radius: .3rem;outline: 0;height: auto;}
+          .modal-header{display: flex;align-items: flex-start;justify-content: space-between;padding: 1rem 1rem;border-bottom: none;border-top-left-radius:calc(.3rem - 1px);border-top-right-radius: calc(.3rem - 1px);}
+          .modal { //position: fixed; 
+            //left: 113px;top: 30%
+            margin-left: 8%;}
+          .modal-body {margin-bottom: 3rem;}
+          .txtbxwidth{width: 410px;height: 35px;}
+          .popupbtns{
+            margin-left: 125px;
+          }
+      
+          .confirmTitle {
+            margin-left: 24%;
+        }
+      
+        .savebuttonPopup {
+          background: #669b43;
+          border: 1px solid #669b43;
+          border-radius: 3px;
+          padding: 5px;
+          outline: 0;
+          font-weight: 400;
+          font-size: 14px;
+          color: #fff;
+          text-transform: uppercase;
+          width: 100%;
+          //margin-left: 48%;
+          }
+    
+          .errormessage{
+            color: red;
+          }

@@ -1,0 +1,110 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(253, 251, 251);
+    overflow-x: hidden;
+    transition: 0.9s;
+    padding-top: 10px;
+  }
+
+  .sidebar ul{
+      padding-top: 20px;
+  }
+
+  .sidebar ul li a{
+  //  padding: 8px 20px 8px 210px;
+  //   text-decoration: none;
+  //   font-size: 15px;
+  //   font-weight: bold;
+  //   color: #030303;
+  //   display: block;
+  //   transition: 0.3s;
+  //  // text-align: right;
+  //  float: right;
+  //   background-image: linear-gradient(white, rgb(202, 202, 209));
+  //   cursor: pointer;
+
+    padding: 8px 20px 8px 14px;
+    width: 100%;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #030303;
+    display: block;
+    transition: 0.3s;
+    float: right;
+    background-image: linear-gradient(white, #cacad1);
+    cursor: pointer;
+    text-align: right;
+  }
+ 
+  .sidebar ul li ul{
+    padding-top: 5px;
+}
+  .sidebar ul li ul li a{
+    padding: 14px 20px 8px 32px;
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: bold;
+     color: #030303;
+     display: block;
+     transition: 0.9s;
+     text-align: right;
+     background-image: linear-gradient(white, rgb(202, 202, 209));
+     cursor: pointer;
+   }
+
+  .btn-circle {
+      margin-top: 15%;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: rgb(175, 170, 170);
+        color: rgb(250, 249, 249);
+        padding: 7px 9px;
+        border: none;
+        border-radius: 50px;
+  }
+  
+  .btn-close {
+    margin-top: 5%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #afaaaa;
+    color: #faf9f9;
+    padding: 7px 9px;
+    border: none;
+    border-radius: 50px;
+    float: right;
+    margin-right: 10%;
+   }
+ 
+  .fa-chevron-left{
+    float: left;
+    margin-top: 7%;
+    color: #a09c9c;
+    padding: 3%;
+  }
+
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  // .redclass{
+  // transform: rotateZ(+180deg);
+  // }
+
+
+
+
+
+

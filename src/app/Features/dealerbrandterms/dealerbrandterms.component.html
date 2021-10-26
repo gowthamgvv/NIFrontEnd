@@ -1,0 +1,150 @@
+
+<div class="bg">
+    <app-header></app-header>
+    <div class="col-12 col-lg-12 mt-2" style="margin-top:5% !important;font-family: 'OpenSans-Regular' !important;">
+        <div class="row justify-content-center" style="margin-top: 6%;">
+            <div class="col-12 col-lg-12">
+
+                
+             
+
+                <div *ngIf="showPanel" style="margin-left: 35%;">
+                    <form [formGroup]="termGroupForm">
+                
+                        <div class="">
+                            <div class="row">
+                                <div class="col-12 col-lg-10">
+                                    <div class="brandtermcls" >
+                                        <div class="form-group">
+                                            <div formArrayName="yesORnoValues" class="mt-2">
+                                                <div *ngFor="let term of yesORnoValues.controls; let idx = index" [formGroupName]="idx" class="d-flex">
+                                    
+                                                    <label class="col-lg-4 align-self-center">{{term.value.TermName}}</label>
+                                    
+                                                    <div class="col-lg-10">
+                                                        <label class="switch">
+                                                            <input class="switch-input" type="checkbox" formControlname="idx"
+                                                                (change)="getValue($event,idx)"
+                                                                [checked]="TermscheckVal(termGroupForm.get('yesORnoValues').value[idx].checkedValue)">
+                                                            <span class="switch-label" data-on="Yes" data-off="No"></span>
+                                                            <span class="switch-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <!-- <div>
+                                                                                                                        <small class="errormessage" *ngIf="submitted && dynamicForm.controls.termValues.controls[idx].get('idx').errors?.required">Value is required</small>
+                                                                                                                      </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div formArrayName="textArray" class="mt-2">
+                                                <div *ngFor="let term of textArray.controls; let i = index" [formGroupName]="i" class="d-flex">
+                                    
+                                                    <label class="col-lg-4 align-self-center">{{term.value.TermName}}</label>
+                                                    <div class="col-lg-6">
+                                                        <input formControlName="i" >
+                                                    </div>
+                                                    <!-- <div>
+                                                        <small class="errormessage"
+                                                            *ngIf="submitted && termGroupForm.controls.textArray.controls[i].get('i').errors?.required">Value
+                                                            is
+                                                            required</small>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-group">
+                                            <div formArrayName="optionArray" class="mt-2">
+                                                <div *ngFor="let termoption of optionArray.controls; let opt = index" [formGroupName]="opt" class="d-flex">
+                                    
+                                                    <label class="col-lg-4 align-self-center">{{termoption.value.TermName}}</label>
+                                                    <div class="col-lg-6">
+                                                        <select formControlName="opt" id="{{'t'+opt }}" title="{{termoption.value.TermName}}">
+                                    
+                                                            <option value="">Select </option>
+                                                            <option *ngFor="let val of termsOptions[opt]" [value]="val.to_id">{{val.to_Name}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ml-3">
+                                        <input value="Save" class="col-5 col-lg-5 save_btn" style="margin-left: 5px !important;"
+                                            type="submit" (click)="OnSubmit()">
+                                        <input value="Cancel" class="col-5 col-lg-5 save_btn" style="margin-left: 5px !important;"
+                                            type="submit" (click)="OnCancel()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div *ngIf="showGrid" style="margin-top: 6%;">
+                    <div class="contentss">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                 
+                                  <th scope="col">Term Name</th>
+                                  <th scope="col">Value</th>
+                                  <th scope="col">Updated User</th>
+                                  <th scope="col">Created Date</th>
+                                  <th scope="col">Next Updated Time</th>
+                        
+                                </tr>
+                              </thead>
+                            <tbody>
+                                <ng-container
+                                    *ngIf="dealerTermsDetails.length!=0; else noItems">
+                                    <tr *ngFor="let item of dealerTermsDetails">
+                                        <td style="width: 30%;text-align: left  ;">
+                                            <div>
+                                                {{item.TermName}}
+                                            </div>
+                                        </td>
+
+                                       
+                                       
+                                        <td style="width: 15%;text-align: left  ;" >
+                                            <div *ngIf="item.TermType!=3 && item.DT_VALUE !=''">{{item.DT_VALUE}}</div>
+                                            <div *ngIf="item.TermType!=3 && item.DT_VALUE == ''">---</div>
+                                            <div *ngIf="item.TermType==3">{{item.Dropdownvalue}}</div>
+                                        </td>
+                                       
+                                        <td style="width: 20%;text-align: left  ;">
+                                            <div>
+                                                {{item.UserName}}
+                                            </div>
+                                        </td>
+                                        <td style="width: 20%;text-align: left  ;">
+                                            <div>
+                                                {{item.CreatedDate}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>{{item.DT_NEXTUPDATE_DATE}}</div>
+                                        </td>
+                                 
+                                    </tr>
+                                    <ng-container *ngIf="!dealerTermsDetails.length && hide"
+                                        [ngTemplateOutlet]="noItems"></ng-container>
+                                </ng-container>
+                                <ng-template #noItems>
+                                    <tr>
+                                        <td colspan="9" style="text-align: center;">No Dealer Terms Available!</td>
+                                    </tr>
+                                </ng-template>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

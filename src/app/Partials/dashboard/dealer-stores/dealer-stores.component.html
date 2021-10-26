@@ -1,0 +1,95 @@
+
+<div class="dealer_store contentsScroll" style="width:100%;">
+    <div class="table-responsive " style="overflow-x: hidden;">
+        <div class="table w-100 brand_table ">
+          <table  style="overflow-x: hidden;">
+              <colgroup>
+                  <col span="4">
+                  <!-- <col [ngClass]="{'outlined': inctvStorInfo.length !== 0}"> -->
+                  <col span="5">
+                </colgroup>
+            <thead>
+                <tr colspan="9">
+                    <th width="1%" colspan="1">&nbsp;</th>
+                    <th width="20%" class="text-left" colspan="1">Stores</th>
+                    <th width="12%" colspan="1">available <br> bonus</th>
+                    <th width="12%" colspan="1">Bonus <br>Earned</th>
+                    <th width="11%" colspan="1">projected <br> earnings</th>
+                    <th width="10%" colspan="1">progress <br> to goal</th>
+                    <th width="10%" colspan="1">inventory</th>
+                    <th width="10%" colspan="1">qualified</th>
+                    <th width="12%" colspan="1">recommendations</th>
+                </tr> 
+            </thead>
+            <tbody >
+      <ng-container *ngIf="inctvStorInfo; else noIncItems">
+         <ng-container *ngFor="let strInfo of inctvStorInfo;let i = index;">
+
+             
+                  <tr style="height:2.5rem;" colspan="9" [ngClass]="{'activetr': globalIndx === i}">
+                          <td width="1%" colspan="1" style="cursor:pointer;" (click)="onStoreClick(i,strInfo.dealerid)">
+                             <div style="padding-left: 1rem;"><img  [src]="globalIndx === i? dwnArwImg : upArwImg"></div>
+                          </td>
+                          <td width="20%" colspan="1" class="text-left"  [ngClass]="{'activetd': globalIndx === i}">{{strInfo.dealername}}</td>     
+                          <td width="12%" colspan="1"  [ngClass]="{'activetd': globalIndx === i}"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strInfo.availbonus.toString() }}</span> </td>
+                          <td width="12%" colspan="1" [ngClass]="{'activetd': globalIndx === i}"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strInfo.bonusearned.toString() | number }}</span> </td>
+                          <td width="11%" colspan="1" class="highlight"  [ngClass]="{'activetd': globalIndx === i}"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strInfo.projectedearn.toString() | number }}</span> </td>
+                          <td width="10%" colspan="1">
+                              <!-- <div><div [ngClass]="{'goal_grn':strInfo.progressgoal>80, 'goal_ornage': strInfo.progressgoal>=60 && strInfo.progressgoal<=80, 'goal_red':strInfo.progressgoal<60}">{{strInfo.progressgoal}}%</div> </div> -->
+                              <div><div [ngClass]="{'goal_grn':strInfo.progressgoal>80, 'goal_ornage': strInfo.progressgoal>=60 && strInfo.progressgoal<=80, 'goal_red':strInfo.progressgoal<60}">--</div> </div>
+                            </td>
+                          <td width="10%" colspan="1">
+                              <img *ngIf="strInfo.inventory.toString() === 'Y'"  [src]="invSafe">
+                              <img *ngIf="strInfo.inventory.toString() === 'I' " [src]="invCaution">
+                              <img *ngIf="strInfo.inventory.toString() === 'N' " [src]="invAlert">
+                              <span *ngIf="strInfo.inventory.toString() === 'D'">--</span>
+                          </td>
+                          <td width="10%" colspan="1">
+                              <img *ngIf="strInfo.qualified.toString() === 'Y'" [src]="invSafe">
+                              <img *ngIf="strInfo.qualified.toString() === 'I'" [src]="invCaution">
+                              <img *ngIf="strInfo.qualified.toString() === 'N'" [src]="invAlert">
+                              <span *ngIf="strInfo.qualified.toString() === 'D'">--</span>
+                          </td>
+                          <!-- <td width="12%" colspan="1" [ngClass]="{'activelasttd':globalIndx === i}">{{strInfo.recommendation}}</td> -->
+                          <td width="12%" colspan="1">--</td>
+                      </tr> 
+                      <tr class="brndempty" style="line-height: 10px;">
+                          <td width="1%" colspan="1"></td>
+                          <td width="20%" colspan="1"></td>
+                          <td width="12%" colspan="1"></td>
+                          <td width="12%" colspan="1" class="highlight"></td>
+                          <td width="11%" colspan="1"></td>
+                          <td width="10%" colspan="1"></td>
+                          <td width="10%" colspan="1"></td>
+                          <td width="10%" colspan="1"></td>
+                          <td width="12%" colspan="1"></td>
+                      </tr>
+                
+                   <tr *ngIf="globalIndx === i">
+                       <td colspan="9" style="background: transparent !important;">
+                          <div>
+                              <app-store-incentives [storeDealerId]="clkDealerId" [strIncentiveInfo]="storIncntvInfo"></app-store-incentives>
+                          </div>
+                       </td>
+                    </tr>
+            
+          </ng-container>
+          <ng-container *ngIf="!inctvStorInfo.length" [ngTemplateOutlet]="noIncItems"></ng-container>
+        </ng-container>
+     
+          <ng-template #noIncItems>
+          <tr style="height: 2.5rem">
+              <td colspan="9">{{this.Result}}</td>
+          </tr>
+     
+     
+      </ng-template>
+            </tbody>
+          </table>
+          <div class="alert" [class.visible]="isVisible"> 
+            There {{this.ackcount}} that may be applicable for your dealer.
+          </div>
+        </div>
+    </div> 
+
+</div>

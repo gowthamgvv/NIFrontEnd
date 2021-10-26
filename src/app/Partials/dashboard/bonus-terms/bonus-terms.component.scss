@@ -1,0 +1,78 @@
+.bonus{
+  .updated_time{font-size: 10px;}
+  table{width: 100%;}
+
+  .adjThead{
+    padding: 0px;
+    background: #646363;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    border: none !important;
+    text-transform: capitalize;
+    vertical-align: middle !important;
+    padding: 0px;
+    font-size: 16px;
+    font-family: "OpenSans-Regular" !important;
+}
+  
+
+.brand_full_details{width: 100%; background: #000;font-family: 'OpenSans-Semibold'!important; padding:1rem; display: flex; align-items: center;; color: #fff; font-size: 16px;;}
+.brand_full_details span{ font-size: 13px; margin-left: 1rem;font-family: 'OpenSans-Regular'!important;}
+
+.terms_details{font-size: 12px;font-family: 'OpenSans-Regular'!important;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+    table{width: 100%; border-collapse: collapse;border-spacing: 0;}
+    thead{border: none!important;}
+    th.termshead{background:#646363; color: #fff; text-align: center;letter-spacing: 1px; border: none!important; text-transform: capitalize;vertical-align: middle!important;padding:0.25rem; font-size: 16px; font-family: 'OpenSans-Regular'!important; ;}
+    td{ padding:.1rem .5rem; color: #000000; background: #fff; vertical-align: middle!important;font-family: 'OpenSans-Semibold';  font-size: 10px; text-align: left;}
+    tr:nth-child(odd) td {background: #e5e5e5!important; } 
+   td.highlight{font-family: 'OpenSans-ExtraBold'!important; text-align: center;}
+   td.due{color: #ff0000;}
+   td:last-child{text-align: center; font-family: 'OpenSans-Bold'!important;}
+   /* tbody tr:hover td {background-color:#BCD2E5 !important;} */
+   tr:last-child td{border-bottom: 5px solid #fff;}
+   tr{line-height:1.25rem;}
+   }
+
+.prog_goal{width: 100%;background-image: linear-gradient(to right, #1f95b2, #1eb099, #1fae2e);
+    font-size: 9px; text-transform: uppercase;; color: #fff; padding: 0.5rem ;font-family: 'OpenSans-Regular'!important;
+ span{font-size: 20px;font-family: 'OpenSans-ExtraBold'!important;}
+ label{font-size: 11px; margin: 0 5px 0 0;}
+ h6{font-size: 12px; margin: 0 10px; text-transform: capitalize; }
+ h3{font-size: 22px;text-shadow: 1px 0px 2px #000000; margin: -4px 0 0; font-family: 'OpenSans-ExtraBold'!important;
+  // animation: revolveScale .8s forwards;
+  //   @keyframes revolveScale {
+  //       60% {
+  //           transform: translate(0, 20px) rotate(-360deg) scale(.5);
+  //         }
+        
+  //         100% {
+  //           transform: translate(0) rotate(0deg) scale(1);
+  //           opacity: 1;
+  //         }
+  //      }
+    }
+}
+.recomAnchor{
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+.brand_details{font-size: 12px;font-family: 'OpenSans-Regular'!important; margin: 0 ;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    table{width: 100%; border-collapse: collapse;border-spacing: 0; background: #ffffff;}
+    thead{border: none!important;}
+    th{background:#ffffff; color: #000; text-align: center; border: none!important; text-transform: capitalize;vertical-align: top!important;padding:0 1rem 5px .2rem; font-size: 14px; font-family: 'OpenSans-ExtraBold'!important; ;}
+    td{ padding: 0.3rem 1rem; color: #000000; background: #fff; vertical-align: middle!important;font-family: 'OpenSans-Semibold'!important;  font-size: 14px; text-align: center;}
+    td:first-child{text-align: left;}
+    tr:nth-child(odd) td {background: #e5e5e5!important; } 
+   td.highlight{font-family: 'OpenSans-ExtraBold'!important; text-align: center;}
+   td.pmodel{font-size: 16px;font-family: 'OpenSans-Bold'!important; border-bottom: 2px solid #fff;}
+   td.pmodel .model{font-size: 16px;font-family: 'OpenSans-ExtraBold'!important;}
+   td.pmodel .model span{font-style: 11px; font-style: italic;font-family: 'OpenSans-Regular'!important; }
+   td.pmodel label{margin: 0;}
+   th:first-child{ padding: .2rem 1rem 0; text-align: left; font-size: 12px!important;font-family: 'OpenSans-ExtraBold'!important;}
+   th:first-child span{font-family: 'OpenSans-Regular'!important; font-size: 11px;}
+   }
+
+   .termshead{background:#646363; color: #fff; text-align: center;letter-spacing: 1px; border: none!important; text-transform: capitalize;vertical-align: middle!important;padding:0.25rem; font-size: 16px; font-family: 'OpenSans-Regular'!important; ;}
+}

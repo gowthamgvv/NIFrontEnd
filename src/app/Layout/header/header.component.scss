@@ -1,0 +1,21 @@
+.Countdown_Monthend {
+  margin-top: 15px;
+}
+.dsselect{
+  margin: 0;
+    font-family: inherit;
+    font-size: 0.8rem;
+    line-height: inherit;
+    border-radius: 0.3rem;
+    padding: 3px;
+    cursor: pointer;
+    width: 150px;
+    margin: 34px -61px;
+    position: absolute;
+    height: 200px;
+}
+.dsselect::-webkit-scrollbar {width: 5px;height: 8px;background-color: #cccccc;}
+.dsselect::-webkit-scrollbar-thumb {width: 5px;height: 8px;background-color: #00a453;border-radius: 3px;}
+.dsselect option:hover {
+  background-color:  #007bff;
+}

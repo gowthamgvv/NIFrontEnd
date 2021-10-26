@@ -1,0 +1,1955 @@
+{
+    "vehicles": [
+        {
+            "vehicleId": 404630,
+            "description": "2020 Toyota Corolla SE CVT (Natl)"
+        }
+    ],
+    "vehicleIdGrid": [
+        {
+            "vehicleId": 404630,
+            "programList": [
+                22269911,
+                22270721,
+                22268868,
+                22269899,
+                22270665,
+                22272463,
+                22269305,
+                22269923,
+                22270693,
+                22269935,
+                22270637,
+                22128366
+            ]
+        }
+    ],
+    "captiveGrid": [
+        {
+            "transType": "loan",
+            "programList": [
+                22270721,
+                22268868,
+                22269305,
+                22269935,
+                22128366
+            ]
+        },
+        {
+            "transType": "lease",
+            "programList": [
+                22269305
+            ]
+        },
+        {
+            "transType": "cash",
+            "programList": []
+        }
+    ],
+    "nonCaptiveGrid": [],
+    "stackabilityGrid": [
+        {
+            "programId": 22270637,
+            "availableWith": [
+                22269305,
+                22272463
+            ]
+        },
+        {
+            "programId": 22272463,
+            "availableWith": [
+                22269923,
+                22269911,
+                22270665,
+                22269305,
+                22270637
+            ]
+        },
+        {
+            "programId": 22270721,
+            "availableWith": [
+                22268868,
+                22269305,
+                22128366
+            ]
+        },
+        {
+            "programId": 22268868,
+            "availableWith": [
+                22270721,
+                22270693,
+                22269899,
+                22269305,
+                22269935,
+                22128366
+            ]
+        },
+        {
+            "programId": 22270665,
+            "availableWith": [
+                22269305,
+                22272463
+            ]
+        },
+        {
+            "programId": 22269911,
+            "availableWith": [
+                22269305,
+                22272463
+            ]
+        },
+        {
+            "programId": 22269899,
+            "availableWith": [
+                22268868,
+                22269305
+            ]
+        },
+        {
+            "programId": 22269935,
+            "availableWith": [
+                22268868,
+                22269305,
+                22128366
+            ]
+        },
+        {
+            "programId": 22270693,
+            "availableWith": [
+                22268868,
+                22269305
+            ]
+        },
+        {
+            "programId": 22269923,
+            "availableWith": [
+                22269305,
+                22272463
+            ]
+        },
+        {
+            "programId": 22269305,
+            "availableWith": [
+                22269923,
+                22270721,
+                22269911,
+                22270693,
+                22268868,
+                22269899,
+                22270665,
+                22272463,
+                22269935,
+                22270637,
+                22128366
+            ]
+        },
+        {
+            "programId": 22128366,
+            "availableWith": [
+                22270721,
+                22268868,
+                22269305,
+                22269935
+            ]
+        }
+    ],
+    "lenders": [
+        {
+            "lenderId": "US-17",
+            "programs": [
+                {
+                    "programId": 22128366,
+                    "programNumber": "",
+                    "programName": "Standard APR",
+                    "programDescription": "Toyota US Standard APR - National excl. Southeast",
+                    "categoryId": 101,
+                    "categoryDescription": "Finance Rate",
+                    "geoDescription": "Toyota US Missouri - St. Louis",
+                    "national": false,
+                    "market": "Retail",
+                    "effectiveDate": "2021-05-28",
+                    "expiryDate": "2021-12-31",
+                    "endRecipient": "Customer",
+                    "source": "OEM",
+                    "taxRule": "Not Applicable",
+                    "type": "Finance",
+                    "offerType": "Public",
+                    "groupAffiliationId": 0,
+                    "groupAffiliation": "No Specific Group Affiliation",
+                    "previousOwnershipId": 0,
+                    "previousOwnership": "No Previous Ownership Requirement",
+                    "marketScope": "Guaranteed",
+                    "vehicleStatuses": [
+                        "New"
+                    ],
+                    "vehicleAttribute": "",
+                    "qualificationsMet": true,
+                    "programValues": {
+                        "requirements": "",
+                        "valueVariations": [
+                            {
+                                "tiers": [
+                                    {
+                                        "code": "1+",
+                                        "ficoLow": 720,
+                                        "ficoHigh": 850,
+                                        "description": "Good"
+                                    }
+                                ],
+                                "programValues": [
+                                    {
+                                        "terms": [
+                                            {
+                                                "month": 1,
+                                                "from": 1,
+                                                "to": 11,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$1,003.41 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$1,003.41 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$1,003.83 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$1,003.20 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$1,002.99 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$1,004.24 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 12,
+                                                "from": 12,
+                                                "to": 23,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$85.19 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$85.19 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$85.42 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$85.08 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$84.96 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$85.65 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 24,
+                                                "from": 24,
+                                                "to": 35,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$43.46 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$43.46 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$43.69 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$43.35 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$43.24 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$43.91 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 36,
+                                                "from": 36,
+                                                "to": 47,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$29.56 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$29.56 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$29.79 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$29.45 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$29.34 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$30.01 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 48,
+                                                "from": 48,
+                                                "to": 59,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$22.62 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$22.62 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$22.84 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$22.51 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$22.40 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$23.07 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 60,
+                                                "from": 60,
+                                                "to": 60,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$18.46 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.46 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.68 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.34 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.23 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.91 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 61,
+                                                "from": 61,
+                                                "to": 62,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$18.18 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.18 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.41 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.07 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.96 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.64 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 63,
+                                                "from": 63,
+                                                "to": 63,
+                                                "value": 4.09,
+                                                "financialDisclosure": "$17.67 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.67 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.89 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.84,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.55 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.59,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.44 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.09,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$18.12 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 64,
+                                                "from": 64,
+                                                "to": 65,
+                                                "value": 4.19,
+                                                "financialDisclosure": "$17.46 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.19,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.46 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.69,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.69 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.94,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.35 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.69,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.24 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.19,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.92 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 66,
+                                                "from": 66,
+                                                "to": 66,
+                                                "value": 4.19,
+                                                "financialDisclosure": "$16.99 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.19,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.99 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.69,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.22 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 3.94,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.88 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.69,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.76 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.19,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.45 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 67,
+                                                "from": 67,
+                                                "to": 71,
+                                                "value": 4.49,
+                                                "financialDisclosure": "$16.90 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.90 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.13 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 4.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.79 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.67 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$17.36 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 72,
+                                                "from": 72,
+                                                "to": 72,
+                                                "value": 4.49,
+                                                "financialDisclosure": "$15.87 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.87 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.10 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 4.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.75 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.64 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.33 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 73,
+                                                "from": 73,
+                                                "to": 74,
+                                                "value": 4.49,
+                                                "financialDisclosure": "$15.68 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.68 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.91 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 4.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.57 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.45 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.14 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 75,
+                                                "from": 75,
+                                                "to": 75,
+                                                "value": 4.49,
+                                                "financialDisclosure": "$15.32 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 4.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.32 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 4.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.55 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 4.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.20 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 3.99,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.09 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.78 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 76,
+                                                "from": 76,
+                                                "to": 83,
+                                                "value": 5.74,
+                                                "financialDisclosure": "$15.73 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 5.74,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.73 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 6.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.96 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.61 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 5.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$15.49 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 6.74,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$16.20 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "month": 84,
+                                                "from": 84,
+                                                "to": 84,
+                                                "value": 5.74,
+                                                "financialDisclosure": "$14.48 per Month per $1,000 Financed",
+                                                "valueType": "%",
+                                                "ltv": [
+                                                    {
+                                                        "rangeBottom": 90.01,
+                                                        "rangeTop": 110,
+                                                        "value": 5.74,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$14.48 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 110.01,
+                                                        "rangeTop": 120,
+                                                        "value": 6.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$14.72 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 80.01,
+                                                        "rangeTop": 90,
+                                                        "value": 5.49,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$14.37 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 1,
+                                                        "rangeTop": 80,
+                                                        "value": 5.24,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$14.25 per Month per $1,000 Financed"
+                                                    },
+                                                    {
+                                                        "rangeBottom": 120.01,
+                                                        "rangeTop": 150,
+                                                        "value": 6.74,
+                                                        "valueType": "%",
+                                                        "financialDisclosure": "$14.97 per Month per $1,000 Financed"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "programRules": [
+                        {
+                            "type": "Qualification",
+                            "description": "Must finance through TFS."
+                        }
+                    ],
+                    "institutions": [
+                        {
+                            "id": "US-17",
+                            "code": "17",
+                            "description": "Toyota Financial Services",
+                            "isOem": true
+                        }
+                    ],
+                    "deliveryTypes": [
+                        "Non-subvented Finance"
+                    ]
+                }
+            ],
+            "rebates": []
+        }
+    ],
+    "oemRebates": [
+        {
+            "programId": 22268868,
+            "programNumber": "2021-007-COL",
+            "programName": "Retail College Graduate",
+            "programDescription": "Toyota US Retail College Graduate - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-10-04",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 28,
+            "groupAffiliation": "College/Student",
+            "groupAffiliationDetail": "College Graduate",
+            "previousOwnershipId": 0,
+            "previousOwnership": "No Previous Ownership Requirement",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 47,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 48,
+                                        "from": 48,
+                                        "to": 59,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 60,
+                                        "from": 60,
+                                        "to": 71,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 72,
+                                        "from": 72,
+                                        "to": 72,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "All eligible schools must be located within the 50 United States, Puerto Rico or the U.S. Virgin Islands. In all cases, graduates have two years from receipt of their degree to take advantage of the program. Dealer participation eligibility is driven by program rate type (standard or subvened and retail or lease). Please refer to the applicable rate letter for full participation eligibility details."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "To obtain the College Graduate Rebate, you must be (1) enrolled in or be a graduate from an Eligible School, (2) fulfill an Eligible Degree Status and (3) provide proof of Eligible Degree Status all as defined under college graduate rebate program guidelines. Must be approved for credit by, and fiance \"the Vehicle\" through a participating Dealer and Toyota Financial Service (TFS)."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Retail Finance",
+                "Non-subvented Finance"
+            ]
+        },
+        {
+            "programId": 22269899,
+            "programNumber": "2021-016",
+            "programName": "Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Special Retail)",
+            "programDescription": "Toyota US Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Special Retail) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, email communication distributed",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Sienna, Tundra and Tacoma lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "programValues": [
+                            {
+                                "cash": 500
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Customers must meet all of the following requirements: Be an existing, current Sienna, Tacoma, or Tundra lessee; Lease maturity date must occur between specified dates; Obtain credit approval to lease vehicle from TFS; Must enter into a new lease agreement. The lease agreement must be assigned to TFS; Lessee remains obligated to pay all remaining monthly payments and any other amounts, outstanding fees, and charges due according to the terms and conditions of their current TFS lease contract (if applicable)."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Customer on the original lease agreement or customer from the same household must enter into a lease or retail agreement with TFS."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Retail Finance"
+            ]
+        },
+        {
+            "programId": 22269911,
+            "programNumber": "2021-016",
+            "programName": "Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Special Lease)",
+            "programDescription": "Toyota US Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Special Lease) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, email communication distributed",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Sienna, Tundra and Tacoma lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "programValues": [
+                            {
+                                "cash": 1000
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Customers must meet all of the following requirements: Be an existing, current Sienna, Tacoma, or Tundra lessee; Lease maturity date must occur between specified dates; Obtain credit approval to lease vehicle from TFS; Must enter into a new lease agreement. The lease agreement must be assigned to TFS; Lessee remains obligated to pay all remaining monthly payments and any other amounts, outstanding fees, and charges due according to the terms and conditions of their current TFS lease contract (if applicable)."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Customer on the original lease agreement or customer from the same household must enter into a lease or retail agreement with TFS."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Lease"
+            ]
+        },
+        {
+            "programId": 22269923,
+            "programNumber": "2021-016",
+            "programName": "Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Standard Lease)",
+            "programDescription": "Toyota US Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Standard Lease) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, email communication distributed",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Sienna, Tundra and Tacoma lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 36,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Customers must meet all of the following requirements: Be an existing, current Sienna, Tacoma, or Tundra lessee; Lease maturity date must occur between specified dates; Obtain credit approval to lease vehicle from TFS; Must enter into a new lease agreement. The lease agreement must be assigned to TFS; Lessee remains obligated to pay all remaining monthly payments and any other amounts, outstanding fees, and charges due according to the terms and conditions of their current TFS lease contract (if applicable)."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Customer on the original lease agreement or customer from the same household must enter into a lease or retail agreement with TFS."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Non-subvented Lease"
+            ]
+        },
+        {
+            "programId": 22269935,
+            "programNumber": "2021-016",
+            "programName": "Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Standard Retail)",
+            "programDescription": "Toyota US Kansas City Toyota Lease Loyalty Program (Tundra, Tacoma and Sienna) (Standard Retail) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, email communication distributed",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Sienna, Tundra and Tacoma lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 47,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 48,
+                                        "from": 48,
+                                        "to": 59,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 60,
+                                        "from": 60,
+                                        "to": 71,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 72,
+                                        "from": 72,
+                                        "to": 83,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 84,
+                                        "from": 84,
+                                        "to": 84,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Customers must meet all of the following requirements: Be an existing, current Sienna, Tacoma, or Tundra lessee; Lease maturity date must occur between specified dates; Obtain credit approval to lease vehicle from TFS; Must enter into a new lease agreement. The lease agreement must be assigned to TFS; Lessee remains obligated to pay all remaining monthly payments and any other amounts, outstanding fees, and charges due according to the terms and conditions of their current TFS lease contract (if applicable)."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Customer on the original lease agreement or customer from the same household must enter into a lease or retail agreement with TFS."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Non-subvented Finance"
+            ]
+        },
+        {
+            "programId": 22270637,
+            "programNumber": "2021-002",
+            "programName": "Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Standard Lease)",
+            "programDescription": "Toyota US Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Standard Lease) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-10-04",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, e-mail communication distributed.",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Camry G/H, RAV4 G/H, Highlander G/H and Corolla lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 36,
+                                        "value": 1000,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "To redeem the offer, customers must: Obtain credit approval to lease or finance a NEW Toyota vehicle from the dealer and TFS during the program period; and customer(s) from the original lease agreement must fulfill one of the following: i. Submit their Toyota Lease Loyalty Certificate to the dealership, or ii. Provide the unique Certificate number to the dealership, or iii. Have the dealership confirm their eligibility & obtain their unique Certificate number from CLS, CSC or TFS DSSO."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "At least one customer from the original lease agreement OR customer from the same household must enter into a lease or retail agreement for a new Toyota vehicle assigned to TFS. Transferable within the same household. Limit one (1) certificate per lease or finance transaction."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Non-subvented Lease"
+            ]
+        },
+        {
+            "programId": 22270665,
+            "programNumber": "2021-002",
+            "programName": "Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Special Lease)",
+            "programDescription": "Toyota US Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Special Lease) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, e-mail communication distributed.",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Camry G/H, RAV4 G/H, Highlander G/H and Corolla lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "programValues": [
+                            {
+                                "cash": 1000
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "To redeem the offer, customers must: Obtain credit approval to lease or finance a NEW Toyota vehicle from the dealer and TFS during the program period; and customer(s) from the original lease agreement must fulfill one of the following: i. Submit their Toyota Lease Loyalty Certificate to the dealership, or ii. Provide the unique Certificate number to the dealership, or iii. Have the dealership confirm their eligibility & obtain their unique Certificate number from CLS, CSC or TFS DSSO."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "At least one customer from the original lease agreement OR customer from the same household must enter into a lease or retail agreement for a new Toyota vehicle assigned to TFS. Transferable within the same household. Limit one (1) certificate per lease or finance transaction."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Lease"
+            ]
+        },
+        {
+            "programId": 22270693,
+            "programNumber": "2021-002",
+            "programName": "Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Special Retail)",
+            "programDescription": "Toyota US Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Special Retail) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-08-02",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, e-mail communication distributed.",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Camry G/H, RAV4 G/H, Highlander G/H and Corolla lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "programValues": [
+                            {
+                                "cash": 500
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "To redeem the offer, customers must: Obtain credit approval to lease or finance a NEW Toyota vehicle from the dealer and TFS during the program period; and customer(s) from the original lease agreement must fulfill one of the following: i. Submit their Toyota Lease Loyalty Certificate to the dealership, or ii. Provide the unique Certificate number to the dealership, or iii. Have the dealership confirm their eligibility & obtain their unique Certificate number from CLS, CSC or TFS DSSO."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "At least one customer from the original lease agreement OR customer from the same household must enter into a lease or retail agreement for a new Toyota vehicle assigned to TFS. Transferable within the same household. Limit one (1) certificate per lease or finance transaction."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Retail Finance"
+            ]
+        },
+        {
+            "programId": 22270721,
+            "programNumber": "2021-002",
+            "programName": "Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Standard Retail)",
+            "programDescription": "Toyota US Regional Toyota Lease Loyalty Program (Camry, RAV4, Highlander and Corolla) (Standard Retail) - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-10-04",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 144,
+            "groupAffiliation": "Direct Mail",
+            "groupAffiliationDetail": "Direct mail distributed, e-mail communication distributed.",
+            "previousOwnershipId": 42,
+            "previousOwnership": "Lease Loyalty",
+            "previousOwnershipDetail": "Maturing Camry G/H, RAV4 G/H, Highlander G/H and Corolla lease.",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 47,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 48,
+                                        "from": 48,
+                                        "to": 59,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 60,
+                                        "from": 60,
+                                        "to": 71,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 72,
+                                        "from": 72,
+                                        "to": 83,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 84,
+                                        "from": 84,
+                                        "to": 84,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "To redeem the offer, customers must: Obtain credit approval to lease or finance a NEW Toyota vehicle from the dealer and TFS during the program period; and customer(s) from the original lease agreement must fulfill one of the following: i. Submit their Toyota Lease Loyalty Certificate to the dealership, or ii. Provide the unique Certificate number to the dealership, or iii. Have the dealership confirm their eligibility & obtain their unique Certificate number from CLS, CSC or TFS DSSO."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "At least one customer from the original lease agreement OR customer from the same household must enter into a lease or retail agreement for a new Toyota vehicle assigned to TFS. Transferable within the same household. Limit one (1) certificate per lease or finance transaction."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Non-subvented Finance"
+            ]
+        },
+        {
+            "programId": 22272463,
+            "programNumber": "2021-008-MIL",
+            "programName": "Lease Military Appreciation",
+            "programDescription": "Toyota US Lease Military Appreciation - National excl. Southeast",
+            "categoryId": 123,
+            "categoryDescription": "Bonus Cash",
+            "geoDescription": "Toyota US Kansas City",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-07",
+            "expiryDate": "2021-10-04",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Cash",
+            "offerType": "Public",
+            "groupAffiliationId": 27,
+            "groupAffiliation": "Military",
+            "groupAffiliationDetail": "Must be an inactive reserve or in current active duty status in the U.S. Military",
+            "previousOwnershipId": 0,
+            "previousOwnership": "No Previous Ownership Requirement",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "tiers": [
+                            {
+                                "code": "1+",
+                                "ficoLow": 720,
+                                "ficoHigh": 850,
+                                "description": "Good"
+                            }
+                        ],
+                        "programValues": [
+                            {
+                                "terms": [
+                                    {
+                                        "month": 1,
+                                        "from": 1,
+                                        "to": 11,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 12,
+                                        "from": 12,
+                                        "to": 23,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 24,
+                                        "from": 24,
+                                        "to": 35,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 36,
+                                        "from": 36,
+                                        "to": 47,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    },
+                                    {
+                                        "month": 48,
+                                        "from": 48,
+                                        "to": 48,
+                                        "value": 500,
+                                        "valueType": "$"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Must be in current active duty status in the U.S. Military (Navy, Army, Air Force, Marines, National Guard, Coast Guard and active Reserve); OR a U.S. Military inactive reserves (Ready Reserve) that are part of the Individual Ready Reserve, Selected Reserve and Inactive National Guard; OR an honorably discharged veteran of the U.S. Military within two calendar years of their discharge date; OR a retired U.S. Military, regardless of the date of separation from active service; OR a Household member of an eligible U.S. Military personnel. Dealer participation eligibility is driven by program rate type (standard or subvened and retail or lease). Please refer to the applicable rate letter for full participation eligibility details."
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Provide verifiable proof of military status or proof of active service, required at the time of purchase, in the form of one of the following documentations: 1) Leave and Earning Statement, Military Identification Card (no photo copy required to be sent to TFS), Veterans/Retirees DD Form-214 (Not all applicants with a DD-214 will qualify. Applicant must be honorably discharged within two calendar years or retired). 2) Receive a salary sufficient to cover ordinary living expenses and vehicle payments. 3) Be credit approved by TFS."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Lease",
+                "Non-subvented Lease"
+            ]
+        }
+    ],
+    "additionalPrograms": [
+        {
+            "programId": 22269305,
+            "programNumber": "2021-021",
+            "programName": "Global Professional Pilot Program - Limited Credit",
+            "programDescription": "Toyota US Global Professional Pilot Program - Limited Credit",
+            "categoryId": 119,
+            "categoryDescription": "Special Program",
+            "geoDescription": "Toyota US National excluding Southeast",
+            "national": false,
+            "market": "Retail",
+            "effectiveDate": "2021-07-01",
+            "expiryDate": "2021-09-30",
+            "endRecipient": "Customer",
+            "source": "OEM",
+            "taxRule": "Unknown",
+            "type": "Special Program Type",
+            "offerType": "Public",
+            "groupAffiliationId": 38,
+            "groupAffiliation": "Targeted",
+            "groupAffiliationDetail": "Foreign Residents without sufficient credit history",
+            "previousOwnershipId": 0,
+            "previousOwnership": "No Previous Ownership Requirement",
+            "marketScope": "Conditional",
+            "vehicleStatuses": [
+                "New"
+            ],
+            "vehicleAttribute": "",
+            "qualificationsMet": true,
+            "programValues": {
+                "requirements": "",
+                "valueVariations": [
+                    {
+                        "programValues": [
+                            {
+                                "description": "This program is designed to assist foreign residents with limited credit history who may qualify to finance or lease a vehicle through participating Toyota dealers and TFS."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "programRules": [
+                {
+                    "type": "Eligibility",
+                    "description": "Limited credit file customers receive Tier 1 upon meeting the below qualifications. 0-3 trade lines OR credit bureau report file is 12 months or less AND Not currently past due on any tradelines AND Zero Major Derogs. Zero Major Derogs defined as: Never been 60 Days Past Due (DPD) or higher, No Charge-offs, Collections, Repossessions or Foreclosures ever. For example, if a customer has been 30 DPD (no limit), but never 60 or 90 DPD, and meet all other qualifications, they could qualify for the program. U.S. Residents with established professional work outside the U.S. for a period of at least the most recent 60 months. Green card holders meeting similar Professional Visa criteria"
+                },
+                {
+                    "type": "Qualification",
+                    "description": "Qualified customers receive Tier 1 pricing. Max Payment-To-Income Ratio: 10%. Max Debt-To-Income Ratio: 45%. Down Payment (Retail) / Capitalized Cost Reduction (Lease) of 10% of MSRP. Selling Price/Agreed Upon Value Required."
+                }
+            ],
+            "institutions": [
+                {
+                    "id": "US-17",
+                    "code": "17",
+                    "description": "Toyota Financial Services",
+                    "isOem": true
+                }
+            ],
+            "deliveryTypes": [
+                "Subvented Retail Finance",
+                "Subvented Lease",
+                "Non-subvented Finance",
+                "Non-subvented Lease"
+            ]
+        }
+    ]
+}

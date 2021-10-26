@@ -1,0 +1,74 @@
+   .holmon{
+
+    .brand_smllogo{display: flex;align-items: center;width:100%;}
+    .brand_smllogo .image{height: 100%;width:100px;display: flex;align-items: center; padding: 0.5rem;align-items: center;
+      justify-content: center;margin-right: .1rem;}
+    .brand_smllogo .image img{height: 40px; filter: grayscale(100%);}
+    .brand_smllogo .image:hover{background: #00a453; cursor: pointer;}
+    .brand_smllogo .image.active{background: #00a453; }
+
+    .brand_type  ul{ list-style:none;overflow:hidden;padding: 0; height: 100%; margin: 0; background: #252525;font-family: 'OpenSans-Regular'!important;}
+    .brand_type ul li{ display:block;}
+    .brand_type ul li a{display:block;padding: 5px;color:#818181 !important;text-transform:uppercase;
+    font-size:10px; background: #252525; text-align: center;}
+    .brand_type ul li a:hover{background: #00a453; color:#ffffff !important;font-family: 'OpenSans-Bold'!important; text-decoration: none; cursor: pointer;}
+    .brand_type ul li a.active{background: #00a453;color:#ffffff !important; font-family: 'OpenSans-Bold'!important;text-decoration: none; cursor: pointer;}
+   
+    .checkboxCss {
+      background: #00a453;
+      color: #fff!important;
+      font-family: OpenSans-Bold!important;
+      text-decoration: none;
+      cursor: pointer; width: 130px;
+      font-size: 10px !important;
+    }
+
+    .UncheckboxCss {
+      //background: #00a453;
+      color: #fff!important;
+      font-family: OpenSans-Bold!important;
+      text-decoration: none;
+      cursor: pointer; width: 130px;
+      font-size: 10px !important;
+    }
+
+    .highlight{ background-color: #00a453; color: #fff!important; font-family: OpenSans-Bold!important;
+      text-decoration: none;
+      cursor: pointer; width: 130px;
+      font-size: 10px !important; }
+    
+    // .highlight{ background-color: #252525; color: #818181!important; }
+
+    .custom-checkbox .custom-control-label::before {
+      width: 0px !important;
+      height: 0px !important;
+      opacity: 0 !important;
+  }
+
+  .custom-checkbox .custom-control-label::after {
+    opacity: 0 !important;
+}
+
+.custom-control-label {
+  width: 100%; cursor: pointer;
+}
+.btnInccls{
+  margin: 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    color:#333;
+    border: 1px solid #aaa;
+}
+.Inchighlight{ background-color: #00a453;color: #fff;}
+
+}
+
+    // @media screen and (min-width: 1600px) {
+    //   .holmon{
+    //         .opentr{
+    //           width:100%;margin-left: 21.5px !important;
+    //         }
+
+    //         .Bonus_spanright { margin-right: 35% !important;}
+    //   }
+    // }

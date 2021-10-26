@@ -1,0 +1,96 @@
+<div class="gradient_bg holmon">
+   <app-header></app-header> 
+   <div class="brands">
+       <div class="col-lg-12 pl-lg-0" style="margin-top:10px;">
+           <div class="row">
+               <div class="col-lg-2 col-6 py-2 text-center brand_logo pl-lg-0" style="cursor:pointer;" (click)="loadHolman()">
+                   <img src="http://throttleapi.azaz.com/api/resources/images/{{dlrGrpLogo}}" onerror="this.src='assets/images/default.png'">
+                </div>
+               <div class="col-lg-1 col-6 pl-lg-0 brand_type" *ngIf="ShowBrandsData">
+                   <!-- <ul>
+                       <li (click)="onLogoClick('D')"><a class="active" [ngClass]="{'active':glbLogoType==='D'}">Domestic</a></li>
+                       <li (click)="onLogoClick('I')"><a class="active" [ngClass]="{'active':glbLogoType==='I'}">Import</a></li>
+                       <li (click)="onLogoClick('L')"><a class="active" [ngClass]="{'active':glbLogoType==='L'}">Luxury/Exotic</a></li>
+                   </ul> -->
+                   <!-- <div *ngFor="let item of BrandsData;let i=index">
+                    <div class="custom-control custom-checkbox checkboxCss" [ngClass]="{'highlight' : selectedIndex.indexOf(i)!==-1}">
+                        <input type="checkbox" class="custom-control-input" id="customCheck{{i}}"
+                            [value]="item.val" [checked]="item.checked=='Y'" (change)="onCheckboxChange($event,i)">
+                        <label class="custom-control-label"
+                            for="customCheck{{i}}">{{item.text}}</label>
+                    </div>
+                </div> -->
+
+                <div *ngFor="let item of BrandsData;let i=index" class="dvChk">
+                    <div class="custom-control custom-checkbox checkboxCss" [ngClass]="{'highlight' : selectedIndex.indexOf(i)!==-1}" >
+                        <input type="checkbox" class="custom-control-input" id="customCheck{{i}}"
+                            [value]="item.val" [checked]="item.checked=='Y'" (change)="onCheckboxChange($event,i)">
+                        <label class="custom-control-label"
+                            for="customCheck{{i}}">{{item.text}}</label>
+                    </div>
+                </div>
+                   
+               </div>
+               <div class="col-lg-9 brand_smllogo" style="overflow-x: hidden;">
+                    <div class="image" [ngClass]="{'active': logo.brand_chrome_id === brnd_Id}" *ngFor="let logo of brndLogo" >
+                        <img (click)="redirectdashbrd(logo.brand_chrome_id)" src="http://devadmin.netimpact.com/assets/Images/BrandLogo/{{logo.brand_logo}}">
+                    </div>
+        
+               </div>
+           </div>
+       </div>
+   </div>
+   <nav class="navbar-expand-lg navbar-light" *ngIf="ShowNavbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="col-lg-12 px-0 collapse navbar-collapse region_type" id="navbarNavDropdown">
+        <div class="region_btns" style="cursor:pointer;">
+            <a [ngClass]="{'active': regnId === 0}" (click)="showData(0)">all stores</a> 
+            <a [ngClass]="{'active': list.region_iD === regnId}" *ngFor="let list of regInfo" (click)="showData(list.region_iD)"> {{ list.region_name }}</a> 
+         </div>
+      </div>
+   </nav>
+   <div class="col-12">
+       <div class="row">
+           <div class=" col-lg-9 progress_goal">
+               Average Progress to Goal: <span>0%</span>
+           </div>
+           <div class="col-lg-3 px-0 _btns">
+            <a class="active">mtd</a>
+            <a>qtd</a>
+            <a>ytd</a>
+            <a><label>Custom Range</label></a>
+           </div>
+       </div>
+   </div>
+   <div class="col-lg-12">
+      <div class="row justify-content-center">
+         <div class="col-lg-11 mt-4">
+             <div class="text-right">
+                 <span><img src="assets/images/Favorite.png"></span>
+                 <span class="pl-4"><img src="assets/images/Print.png"></span>
+                 <span class="pl-4"><img src="assets/images/Email.png"></span>
+             </div>
+         </div>
+         <div style="width: 400px;display: none">
+            <button class="btnInccls" title="OEM Incentives" (click)="getStoreIncentives('0','O')"  [ngClass]="{'Inchighlight' : selectedInc=='O'}" >OEM Incentves</button>
+            <button class="btnInccls" title="Dealer Incentives" (click)="getStoreIncentives('0','D')" [ngClass]="{'Inchighlight' : selectedInc=='D'}">Dealer Incentives</button>
+         </div>
+         <div class="col-lg-11 mt-4">
+             <div  *ngIf="glbdboardType === 'DS'">
+               <div>
+                    <app-dealer-stores [dlrstoreInfo]="inctvStorInfo" [incType]="selectedInc"  ></app-dealer-stores>
+                </div>
+                <div class="updated_time text-right">Updated: {{UpdatedDate}}</div> 
+            </div>
+
+                <div  *ngIf="glbdboardType === 'RI'"> 
+                    <app-recomnd-inventory [recomndInfo]="recmndInfo" [InctvId]="glbInctvId" [InctvName]="glbInctvName" [storeDealerId]="strDealerId"  (xRecmndClick)="onRcmndClose()"></app-recomnd-inventory>
+                </div>                               
+         </div>
+        
+      </div>
+   </div>
+   
+</div>

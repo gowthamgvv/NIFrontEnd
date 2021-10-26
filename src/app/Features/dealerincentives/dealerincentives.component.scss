@@ -1,0 +1,178 @@
+
+.bg{
+ // background: url(../assets/images/new_bg.png) no-repeat #b7b8bc;
+//background: url(../../../assets/images/new_bg.png);
+    background: url(../../../assets/images/new_bg.png) ;
+    background-size: cover;
+   width: 100%;  
+height: 100%;
+//overflow-: hidden;
+   // position: fixed;
+}
+
+
+
+.typeselect{ height: 35px;width: 123px;margin-top: -3px; outline: none; border: none !important; color: #fff !important; font-size: 12px; border-radius: 3px;background: url(../../../assets/Images/dwn_arrw.png) 94% no-repeat #454444; appearance: none;background-color: #00a453;}
+.search input {height: 24px;padding: 10px 50px 5px 10px; text-align: left;outline: none;border-radius: 3px ;
+  border: none;font-size: 12px;margin: 5px 60px 0 30px; background-color: #bdbdbd !important; color: #333 !important; background: url(../../../assets/Images/Search-Icon.png) no-repeat right;
+  ::placeholder{color: #333 !important;}
+  ::-webkit-input-placeholder{color: #333 !important;}
+  :-ms-input-placeholder {color: #333 !important;}
+}
+.search input {height: 24px;padding: 5px 35px 5px 10px; text-align: left;outline: none;border-radius: 3px ;
+  border: none;font-size: 12px;margin: 0 0 0 30px; background-color: #bdbdbd !important; 
+  color: #333 !important; background: url(../../../assets/images/Search-Icon.png) no-repeat 94%;}
+  .search input {height: 24px;padding: 5px 35px 5px 10px; text-align: left;outline: none;border-radius: 3px ;
+    border: none;font-size: 12px;margin:10px 60px 0 30px; background-color: #bdbdbd !important; 
+    color: #333 !important; background: url(../../../assets/images/Search-Icon.png) no-repeat 94%;}
+    .searchimg{float: right;position: absolute;margin: 5px -21px;}
+  
+
+table{
+  margin-top: 3%;
+  margin-left: 10%;
+  width: 80%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+ // padding: 10%;
+}
+
+.Active{
+  color: green;
+}
+
+
+
+.InActive{
+  color: red;
+}
+.justify-content-center{
+  background-image: linear-gradient(white, rgb(202, 202, 209));
+  font-size: 15px;
+  width: 80%;
+  padding: 1%;
+  margin-left: 10%;
+}
+
+td{
+  background-image: linear-gradient(white, rgb(202, 202, 209));
+  font-size: 15px;
+}
+
+.Name{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 22px 0px 5px 28px;
+}
+
+.type{
+  margin-left: 33px;
+  font-size: 15px;
+}
+
+
+.details{
+  margin-left: 34px;
+  font-size: 15px;
+}
+
+.btn-danger{
+  float: right;
+ 
+  // margin-top: 25px;
+  margin-right: 12px;
+
+}
+
+.FixedHeightContainer
+{
+  float:right;
+  height: 250px;
+  width:250px;  
+}
+.Content
+{
+  height:224px;
+   overflow:auto;
+    background:#fff;
+}
+.nostyles{
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style:hidden ;
+ // background-color: rgb(239, 240, 252);
+ background: none;
+ width: 100%;
+ white-space: pre;
+
+ // background-color: rgb(223, 225, 248);
+
+}
+.grey{
+  background-color: grey;
+}
+.green{
+  background-color: green;
+}
+
+
+.confrim_save{width: 100px;height: 25px;border-radius: 5px;cursor: pointer;
+  text-transform: uppercase;padding: 3px 0;
+  
+  background: #00a453 !important;color: #ffffff;text-align: center;border: none;}
+
+  .button{width: 100%; color: #8d8d8d; font-size: 12px; float: left; margin: 0px 5px 15px 0;
+    .outlinebtn{
+    width: 69%;
+    height: auto;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #000000;
+    background: #ffffff;
+    margin: 0 5px 0 0;
+    float: left;
+    font-size: 12px;
+}
+
+}
+
+select{width: 100%; height: 30px; outline: none;margin:0 0 10px!important;  border: 1px solid #b6b6b6 !important; padding: 0 10px !important; color: #000 !important; font-size: 12px; border-radius: 3px;background: url(../../../assets/images/Arrow-dwncircle.png) 98% no-repeat #ffffff; appearance: none;}
+
+
+::ng-deep .c-btn{width: 316px;color: #fff;border: none;height: 35px;}
+::ng-deep .pure-checkbox input[type=checkbox]+label:before {box-sizing: content-box;content: '';position: absolute;top: 50%;left: 0;border: 1px solid #aaa;width: 15px;height: 15px;margin-top: -9px;text-align: center;-webkit-transition: .4s;transition: .4s;border-radius: 3px;}
+::ng-deep .selected-list .c-btn{color: #ccc;fill: #fff !important;outline: none;width: 100%;background-color: #ffffff !important;
+border: 1px solid #ccc !important; padding: 0 10px !important; color: #333333; font-size: 12px; border-radius: 5px; appearance: none;}
+::ng-deep .selected-list .c-angle-up svg{fill:#fff !important; font-size: 8pt !important;width: 7px;}
+::ng-deep .selected-list .c-angle-down svg{fill:#fff !important; font-size: 8pt !important;width: 7px;}
+::ng-deep .c-remove {display: none;}
+::ng-deep .list-area{width: 180px;}
+::ng-deep #BrandDiv .selected-list .c-btn{background: #00a453 !important;font-size: 12px;color: #fff !important;border: none !important};
+::ng-deep #BrandDiv .cuppa-dropdown { width: 170px; margin-top: -4px;}
+::ng-deep .dropdown-list.tagToBody{ width: 180px !important; }
+
+.des{
+  background-color: #17a256;
+  padding: 15px;
+  }
+  .name{
+      color:white;
+      font-size: 18px;
+      font-weight: 600;
+  }
+  .brand_details{letter-spacing: .5px;
+    a, a:hover{color: #fff; text-decoration: none;}
+    .brand_logo{img{height: 50px; width: auto; }
+    }
+    p{margin: 0;}
+}
+.lblcolor{color: #00a453}
+
+.dealerslistcls{overflow: auto;height: 200px;width: 300px;}
+.dealerslistcls::-webkit-scrollbar {width: 5px;height: 8px;background-color: #3f3f3f;}
+.dealerslistcls::-webkit-scrollbar-thumb {width: 5px;height: 8px;background-color: #00a453;border-radius: 3px;}
+.autofillcls{overflow: auto;height: 200px;border: 1px solid #fff;background: #212529;width: 160px;z-index: 999;position: absolute;margin-top: 6px;margin-left: 80px;}
+.autofillcls::-webkit-scrollbar {width: 5px;height: 8px;background-color: #3f3f3f;}
+.autofillcls::-webkit-scrollbar-thumb {width: 5px;height: 8px;background-color: #00a453;border-radius: 3px;}

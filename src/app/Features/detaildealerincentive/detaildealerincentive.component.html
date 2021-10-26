@@ -1,0 +1,206 @@
+
+    
+        <div class="gradient_bg ">
+            <app-header></app-header>
+
+        <div class="grid-container" style="margin-top: 65px">
+          <div class="grid-item" style="margin-left: 20%;">
+              <div>
+                  <div class="d-flex align-items-center ">
+                      <div class="brand_logo mr-auto">
+                          <div  class="d-flex" style="margin-top: 20px;">
+                            <img src="{{imagebinding}}/{{BrandImage}}"
+                            width="70px">
+                               
+                          </div>
+                         
+                      </div>
+                
+                  </div>
+              </div>
+              <div class="mt-3">
+                  <div class="font-bold ">
+                      <div class="d-flex">
+                      <p style="color: #00a453"> Incentive Name:  </p>
+                      <p>&nbsp;   {{Mi_Name}}</p>  <br>
+                    </div>
+                  <div class="d-flex">
+                      <p style="color: #00a453"> Incentive Type:  </p>
+                      <p>&nbsp; {{TypeName}}</p><br>
+                  </div>
+                     <div class="d-flex">
+                          <p style="color: #00a453">Effective Date Range:  </p>
+                          <p>&nbsp; <span> {{ FromDate}} to {{ToDate}}</span></p>
+                     </div>
+                     <div class="d-flex">
+                      <p style="color: #00a453">DealerName:  </p>
+                      <p>&nbsp; <span> {{DealerName}}</span></p>
+                 </div>
+              </div>
+            </div>
+              <div class="mt-0 d-flex" *ngIf="regionsdata!='' && regionsdata !=null">
+                  <p style="color: #00a453">Region(s):  </p>
+                  <div *ngFor="let region of regionsdata">
+                  <p>&nbsp; {{region}}</p>
+                </div>
+              </div>
+             
+              <div class="mt-3">
+                  <div *ngIf="termsandconditions!=''">
+                      <div class="lblcolor d-flex"><span>Terms & Conditions</span><span class="ml-2">
+                              
+                          </span></div>
+                          <div *ngFor="let terms of termsandconditions">
+                              <p *ngIf="terms.INT_VALUE =='' && terms.MIT_TYPE==1"><li>{{terms.MIT_DISPLAYNAME}}</li></p>
+                              <p *ngIf="terms.INT_VALUE =='' && terms.MIT_TYPE==2 "><li>({{terms.MIT_DISPLAYNAME}})</li></p>
+                              <p *ngIf="terms.INT_VALUE =='' && terms.MIT_TYPE==3 "><li>{{terms.MIT_DISPLAYNAME}}</li></p>
+                              <div *ngIf="terms.MIT_TYPE==8 && terms.OptionValue !='' ">
+                                  <!-- <div *ngFor="let item of terms.OptionValue.split(',')">
+                                     <p><li>{{item.split('@')[1]}}({{terms.MIT_DISPLAYNAME}})</li></p>
+                                  </div> -->
+                              </div>
+                          </div>
+                  </div>
+              </div>
+              <div class="mt-3" *ngIf="incentivelineitems.length !=0">
+                  <div class="lblcolor">Details</div>
+                  <div *ngFor="let li of incentivelineitems; let sqn=index;">
+                      <div class="pb-2">
+                          <div class="d-flex"><p class="lblcolor">Line Header:&nbsp;</p><span>{{li.LineHeader}}</span> 
+                            </div>
+                          <div class="d-flex" *ngIf="li.Models!='' && li.Models!=null"><p class="lblcolor">Models:&nbsp;  </p><p>{{li.Models}}</p></div>
+                              <div class="d-flex" *ngIf="li.Styles!='' && li.Styles!=null"><p class="lblcolor">Styles:&nbsp;  </p><p>{{li.Styles}}</p></div>
+                                  <div class="d-flex" *ngIf="li.TierValue!='' && li.TierValue!=null"><p class="lblcolor">Tier:&nbsp;</p><p>{{li.TierValue}}</p></div>
+                                  <div class="d-flex" *ngIf="li.PerUnit!='' && li.PerUnit!=null"><p class="lblcolor">Unit Price:&nbsp;</p><p >${{li.PerUnit}} Per Unit</p></div>
+                                  <div class="d-flex" *ngIf="li.MSRP!='' && li.MSRP!=null"><p class="lblcolor">MSRP:&nbsp;</p><p >{{li.MSRP}}% MSRP</p></div>
+                       
+                          <div *ngIf="li.Varaibles!=''" style="margin-top:1%;">
+                            <div *ngFor="let varList of li.Varaibles[0].Variables[0].variable;let idx1=index;">
+  
+                              <div>
+  
+                           
+  
+                                <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">
+                             
+                                  <div *ngIf="dealeraccept=='Y'">
+                                    <div style="display:flex;">
+                                      <div>
+                                        <span class="lblcolor">{{varList.MIV_DISPLAY_NAME[0]}} :&nbsp; </span>
+                                      </div>
+                                      <div *ngIf="varList.MIV_NAME[0]==='SALESTARGET'">
+                                        <div *ngIf="varList.DS!=''" style="display:flex;">
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='1'" style="margin-left:2%;">
+                                            (>)</span>
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='2'" style="margin-left:2%;">
+                                            (<)</span> <span *ngIf="varList.DS[0].split('_')[1]==='3'"
+                                              style="margin-left:2%;"> (>=)</span>
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='4'" style="margin-left:2%;"> 
+                                            (<=)</span> <span *ngIf="varList.DS[0].split('_')[1]==='5'"
+                                              style="margin-left:2%;"> (=)</span>
+                                        </div>
+                                        <div *ngIf="varList.DS==''" style="display:flex;">
+                                        <span>Dealer Will Submit</span>
+                                        </div>
+                                      </div>
+                                      <div *ngIf="varList.MIV_NAME[0]==='UNITTARGETMIN'">
+                                      <div *ngIf="varList.DS!=''">
+                                        <div>
+                                          <span >{{varList.DS[0].split('_')[0]}}</span>
+                                        <!-- <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.DS[0].split('_')[0]}}</span> -->
+                                            
+                                        </div>
+                                      </div>
+                                      <div *ngIf="varList.DS==''">
+                                        <div>
+                                          <span>Dealer Will Submit
+                                           </span>
+                                            
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div *ngIf="varList.MIV_NAME[0]==='UNITTARGETMAX'">
+                                      <div *ngIf="varList.DS!=''">
+                                        <div>
+                                          <span >{{varList.DS[0].split('_')[0]}}</span>
+<!-- 
+                                        <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.DS[0].split('_')[0]}}</span> -->
+                                            
+                                        </div>
+                                      </div>
+                                      <div *ngIf="varList.DS==''">
+                                        <div>
+                                          <span>Dealer Will Submit
+                                           </span>
+                                            
+                                        </div>
+                                      </div>
+                                    </div>
+                                      <div *ngIf="varList.MIV_NAME[0]==='Sales Count Dealer'">
+                                   <span>     {{varList.DS[0].split('_')[0]}}</span>
+                                      </div>
+  
+                                      <div *ngIf="varList.DS!=''">
+                                        <!-- <span>{{varList.DS[0].split('_')[0]}}</span> -->
+                                        <!-- <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.DS[0].split('_')[0]}}</span> -->
+                                          <!-- <span
+                                          *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>   -->
+                                      </div>
+                                    </div>
+                                  </div>
+  
+  
+                                </div>
+  
+                                <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]!=='Y'">
+                                  <div style="display:flex;">
+                                    <div><span class="lblcolor">{{varList.MIV_DISPLAY_NAME[0]}} :&nbsp; </span>
+                                    </div>
+                                    <div *ngIf="varList.DS!=''">
+                                      <div>
+                                        <span >{{varList.DS[0].split('_')[0]}}</span>
+
+                                      </div>
+                                    </div>
+                                    <div *ngIf="varList.DS==''">
+                                      <div>
+                                        <span>Dealer Will Submit
+                                         </span>
+                                          
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+  
+              </div>
+
+              <div class="mr-3" > <input type="button" value="Back"
+                style="border: 1px solid #949393 !important;" class="btn_back" (click)="navigate()"></div>
+      </div>
+      <!-- <div class="grid-item" style="margin-top: 50px;">
+                 
+        <div class="mt-3">
+            <div style="text-decoration: underline;">Dealers List</div>
+            <div *ngIf="incentiveacceptdata.length !=0" class="dealerslistcls">
+            <div *ngFor="let item of incentiveacceptdata" >
+                <p [ngClass]="{'lblcolor' : item.IND_DealerAcept=='Y'}" >{{item.dealer_name}}</p>
+            </div>
+        </div>
+        </div>
+        
+
+   </div> -->
+  
+    </div>
+    </div>
+    
+

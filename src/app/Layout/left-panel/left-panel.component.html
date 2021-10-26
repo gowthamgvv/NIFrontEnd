@@ -1,0 +1,42 @@
+<div id="mySidebar" class="sidebar">
+  <div style="display: flex; justify-content: flex-end;">
+    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    <button class="btn-close" (click)="openNav()">
+      <a class="collapsible-header waves-effect arrow-r"></a>☰
+
+    </button>
+
+  </div>
+  <ul class="nav flex-column flex-nowrap overflow-hidden">
+    <div *ngFor="let list of Paneldata;let i=index ">
+      <li *ngIf="list.submod !=undefined">
+        <a class="nav-link collapsed" [href]="'#submenu'+i" data-toggle="collapse"
+          [data-target]="'#submenu'+i">{{list.modname}}
+        </a>
+        <div class="collapse submenu" [id]="'submenu'+i" aria-expanded="false" style="padding-top: 18%;">
+          <ul class="flex-column nav" *ngFor="let subitems of list.submod[0].data">
+            <li class="nav-item">
+              <!-- <a class="nav-link py-1"> {{subitems.smod_name}} -->
+                <a class="nav-link py-1" routerLink="/{{subitems.smod_filename}}" routerLinkActive="active" style="display:true; background-image: linear-gradient(#bcbcbc, #9c9797) !important; cursor: pointer;">                        
+                  <span style="white-space: nowrap;">{{subitems.smod_name}}</span> 
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item" *ngIf="list.submod ==undefined">
+        <a class="nav-link collapsed"  routerLink="/{{list.modpath}}" routerLinkActive="active">
+          {{list.modname}}
+          <!-- class="text-uppercase" -->
+        </a>
+      </li>
+    </div>
+  </ul>
+</div>
+
+<div id="main">
+  <button class="btn-circle" (click)="openNav()">
+    <a class="collapsible-header waves-effect arrow-r"></a>☰
+  </button>&nbsp;
+  <i class="fa fa-chevron-right" aria-hidden="true" style="color:#a09c9c"></i>
+</div>

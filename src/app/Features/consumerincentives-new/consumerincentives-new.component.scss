@@ -1,0 +1,77 @@
+
+.bg{
+    background: url(../../../assets/images/new_bg.png) ;
+    background-size: cover;
+   width: 100%;  
+height: 100%;
+padding: 74px;
+}
+
+.dashboard{
+    border-collapse: collapse;
+    font-size: 12px;
+    color: #333333;
+    width: 100%;
+    display: table;
+  }
+  
+  .dashboardHeader{
+     border-collapse: collapse;
+    font-size: 14px;
+    font-family: "Roboto-Regular";
+    width: 100%;
+    display: table;
+    margin: .8rem 0px;
+    margin-top: 3%;
+    display: none;
+  }
+  
+  
+  .dashboard th{
+    background-color: #323840;
+    font-weight: normal;
+    height: 20px;
+    padding: 10px 10px;
+    color: #fff;
+    text-transform: uppercase;
+   
+  }
+  .dashboard tbody tr:nth-child(odd){
+    font-size: 13px;
+    background-image: linear-gradient(#fff,#cacad1);
+  }
+  
+  .dashboard tbody tr:nth-child(even){
+    font-size: 13px;
+    background-image: linear-gradient(#fff,#cacad1);
+  }
+  .dashboard td{
+      height: auto;
+      padding: 10px 10px;
+      // font-size: 16px;
+      // text-align: left;
+  }
+  
+  .contentss {
+    width: 100%;
+    height:500px;
+    overflow-x: hidden;
+  }
+  
+  .contentss::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #3f3f3f;
+  }
+  
+  
+  .contentss::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 8px;
+    background-color: #00a453;
+    border-radius: 3px;
+  }
+
+  .tdspname{width: 24%; text-align: left;}
+
+  .tdsname{width: 26%; text-align: left;}

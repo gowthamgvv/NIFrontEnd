@@ -1,0 +1,86 @@
+<!--Groups-->
+<div class="col-12 group">
+    <div class="row  ml-lg-4 mt-4">
+        <div class="col-4 ">
+            <h3>Dealership Groups</h3>
+        </div>
+    </div>
+    <div class="row groups ml-lg-4 mt-2">
+        <div class="col-3">
+            <!-- <h6>Holman Group <span>(All 48 Stores)</span></h6> -->
+            <div class="hol-grp mt-2">
+                <ul id="grp" class="p-0" *ngFor="let item of dlrgrpS; let index = index"
+                    (click)="showSubItem(item,index,item.dg_id,item.dg_name)">
+                    <li class="parent">
+                        <span [ngClass]="{select: selectedUser === index}">{{item.dg_name}}</span><img
+                            src="assets/images/Arrow1.png">
+                        <ul class="sub-nav" *ngFor="let subItem of dlrshipS">
+                            <li *ngIf="visibleIndex === index">{{subItem.dealer_name}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3 mt-5" [formGroup]="dealersForm">
+            <div class="d-flex align-items-center">
+                <div>
+                    <h6>Choose Dealership</h6>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-4 col-lg-7 choose">
+                    <div class="form-group">
+                        <input id="sch-strs" class="form-control" type="text" placeholder="Search Dealerships"
+                            formControlName="txtSearch" (keyup)="onSearch()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="choose-str mt-2">
+                <!-- <form> -->
+                <div *ngIf="dlrshipS | alphaFilter : alphaSrch: alphaColumns :'aa' as Dealerdata;">
+                    <div class="custom-control custom-checkbox" *ngFor="let str of Dealerdata; let i = index;">
+                        <input type="checkbox" [disabled]="custumgrp" class="custom-control-input" [id]="str.dealer_id"
+                            [value]="str.dealer_id" name="example2" [checked]="str.dealer_checked"
+                            (change)="eventCheck($event.target,i)">
+                        <label class="custom-control-label" [for]="str.dealer_id">{{str.dealer_name}}</label>
+                    </div>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+
+        <div class="col-4 mt-5" [formGroup]="usersForm">
+            <div class="d-flex align-items-center">
+                <div>
+                    <h6>Choose Users</h6>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-4 col-lg-7 choose">
+                    <div class="form-group">
+                        <input id="sch-ppl" class="form-control" type="text" placeholder="Search Users"
+                            formControlName="usrSearch" (keyup)="userSearch()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8 choose-str mt-2">
+                <!-- <form>                     -->
+                <div *ngIf="dealersDetails | alphaFilter : usrSrch: usrColumns :'aa' as userData;">
+                    <div class="custom-control custom-checkbox" *ngFor="let usR of userData; let i = index;">
+                        <input type="checkbox" [disabled]="custumgrp" class="custom-control-input" [id]="usR.dd_id"
+                            [value]="usR.dd_id" name="example2" [checked]="true">
+                        <label class="custom-control-label" [for]="usR.dd_id">{{usR.dd_name}}</label>
+                    </div>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+        <!-- <div class="col-11">
+            <hr>
+        </div> -->
+
+    </div>
+    <!-- <div class="row ml-lg-4 mt-3 pl-lg-3">
+        <button type="button" class="btn blk-btn sv-btn">Save</button>
+    </div> -->
+
+</div>

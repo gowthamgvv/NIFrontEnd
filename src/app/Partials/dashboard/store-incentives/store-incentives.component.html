@@ -1,0 +1,95 @@
+<div class="strInc_table" >
+<div class="tbody">
+    <div *ngIf="onExpand" class="spinner_overlay" (click)="onOuterClick()"></div>
+
+<div class="storeInctvScroll">
+
+    <table >
+        <colgroup>
+            <col span="4">
+            <!-- <col class="outlined"> -->
+            <col span="5">
+          </colgroup>
+          
+      <tbody>
+   <ng-container *ngFor="let strIncItem of strIncentiveInfo;let j = index">
+       
+    <tr colspan="9" style="height:2.5rem;">
+          
+        <td width="1%" colspan="1" style="cursor:pointer;">
+            <!-- <div class="transperant"></div> -->
+            <div style="padding-left: 1rem;cursor:pointer;" routerLink="/dashboard2" [queryParams]="{inctvId: strIncItem.inid,dlrId:strDealerId}"  #incClick>
+                <img style="cursor: pointer;" src="assets/images/Arrow-upcircle.png">
+            </div>
+         
+        </td> 
+        <td colspan="1" width="19%"  class="text-left">
+              <a style="color:#212529;cursor: pointer;" (click)="onInctvClick(j, strIncItem.inid)">
+                {{strIncItem.incentivename}}
+            </a>
+        </td>
+        <td width="12%" colspan="1"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strIncItem.availbonus.toString() }}</span></td>
+        <td width="12%" colspan="1"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strIncItem.bonusearned.toString() | number}}</span></td>
+        <td width="11%" colspan="1"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright">{{strIncItem.projectedearn.toString() | number}}</span></td>
+        <td width="10%" colspan="1">
+          
+             <!-- <div [ngClass]="{'goal_grn':strIncItem.progressgoal>80, 'goal_ornage': strIncItem.progressgoal>=60 && strIncItem.progressgoal<=80, 'goal_red':strIncItem.progressgoal<60}">{{strIncItem.progressgoal}}%</div> -->
+             <div [ngClass]="{'goal_grn':strIncItem.progressgoal>80, 'goal_ornage': strIncItem.progressgoal>=60 && strIncItem.progressgoal<=80, 'goal_red':strIncItem.progressgoal<60}">--</div>
+            </td>
+        <td width="10%" colspan="1">
+            <img  *ngIf="strIncItem.inventory.toString() === 'Y'"  [src]="invStrSafe">
+            <img  *ngIf="strIncItem.inventory.toString() === 'I' " [src]="invStrCaution">
+            <img  *ngIf="strIncItem.inventory.toString() === 'N' " [src]="invStrAlert">
+            <span *ngIf="strIncItem.inventory.toString() === 'D'">--</span>
+        </td>
+        <td width="10%" colspan="1">
+            <img *ngIf="strIncItem.qualified.toString() === 'Y'" [src]="invStrSafe">
+            <img *ngIf="strIncItem.qualified.toString() === 'I'" [src]="invStrCaution">
+            <img *ngIf="strIncItem.qualified.toString() === 'N'" [src]="invStrAlert">
+            <span *ngIf="strIncItem.qualified.toString() === 'D'">--</span>
+        </td>
+        <td width="12%" colspan="1">
+            <div>
+                <!-- <label [class.recomAnchor]="strIncItem.recommendations !== 'N/A'" (click)="openRecomnd(strIncItem.inid,strIncItem.incentivename)"> {{strIncItem.recommendations}}</label>               -->
+                <label>--</label>       
+            </div>
+        </td>
+    </tr> 
+    <tr colspan="9" class="brndempty" style="line-height: 10px;">
+        <td colspan="1" width="1%"></td>                              
+        <td colspan="1" width="19%"></td>
+        <td colspan="1" width="12%"></td>
+        <td colspan="1" width="12%"></td>
+        <td colspan="1" width="11%"></td>
+        <td colspan="1" width="10%"></td>
+        <td colspan="1" width="10%"></td>
+        <td colspan="1" width="10%"></td>
+        <td colspan="1" width="12%"></td>
+    </tr>
+             <tr *ngIf="globaInctvlIndx === j">
+                 <td colspan="9" style="background: transparent !important;">
+                  <div class="pb-3 bonusTerm" style="width:99%;margin-left:1%;" #bonusTerm1>
+                    <app-bonus-terms #appTerms [storeDealerId]="strDealerId" [storeInvId]="strIncItem.inid"  [inctvDetails]="incDetailpop"></app-bonus-terms>
+                  </div>
+                 </td>
+              </tr>
+      
+    </ng-container>
+
+      </tbody>
+    </table>
+
+   
+</div>
+
+<!-- <div  *ngIf="glbRecmndPop">
+  <div  class="spinner_overlay" (click)="onRcmndOuterClick()"></div>
+    <div id="rcmcontainer">
+        <app-recomnd-inventory [recomndInfo]="recmndInfo" [InctvId]="glbInctvId" [InctvName]="glbInctvName" [storeDealerId]="strDealerId"  (xRecmndClick)="onRcmndOuterClick()"></app-recomnd-inventory>
+    </div>
+</div> -->
+
+</div>
+
+</div>
+

@@ -1,0 +1,1007 @@
+<div class="bg">
+  <div>
+    <app-header></app-header>
+    <!-- <app-holman></app-holman> -->
+   
+    <div style="margin-top: 70px;background-image: linear-gradient(to right, #616162, #888787);">
+      <div>
+
+      </div>
+      <div>
+           
+              <div>
+                  <div class="row justify-content-end" id="BrandDiv"  >
+                    <div style="padding-top: 9px;" *ngIf="this.id == 0">
+                      <angular2-multiselect  style="cursor: pointer; text-align: left; color:black" [data]="serachstores" [(ngModel)]="selectedSearchStoreItems"
+                      [settings]="storeSettings"
+                      (onSelect)="onStoreItemSelect($event)"
+                      (onDeSelect)="OnStoreItemDeSelect($event)"
+                      (onSelectAll)="onStoreSelectAll($event)"
+                      (onDeSelectAll)="onStoreDeSelectAll($event)">
+                  </angular2-multiselect>
+                  </div>&nbsp;&nbsp;
+                    <div style="padding-top: 9px;" *ngIf="this.id == 0" >
+                      <angular2-multiselect  style="cursor: pointer; text-align: left; color:black" [data]="serachBrands" [(ngModel)]="selectedSearchBrandItems"
+                      [settings]="brandSettings"
+                      (onSelect)="onBrandItemSelect($event)"
+                      (onDeSelect)="OnBrandItemDeSelect($event)"
+                      (onSelectAll)="onBrandSelectAll($event)"
+                      (onDeSelectAll)="onBrandDeSelectAll($event)">
+                  </angular2-multiselect>
+                  </div>&nbsp;&nbsp;
+                      <div style="padding-top: 8px;">
+                          <select class="typeselect" (change)="getterm($event)" >
+                              <option value='P'>Past</option>
+                              <option value='C' selected>Current</option>
+                              <option value='F'>Future</option>
+                          </select>
+                      </div>
+                     
+                
+                      <div class="search">
+                          <input type="text" placeholder="Search" #myInput
+                          [(ngModel)]="searchQuery" (ngModelChange)="searchFilter()">
+                      </div>
+                  
+                  </div>
+              </div>
+      </div>
+  </div>
+
+
+
+    <table class="table" *ngIf="id!='0'">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 5%;">&nbsp;</th>
+
+          <th scope="col" style="width: 25%;">Incentive Name</th>
+          <th scope="col" style="width: 15%;">Start Date </th>
+          <th scope="col" style="width: 15%;">End Date </th>
+          <th scope="col" style="width: 15%;">Type Name </th>
+          <th scope="col" style="width: 15%;">Created By </th>
+          <th scope="col" style="width: 15%;">Status </th>
+
+          <!-- <th scope="col">Status</th> -->
+
+
+
+        </tr>
+
+      </thead>
+      <tbody *ngFor="let list of data;let i=index">
+     
+        <tr (click)="details(list,i)">
+          <td style="width: 5%;">
+            <div>
+
+              <label class="vw" *ngIf="!list.show">
+                <i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i>
+              </label>
+              <label class="vw" *ngIf="list.show">
+                <i class="fa fa-chevron-down" style="color: black;" aria-hidden="true"></i>
+              </label>
+            </div>
+
+          </td>
+          <td style="width: 25%;"> {{list.MI_NAME}}</td>
+          <td style="width: 15%;">{{list.FromDate}}</td>
+          <td style="width: 15%;">{{list.ToDate}}</td>
+          <td style="width: 15%;"> {{list.typeName}}</td>
+
+          <td style="width: 15%;" *ngIf="list.createdby === 'O'; else elsediv">
+            <div>
+              <span>OEM</span>
+            </div>
+          </td>
+          <ng-template #elsediv>
+            <td style="width: 15%;">
+              <div>
+                <span>Dealer</span>
+
+              </div>
+            </td>
+          </ng-template>
+
+          <td style="width: 15%;">
+
+            <div>
+              <span *ngIf="list.IND_DealerAcept=='Y'">Acknowledged</span>
+            </div>
+            <div style="text-align:center;">
+              <span style="margin-right:10%" *ngIf="list.IND_DealerAcept!='Y'">---</span>
+            </div>
+
+          </td>
+
+
+
+
+
+        </tr>
+
+        <!-- <ng-template #norecordsdiv>
+            <tr>
+              <div >
+                <span>No Records Found!!!</span>
+
+              </div>
+            </tr>
+          </ng-template> -->
+
+        <tr *ngIf="list.show">
+          <td colspan="7">
+            <table style="margin-top:0px;margin-left:0px;margin-right:0px;width:100%">
+              <tr>
+                <td style="width: 25%;">
+                  <div *ngIf="incentivemaster.BrandLogo[0]!=''" class="d-flex">
+                    <!-- <div *ngFor="let ibl of IncImage.BrandLogo.split(',')"> -->
+                    <img src="{{imagebinding}}/{{incentivemaster.BrandLogo[0]}}" width="60px">
+                    <!-- </div> -->
+
+                  </div>
+                  <div>
+                    <div>
+                      {{incentivemaster.MI_NAME[0]}}
+                    </div>
+                    <div>
+                      {{incentivemaster.typename[0]}}
+                    </div>
+                  </div>
+
+
+
+                  From {{fromDate}}
+                  <br> To {{Todate}}
+
+                </td>
+                <td style="width: 20%;">
+
+                  <b>
+                    <u> Regions:</u>
+                  </b>
+                  <div *ngIf="regionsData.length != 0; else elsediv">
+                    <div *ngFor="let region of regionsData">
+
+                      <div>
+                        {{region}}
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <ng-template #elsediv>
+                    <div>
+                      <span>No Regions</span>
+                    </div>
+
+
+                  </ng-template>
+                </td>
+
+                <td style="width: 35%;">
+                  <div>
+                    <b>
+                      <u> Terms & Conditions:</u>
+                    </b>
+                    <div *ngIf="termsandconditions.length!=0; else notermsDiv">
+
+                      <div *ngFor="let tac of termsandconditions">
+                        {{tac.MIT_DISPLAYNAME}}<span>{{tac.DealerValue}}</span>
+
+                      </div>
+                    </div>
+                    <button style="cursor: pointer;" *ngIf="tncdealerspecificvalues!=0 && dealeraccept=='Y'" 
+                      (click)="hideandshow()"><img
+                      src="assets/images/edit_gry_icon.png"> </button>
+                    <ng-template #notermsDiv>
+
+                      <div>
+                        <span>No Terms & Conditions</span>
+                      </div>
+
+                    </ng-template>
+                  </div>
+                  <br>
+                  <div *ngIf="tncdealerspecificvalues!=0">
+                 
+                    <form [formGroup]="dealerspecific" *ngIf="dealeraccept=='N' || edittandc=='Y'">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                          <div class="form-group">
+
+                            <div formArrayName="quantities">
+                              <div class="col-lg-12 pl-0">
+                                <div class="row" *ngFor="let quantity of quantities().controls; let i=index"
+                                  [formGroupName]="i">
+
+                                  <div class="col-12">
+                                    <div class="formgroup grp grp_det">
+                                      <input type="text" class="nostyles" formControlName="label" [readonly]="true"
+                                        disabled="true">
+
+                                    </div>
+
+                                  </div>
+                                  <div class="col-10">
+                                    <div class="formgroup grp grp_det">
+                                      <input type="text" formControlName="values" (keyup)="onKey($event)"
+                                        class="form-control">
+
+                                    </div>
+                                  </div>
+                                  <br>
+
+                                </div>
+                                <br>
+
+                              </div>
+
+                            </div>
+                            <div class="col-lg-12 pl-0">
+                              <div class="row">
+                                <div class="col-7">
+
+                                  <label> Notes:</label>
+                                </div>
+                                <div class="col-10">
+
+                                  <textarea class="form-control" formControlName="notes" maxlength="500" rows="5"
+                                    [(ngModel)]="tncdealerspecificvalues[0].Notes" cols="10">
+                  </textarea>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+
+                      <!-- <div class="row " style="padding-bottom: 4%;" *ngIf="buttons">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-2" style="padding-top: 2%">
+                    <button  [ngClass]="btnsub ? 'grey': 'green'" type="submit" class="btn btn-secondary" id="openModalButton" [disabled]="btnsub"
+                      data-toggle="modal" data-target="#openModal" (click)="openModal()">Acknowledge</button>
+  
+  
+                  </div>
+                  <div class="col-sm-2" style="padding-top: 2%">
+                    <button type="button" class="btn btn-dark" (click)="details(list,i)">Back</button>
+  
+                  </div>
+                </div>
+   -->
+                    </form>
+                  </div>
+                </td>
+
+                <td style="width: 35%;">
+                  <div *ngIf="incentivelineitems.length !=0;else noLineItemsDiv" class="mt-2 mb-4">
+                    <b>
+                      <u> Details:</u>
+                    </b>
+                    <form [formGroup]="detailSpecFormGroup">
+                      <div *ngFor="let list of incentivelineitems;let idx=index;">
+                        <div>
+                          <div>
+                            <span>{{list.LineHeader}}</span>
+                          </div>
+                          <div *ngIf="list.ModelDetails!=''">
+                            <span>{{list.ModelDetails}}</span>
+                          </div>
+                          <div *ngIf="list.TierValue!=''">
+                            <span>{{list.TierValue}}</span>
+                          </div>
+                          <div *ngIf="list.PerUnit!='0'">
+                            <span>
+                              ${{list.PerUnit}} Per Unit
+                            </span>
+                          </div>
+                        </div>
+                        <div *ngIf="list.Varaibles!=''" style="margin-top:1%;">
+                          <div *ngFor="let varList of list.Varaibles[0].Variables[0].variable;let idx1=index;">
+
+                            <div>
+
+                              <!-- <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]!=='Y'" style="display:flex;">
+                              <span>{{varList.MIV_DISPLAY_NAME}} :</span>
+                              <span *ngIf="varList.MIV_NAME[0]==='INCENTIVEAMOUNT'" style="margin-left:2%;">$</span>
+                              <span>{{varList.inlv_value}}</span>
+                            </div> -->
+
+                              <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">
+                                <div *ngIf="dealeraccept=='N'" style="display:flex;">
+
+                                  <div *ngIf="varList.MIV_NAME[0]==='SALESTARGET'" style="width:36%;margin-right:5%;">
+                                    <select (change)="setEvalOperator($event,idx)"
+                                      style="padding:0 28px 0px 10px !important">
+                                      <option value="0">select</option>
+                                      <option value="1">>(Greater than)</option>
+                                      <option value="2">
+                                        <(Less than)</option> <option value="3">>=(Greater than or equal to)
+                                      </option>
+                                      <option value="4">
+                                        <=(Less than or equal to)</option> <option value="5">=(equal to)
+                                      </option>
+                                    </select>
+
+                                  </div>
+                                  <div class="button" style="width:50%;">
+
+                                    <input class="outlinebtn" style="width:100%;" (keypress)="numberOnly($event)"
+                                      [disabled]="dealeraccept=='Y'"
+                                      (focusout)="DealerSpecData($event,idx,varList.MIV_ID[0],list.LineId[0])"
+                                      type="text" required="required" placeholder="{{varList.MIV_DISPLAY_NAME[0]}}">
+
+                                  </div>
+                                </div>
+                                <div *ngIf="dealeraccept=='Y'">
+                                  <div style="display:flex;">
+                                    <div>
+                                      <span>{{varList.MIV_DISPLAY_NAME[0]}} : </span>
+                                    </div>
+                                    <div *ngIf="varList.MIV_NAME[0]==='SALESTARGET'">
+                                      <div *ngIf="varList.DS!=''" style="display:flex;">
+                                        <span *ngIf="varList.DS[0].split('_')[1]==='1'" style="margin-left:2%;">
+                                          (>)</span>
+                                        <span *ngIf="varList.DS[0].split('_')[1]==='2'" style="margin-left:2%;">
+                                          (<)</span> <span *ngIf="varList.DS[0].split('_')[1]==='3'"
+                                            style="margin-left:2%;"> (>=)</span>
+                                        <span *ngIf="varList.DS[0].split('_')[1]==='4'" style="margin-left:2%;">
+                                          (<=)</span> <span *ngIf="varList.DS[0].split('_')[1]==='5'"
+                                            style="margin-left:2%;"> (=)</span>
+                                      </div>
+                                    </div>
+                                    <div *ngIf="varList.MIV_NAME[0]==='Sales Count Dealer'">
+                                 <span>     {{varList.DS[0].split('_')[0]}}</span>
+                                    </div>
+
+                                    <div *ngIf="varList.DS!=''">
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0].split('_')[0]}}{{varList.MIV_PREFIX[0]}}</span>
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0].split('_')[0]}}</span>
+                                        <!-- <span
+                                        *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>   -->
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                              </div>
+
+                              <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]!=='Y'">
+                                <div style="display:flex;">
+                                  <div><span>{{varList.MIV_DISPLAY_NAME[0]}} : </span>
+                                  </div>
+                                  <div *ngIf="varList.DS!=''">
+                                    <div>
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0]}}</span>
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]=='Y'">
+                                <div style="display:flex;">
+                                  <div><span>{{varList.MIV_DISPLAY_NAME[0]}} :</span>
+                                  </div>
+                                  <div *ngIf="varList.DS!=''">
+                                    <div>
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0]}}</span>
+                                      <span
+                                        *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> -->
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row " style="padding-bottom: 4%;">
+                          <div class="col-sm-3">
+                          </div>
+
+                        </div>
+                      </div>
+                    </form>
+
+                  </div>
+                  <ng-template #noLineItemsDiv>
+
+                    <div>
+                      <b>
+                        <u> Details:</u>
+                      </b>
+                      <div>
+                        <span>No Details</span>
+                      </div>
+
+                    </div>
+                  </ng-template>
+                  <div *ngIf="dealeraccept=='N'">
+                  <div class="col-sm-2" style="padding-top: 2%" *ngIf="tncdealerspecificvalues.length!=0">
+                    <!-- <button [ngClass]="enableackowledge ? 'green': 'grey'" type="submit" class="btn btn-secondary" id="openDetailModal" [disabled]="!enableackowledge"
+                          data-toggle="modal" data-target="#openDetailSubmitModal" (click)="setDealerSpecDetail()">Acknowledge</button> -->
+                    <button [ngClass]="enableackowledge ? 'green': 'grey'" type="submit" class="btn btn-secondary"
+                      id="openDetailModal" [disabled]="!enableackowledge" data-toggle="modal"
+                      data-target="#openDetailSubmitModal" (click)="overallopenmodelpopup()">Acknowledge</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-2" style="padding-top: 2%" *ngIf="edittandc=='Y'">
+                    <!-- <button [ngClass]="enableackowledge ? 'green': 'grey'" type="submit" class="btn btn-secondary" id="openDetailModal" [disabled]="!enableackowledge"
+                          data-toggle="modal" data-target="#openDetailSubmitModal" (click)="setDealerSpecDetail()">Acknowledge</button> -->
+                    <button type="submit" class="btn btn-success" id="openModaltnc" data-toggle="modal"
+                      data-target="#openModal" (click)="edittermsandconditions()">Update</button>
+                  </div>
+                  <div class="col-sm-2" style="padding-top: 2%" *ngIf="tncdealerspecificvalues.length==0 && dealeraccept=='N'">
+                    <!-- <button [ngClass]="enableackowledge ? 'green': 'grey'" type="submit" class="btn btn-secondary" id="openDetailModal" [disabled]="!enableackowledge"
+                                                data-toggle="modal" data-target="#openDetailSubmitModal" (click)="setDealerSpecDetail()">Acknowledge</button> -->
+                    <button type="submit" class="btn btn-success" id="openDetailModal" data-toggle="modal"
+                      data-target="#openDetailSubmitModal" (click)="overallopenmodelpopup()">Acknowledge</button>
+                  </div>
+                </td>
+                <td style="width: 25%;">
+
+                  <div style="display: none;" class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row" style="padding-top: 20%;">
+
+                      <div class="col-sm-2" style="padding-top: 10%"
+                        *ngIf="tncdealerspecificvalues.length==0 && dealeraccept=='N'">
+                        <button type="submit" class="btn btn-success" id="openModalButton" data-toggle="modal"
+                          data-target="#openModal" (click)="acceptstatus()">Acknowledge2</button>
+                      </div>
+                      <div class="col-sm-2" style="padding-top: 50%"
+                        *ngIf="tncdealerspecificvalues.length!=0 && dealeraccept=='N'">
+                        <button type="submit" [ngClass]="btnsub ? 'grey': 'green'" class="btn btn-dark"
+                          id="openModalButton" data-toggle="modal" data-target="#openModal"
+                          (click)="saveDealerSpecific()">Acknowledge2</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </td>
+                <td style="width: 5%;">&nbsp;</td>
+
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+    <div *ngIf="result" class="row justify-content-center">
+    No Record Found!!!</div>
+    <table class="table" *ngIf="id =='0'">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 5%;">&nbsp;</th>
+
+          <th scope="col" style="width: 25%;">Incentive Name</th>
+          <th scope="col" style="width: 15%;">Start Date </th>
+          <th scope="col" style="width: 15%;">End Date </th>
+          <th scope="col" style="width: 15%;">Type  </th>
+          <!-- <th scope="col" style="width: 15%;">Created By </th> -->
+          <!-- <th scope="col" style="width: 15%;">Status </th> -->
+
+          <!-- <th scope="col">Status</th> -->
+
+
+
+        </tr>
+
+      </thead>
+      <tbody *ngFor="let list of dealerdata;let i=index">
+     
+        <tr (click)="detail(list,i)">
+          <td style="width: 5%;">
+            <div>
+
+              <label class="vw" *ngIf="!list.show">
+                <i class="fa fa-chevron-right" aria-hidden="true" style="color: black;"></i>
+              </label>
+              <label class="vw" *ngIf="list.show">
+                <i class="fa fa-chevron-down" style="color: black;" aria-hidden="true"></i>
+              </label>
+            </div>
+
+          </td>
+          <td style="width: 25%;"> {{list.MI_NAME}}</td>
+          <td style="width: 15%;">{{list.FromDate}}</td>
+          <td style="width: 15%;">{{list.ToDate}}</td>
+          <td style="width: 15%;"> {{list.typeName}}</td>
+
+          <!-- <td style="width: 15%;" *ngIf="list.createdby === 'O'; else elsediv">
+            <div>
+              <span>OEM</span>
+            </div>
+          </td>
+          <ng-template #elsediv>
+            <td style="width: 15%;">
+              <div>
+                <span>Dealer</span>
+
+              </div>
+            </td>
+          </ng-template>
+
+          <td style="width: 15%;">
+
+            <div>
+              <span *ngIf="list.IND_DealerAcept=='Y'">Acknowledged</span>
+            </div>
+            <div style="text-align:center;">
+              <span style="margin-right:10%" *ngIf="list.IND_DealerAcept!='Y'">---</span>
+            </div>
+
+          </td> -->
+
+
+
+
+
+        </tr>
+
+        <!-- <ng-template #norecordsdiv>
+            <tr>
+              <div >
+                <span>No Records Found!!!</span>
+
+              </div>
+            </tr>
+          </ng-template> -->
+
+          <tr *ngIf="list.show">
+            <td colspan="7" >
+              <table style="margin-top:0px;margin-left:0px;margin-right:0px;width:100%">
+                <tr>
+                  <td style="width: 25%;">
+                    <div *ngIf="incentivemaster.BrandLogo[0]!=''" class="d-flex">
+                      <!-- <div *ngFor="let ibl of IncImage.BrandLogo.split(',')"> -->
+                      <img src="{{imagebinding}}/{{incentivemaster.BrandLogo[0]}}" width="60px">
+                      <!-- </div> -->
+  
+                    </div>
+                    <div>
+                      <div>
+                        {{incentivemaster.MI_NAME[0]}}
+                      </div>
+                      <div>
+                        {{incentivemaster.typename[0]}}
+                      </div>
+                    </div>
+  
+  
+  
+                    From {{fromDate}}
+                    <br> To {{Todate}}
+  
+                  </td>
+                  <td style="width: 20%;">
+  
+                    <b>
+                      <u> Regions:</u>
+                    </b>
+                    <div *ngIf="regionsData.length != 0; else elsediv">
+                      <div *ngFor="let region of regionsData">
+  
+                        <div>
+                          {{region}}
+                        </div>
+  
+                      </div>
+  
+                    </div>
+                    <ng-template #elsediv>
+                      <div>
+                        <span>No Regions</span>
+                      </div>
+  
+  
+                    </ng-template>
+                  </td>
+  
+                  <td style="width: 35%;">
+                    <div>
+                      <b>
+                        <u> Terms & Conditions:</u>
+                      </b>
+                      <div *ngIf="termsandconditions.length!=0; else notermsDiv">
+  
+                        <div *ngFor="let tac of termsandconditions">
+                          {{tac.MIT_DISPLAYNAME}}<span>{{tac.DealerValue}}</span>
+  
+                        </div>
+                      </div>
+                      <button style="cursor: pointer;" *ngIf="tncdealerspecificvalues!=0 && dealeraccept=='Y'" 
+                        (click)="hideandshow()"><img
+                        src="assets/images/edit_gry_icon.png"> </button>
+                      <ng-template #notermsDiv>
+  
+                        <div>
+                          <span>No Terms & Conditions</span>
+                        </div>
+  
+                      </ng-template>
+                    </div>
+                    <br>
+                    <div *ngIf="tncdealerspecificvalues!=0">
+                   
+                      <form [formGroup]="dealerspecific" *ngIf="dealeraccept=='N' || edittandc=='Y'">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+  
+                              <div formArrayName="quantities">
+                                <div class="col-lg-12 pl-0">
+                                  <div class="row" *ngFor="let quantity of quantities().controls; let i=index"
+                                    [formGroupName]="i">
+  
+                                    <div class="col-12">
+                                      <div class="formgroup grp grp_det">
+                                        <input type="text" class="nostyles" formControlName="label" [readonly]="true"
+                                          disabled="true">
+  
+                                      </div>
+  
+                                    </div>
+                                    <div class="col-10">
+                                      <div class="formgroup grp grp_det">
+                                        <input type="text" formControlName="values" (keyup)="onKey($event)"
+                                          class="form-control">
+  
+                                      </div>
+                                    </div>
+                                    <br>
+  
+                                  </div>
+                                  <br>
+  
+                                </div>
+  
+                              </div>
+                              <div class="col-lg-12 pl-0">
+                                <div class="row">
+                                  <div class="col-7">
+  
+                                    <label> Notes:</label>
+                                  </div>
+                                  <div class="col-10">
+  
+                                    <textarea class="form-control" formControlName="notes" maxlength="500" rows="5"
+                                      [(ngModel)]="tncdealerspecificvalues[0].Notes" cols="10">
+                    </textarea>
+                                  </div>
+                                </div>
+  
+  
+                              </div>
+                            </div>
+                          </div>
+  
+                        </div>
+  
+  
+  
+  
+                        <!-- <div class="row " style="padding-bottom: 4%;" *ngIf="buttons">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-2" style="padding-top: 2%">
+                      <button  [ngClass]="btnsub ? 'grey': 'green'" type="submit" class="btn btn-secondary" id="openModalButton" [disabled]="btnsub"
+                        data-toggle="modal" data-target="#openModal" (click)="openModal()">Acknowledge</button>
+    
+    
+                    </div>
+                    <div class="col-sm-2" style="padding-top: 2%">
+                      <button type="button" class="btn btn-dark" (click)="details(list,i)">Back</button>
+    
+                    </div>
+                  </div>
+     -->
+                      </form>
+                    </div>
+                  </td>
+  
+                  <td style="width: 35%;">
+                    <div *ngIf="incentivelineitems.length !=0;else noLineItemsDiv" class="mt-2 mb-4">
+                      <b>
+                        <u> Details:</u>
+                      </b>
+                      <form [formGroup]="detailSpecFormGroup">
+                        <div *ngFor="let list of incentivelineitems;let idx=index;">
+                          <div>
+                            <div>
+                              <span>{{list.LineHeader}}</span>
+                            </div>
+                            <div *ngIf="list.ModelDetails!=''">
+                              <span>{{list.ModelDetails}}</span>
+                            </div>
+                            <div *ngIf="list.TierValue!=''">
+                              <span>{{list.TierValue}}</span>
+                            </div>
+                            <div *ngIf="list.PerUnit!='0'">
+                              <span>
+                                ${{list.PerUnit}} Per Unit
+                              </span>
+                            </div>
+                          </div>
+                          <div *ngIf="list.Varaibles!=''" style="margin-top:1%;">
+                            <div *ngFor="let varList of list.Varaibles[0].Variables[0].variable;let idx1=index;">
+  
+                              <div>
+  
+                                <!-- <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]!=='Y'" style="display:flex;">
+                                <span>{{varList.MIV_DISPLAY_NAME}} :</span>
+                                <span *ngIf="varList.MIV_NAME[0]==='INCENTIVEAMOUNT'" style="margin-left:2%;">$</span>
+                                <span>{{varList.inlv_value}}</span>
+                              </div> -->
+  
+                                <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">
+                                  <div *ngIf="dealeraccept=='N'" style="display:flex;">
+  
+                                    <div *ngIf="varList.MIV_NAME[0]==='SALESTARGET'" style="width:36%;margin-right:5%;">
+                                      <select (change)="setEvalOperator($event,idx)"
+                                        style="padding:0 28px 0px 10px !important">
+                                        <option value="0">select</option>
+                                        <option value="1">>(Greater than)</option>
+                                        <option value="2">
+                                          <(Less than)</option> <option value="3">>=(Greater than or equal to)
+                                        </option>
+                                        <option value="4">
+                                          <=(Less than or equal to)</option> <option value="5">=(equal to)
+                                        </option>
+                                      </select>
+  
+                                    </div>
+                                    <div class="button" style="width:50%;">
+  
+                                      <input class="outlinebtn" style="width:100%;" (keypress)="numberOnly($event)"
+                                        [disabled]="dealeraccept=='Y'"
+                                        (focusout)="DealerSpecData($event,idx,varList.MIV_ID[0],list.LineId[0])"
+                                        type="text" required="required" placeholder="{{varList.MIV_DISPLAY_NAME[0]}}">
+  
+                                    </div>
+                                  </div>
+                                  <div *ngIf="dealeraccept=='Y'">
+                                    <div style="display:flex;">
+                                      <div>
+                                        <span>{{varList.MIV_DISPLAY_NAME[0]}} : </span>
+                                      </div>
+                                      <div *ngIf="varList.MIV_NAME[0]==='SALESTARGET'">
+                                        <!-- <div *ngIf="varList.DS!=''" style="display:flex;">
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='1'" style="margin-left:2%;">
+                                            (>)</span>
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='2'" style="margin-left:2%;">
+                                            (<)</span> <span *ngIf="varList.DS[0].split('_')[1]==='3'"
+                                              style="margin-left:2%;"> (>=)</span>
+                                          <span *ngIf="varList.DS[0].split('_')[1]==='4'" style="margin-left:2%;"> 
+                                            (<=)</span> <span *ngIf="varList.DS[0].split('_')[1]==='5'"
+                                              style="margin-left:2%;"> (=)</span>
+                                        </div> -->
+                                      </div>
+                                      <div *ngIf="varList.MIV_NAME[0]==='Sales Count Dealer'">
+                                   <span>     {{varList.DS[0].split('_')[0]}}</span>
+                                      </div>
+                                     
+  
+                                      <div *ngIf="varList.DS!=''">&nbsp;&nbsp;&nbsp;
+                                        <span class="glyphicon glyphicon-info-sign" style="cursor: pointer;"><label  title="For Futher Details Please Select DealerShip">
+                                          &#8505;
+                                        </label></span>
+                                        <!-- <span
+                                          *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0].split('_')[0]}}{{varList.MIV_PREFIX[0]}}</span> -->
+                                        <!-- <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0].split('_')[0]}}</span> -->
+                                          <!-- <span
+                                          *ngIf="varList.MIV_DEALER_SPECIFIC[0]==='Y'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>   -->
+                                      </div>
+                                      <br>
+                                    </div>
+                                  </div>
+  
+  
+                                </div>
+  
+                                <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]!=='Y'">
+                                  <div style="display:flex;" *ngIf="varList.MIV_NAME[0]!='Notes'">
+                                    <div><span>{{varList.MIV_DISPLAY_NAME[0]}}: </span>
+                                    </div>
+                                    <div *ngIf="varList.DS!=''">
+                                      <div>
+                                        <span class="glyphicon glyphicon-info-sign" style="cursor: pointer;"><label  title="For Futher Details Please Select DealerShip">
+                                          &#8505;
+                                        </label></span>
+                                        <!-- <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0]}}</span>
+                                        <span
+                                          *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span> -->
+                                          
+                                      </div>
+                                    </div>
+                                    <!-- <div *ngIf="varList.MIV_NAME[0]==='Notes'">
+                                      <span></span>
+                                         </div> -->
+                                  </div>
+                                </div>
+                                <!-- <div *ngIf="varList.MIV_DEALER_SPECIFIC[0]=='Y'">
+                                  <div style="display:flex;">
+                                    <div><span>{{varList.MIV_DISPLAY_NAME[0]}} :</span>
+                                    </div>
+                                    <div *ngIf="varList.DS!=''">
+                                      <div>
+                                        <span
+                                          *ngIf="varList.MIV_PREFIX[0]!=='%'">{{varList.MIV_PREFIX[0]}}{{varList.DS[0]}}</span>
+                                        <span
+                                          *ngIf="varList.MIV_PREFIX[0]==='%'">{{varList.DS[0]}}{{varList.MIV_PREFIX[0]}}</span>
+                                          
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> -->
+  
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="row " style="padding-bottom: 4%;">
+                            <div class="col-sm-3">
+                            </div>
+  
+                          </div>
+                        </div>
+                      </form>
+  
+                    </div>
+                    <ng-template #noLineItemsDiv>
+  
+                      <div>
+                        <b>
+                          <u> Details:</u>
+                        </b>
+                        <div>
+                          <span>No Details</span>
+                        </div>
+  
+                      </div>
+                    </ng-template>
+                    <!-- <div *ngIf="dealeraccept=='N'">
+                    <div class="col-sm-2" style="padding-top: 2%" *ngIf="tncdealerspecificvalues.length!=0">
+                      <button [ngClass]="enableackowledge ? 'green': 'grey'" type="submit" class="btn btn-secondary"
+                        id="openDetailModal" [disabled]="!enableackowledge" data-toggle="modal"
+                        data-target="#openDetailSubmitModal" (click)="overallopenmodelpopup()">Acknowledge</button>
+                      </div>
+                    </div> -->
+                    <!-- <div class="col-sm-2" style="padding-top: 2%" *ngIf="edittandc=='Y'">
+                      <button type="submit" class="btn btn-success" id="openModaltnc" data-toggle="modal"
+                        data-target="#openModal" (click)="edittermsandconditions()">Update</button>
+                    </div> -->
+                    <!-- <div class="col-sm-2" style="padding-top: 2%" *ngIf="tncdealerspecificvalues.length==0 && dealeraccept=='N'">
+                      <button type="submit" class="btn btn-success" id="openDetailModal" data-toggle="modal"
+                        data-target="#openDetailSubmitModal" >Acknowledge</button>
+                    </div> -->
+                  </td>
+                  <td style="width: 25%;">
+  
+                    <!-- <div style="display: none;" class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="row" style="padding-top: 20%;">
+  
+                        <div class="col-sm-2" style="padding-top: 10%"
+                          *ngIf="tncdealerspecificvalues.length==0 && dealeraccept=='N'">
+                          <button type="submit" class="btn btn-success" id="openModalButton" data-toggle="modal"
+                            data-target="#openModal" (click)="acceptstatus()">Acknowledge2</button>
+                        </div>
+                        <div class="col-sm-2" style="padding-top: 50%"
+                          *ngIf="tncdealerspecificvalues.length!=0 && dealeraccept=='N'">
+                          <button type="submit" [ngClass]="btnsub ? 'grey': 'green'" class="btn btn-dark"
+                            id="openModalButton" data-toggle="modal" data-target="#openModal"
+                            (click)="saveDealerSpecific()">Acknowledge2</button>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div class="col-6 col-lg-6">
+               
+                      <!-- <div class="mt-3"> -->
+                          <div style="text-decoration: underline;"><b>Dealers List</b></div>
+                          <div class="dealerslistcls">
+                          <div *ngFor="let item of incentiveacceptdata" >
+                              <p [ngClass]="{'lblcolor' : item.IND_DealerAcept=='Y'}" style="cursor: pointer;" (click)="viewdetailinformation(item)">{{item.dealer_name}}</p>
+                          </div>
+                      </div>
+                      <!-- </div> -->
+                      
+              
+                 </div>
+  
+                  </td>
+                  <td style="width: 5%;">&nbsp;</td>
+  
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+      </tbody>
+
+    </table>
+    <div *ngIf="grpresult" class="row justify-content-center">
+      No Record Found!!!</div>
+  </div>
+
+
+</div>
+
+
+<div id="openModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+   aria-hidden="true" *ngIf="popup">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="popup">
+        <br>
+        <h3 class="heading-3">&nbsp;&nbsp; You want to add and track this incentive?</h3>
+
+
+        <div class="row " style="padding-bottom: 4%;">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-3" style="padding-top: 2%">
+            <button type="button" class="confrim_save mt-5" data-dismiss="modal" (click)="editdealer()">YES</button>
+
+
+          </div>
+          <div class="col-sm-2" style="padding-top: 2%">
+            <button type="button" data-dismiss="modal" class="confrim_save mt-5" (click)="cancelpopup()">Cancel</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="openDetailSubmitModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="openModalLabel"
+  aria-hidden="true" *ngIf="detailPop">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="popup">
+        <br>
+        <h3 class="heading-3">&nbsp;&nbsp; You want to add and track this incentive?</h3>
+
+
+        <div class="row " style="padding-bottom: 4%;">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-3" style="padding-top: 2%">
+            <button type="button" class="confrim_save mt-5" data-dismiss="modal"
+              (click)="overallaknowledge()">YES</button>
+
+
+          </div>
+          <div class="col-sm-2" style="padding-top: 2%">
+            <button type="button" data-dismiss="modal" class="confrim_save mt-5" (click)="cancelpopup()">Cancel</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,254 @@
+<div class="gradient_bg">
+    <app-header></app-header>
+    <div class="dealer_details">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-2 col-12 dealer">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-6">
+                            <div class="dealer_logo">
+                                <img src="http://throttleapi.azaz.com/api/resources/images/{{incentiveInfo.dealerdetails[0].dealer_logo}}">
+                            </div>
+                            <div class="form-group city_drop_dwn">
+                                <select><option>Broken Arrow, OK</option></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-12">
+                    <div class="row">
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/applic_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">New Car</div>
+                                <div class="col-lg-2 col-2 px-0 green">--</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/cpo_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">CPO</div>
+                                <div class="col-lg-2 col-2 px-0 orange">--</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/facility_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">Facility</div>
+                                <div class="col-lg-2 col-2 px-0 green">--</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/service_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">Service</div>
+                                <div class="col-lg-2 col-2 px-0 red">--</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/parts_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">Parts</div>
+                                <div class="col-lg-2 col-2 px-0 orange"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 pt-2" style="border-right: 1px solid #777;">
+                            <div class="row">
+                                <div class="col-lg-2 col-2"><img src="assets/images/csi_icon.png"></div>
+                                <div class="col-lg-6 col-6 pl-2">CSI</div>
+                                <div class="col-lg-2 col-2 px-0 green">--</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-2">&nbsp;</div>
+                                <div class="col-lg-8 col-8 px-0">
+                                    <div class="form-group drop_dwn">
+                                        <select><option>--</option></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bonus_details">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-2 text-center align-self-center"><img style="height: 40px;" src="http://throttleapi.azaz.com/api/resources/images/{{incentiveInfo.brandlogo}}"></div>
+                <div class="col-lg-6 align-self-center">{{incentiveInfo.inm_name}}</div>
+                <div class="col-lg-2 text-center align-self-center">
+                    <!-- <h1>$ {{incentiveInfo.availablebonus.toString() | number}}</h1> -->
+                    <h1>--</h1>
+                    <div class="abf_txt">Available Bonus Funds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-9 dealerprogress_goal">
+                <div class="row" style="padding-top:7px;">
+                    <div class="col-lg-3 d-lg-block d-none">&nbsp;</div>
+                    <div class="col-lg-3 col-8 col-sm-6 d-flex align-items-center justify-content-end">
+                        Program Expires in: <span>{{incentiveInfo.programexpires}}</span> Days
+                    </div>
+                    <div class="col-lg-3 col-10 col-sm-6 d-flex align-items-center justify-content-end">
+                        Required Sales: <span>{{incentiveInfo.requiredsales}}</span> Units
+                    </div>
+                    <!-- <div class="col-lg-3 col-12 col-sm-12 d-flex align-items-center justify-content-end">
+                        Progress to Goal: <span>{{incentiveInfo.progressgoal}}%</span>
+                    </div> -->
+                    <div class="col-lg-3 col-12 col-sm-12 d-flex align-items-center justify-content-end">
+                        Progress to Goal: <span>--</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 px-0 Data_btns">
+                <a class="active">mtd</a>
+                <a>qtd</a>
+                <a>ytd</a>
+                <a><label>Custom Range</label></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="table-responsive dealer_table">
+                    <table>
+                        <colgroup>
+                            <col span="3">
+                            <col class="outlined">
+                            <col>
+                            <col class="outlined">
+                          </colgroup>
+                        <thead>
+                            <tr>
+                                <th width="20%">&nbsp;</th>
+                                <th width="10%"><br> per unit<br>name</th>
+                                <th width="12%">sold <br>units</th>
+                                <th width="7%">bonus <br>earned</th>
+                                <th width="12%">projected <br>units</th>
+                                <th width="7%">projected <br> earnings</th>
+                                <th width="5%">Inventory<br>count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let inctvInfo of incentiveInfo.rawdata">
+                            <tr>
+                                <td>{{inctvInfo.DID_MODEL}}</td>
+                                <td><span class="PerUnit_spanright"> {{inctvInfo.DID_PERUNITNAME.toString() }} </span></td>
+                                <td  (click)="openDialog(inctvInfo)" class="recomAnchor" style="cursor: pointer;">{{inctvInfo.DID_SOLD_UNITS.toString() | number}}</td>
+                               
+                                <!-- (click)="getlineitemid(inctvInfo)" -->
+                                 <!-- <td class="highlight">$ {{inctvInfo.DID_BONUS_EARNED}} </td> -->
+                                <td class="highlight" style="width: 10%;"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright"> {{inctvInfo.DID_BONUS_EARNED.toString() | number }} </span></td>
+                                <td>{{inctvInfo.DID_PROJECTED_UNITS.toString() | number}}</td>
+                                <!-- <td class="highlight">$ {{inctvInfo.DID_PROJECTED_EARNINGS}}</td> -->
+                                <td class="highlight" style="width: 10%;"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright"> {{inctvInfo.DID_PROJECTED_EARNINGS.toString() | number  }} </span></td>
+                                <td class="recomAnchor" (click)="viewInventory(inctvInfo)">{{inctvInfo.DID_INVENTORY_COUNT.toString() | number}}</td>
+                            </tr>
+                            <tr class="empty">
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </ng-container>
+                        <ng-container>
+                            <tr>
+                                <td class="highlight">Total</td>
+                                <td>&nbsp;</td>
+                                <td class="hghlgt">{{totalInfo[0]}}</td>
+                                <!-- <td class="highlight">$ {{totalInfo[1]}}</td> -->
+                                <td class="highlight" style="width: 10%;"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright"> {{totalInfo[1] | number }} </span></td>
+                                <td class="hghlgt">{{totalInfo[2]}}</td>
+                                <!-- <td class="highlight">$ {{totalInfo[3]}}</td> -->
+                                <td class="highlight" style="width: 10%;"><span class="Bonus_spanleft">$</span><span class="Bonus_spanright"> {{totalInfo[3] | number }} </span></td>
+                                <td class="hghlgt">{{totalInfo[4]}}</td>
+                            </tr>
+                            <tr class="empty">
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td></td>
+                                <td class="highlight"></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </ng-container>
+                     </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-11 Recommendations">
+                <div *ngFor="let incnotes of incentiveInfo.rawdata;let i=index">
+                    <h6 *ngIf="i==0 && incnotes.DID_NOTES!='' && incnotes.DID_NOTES !=null">Notes</h6>
+                    <p *ngIf=" incnotes.DID_NOTES!='' && incnotes.DID_NOTES !=null"><li>{{incnotes.DID_NOTES}}</li></p>
+                </div>
+            </div>
+            <div style="display: none;" class="col-lg-11 Recommendations">
+                <h6>Recommendations</h6>
+                <p>Increase <strong>Bolt</strong> sales by 4 units to reach 98%. <strong>8 units in stock.</strong>  </p>
+                <p>Increase <strong>2019 Silverado </strong>sales by 3 units to reach 100%. <strong>4 units in stock.</strong></p>
+                <a>See more recommendations</a>
+            </div>
+        </div>
+      
+    </div>
+  
+    <!-- storeDealerId
+    loadByStockInfo -->
+    <!-- <div *ngIf="showInvntry" id="invntryPanel">
+        <div  class="spinner_overlay" (click)="hideInventory()"></div>
+        <div style="width:100%;"><app-inventory [loadByStockInfo]="loadInvntryByStock" (xInvtryClick)="hideInventory()"></app-inventory></div>
+    </div> -->
+</div>
+<!-- <div *ngIf="showInvntry" id="invntryPanel">
+    <div  class="spinner_overlay" (click)="hideInventory()"></div>
+    <div style="width:100%;">
+        <app-sold-units-data [parentMessage]="parentMessage" (xInvtryClick)="hideInventory()"></app-sold-units-data>
+    </div>
+</div> -->

@@ -1,0 +1,351 @@
+.drag_n_drop{
+
+ width:100%;
+
+  .selected-list .c-btn {   
+       min-height: 0px; 
+       width: 100% !important;     
+       border: 1px solid #000000 !important;     
+       color: #000000 !important;     
+       background:  url(../../../../assets/images/Arrow1.png) 98% no-repeat #ffffff !important; 
+    }
+
+ ::placeholder{color:#fff}
+ 
+ .save_btn{width: fit-content; height: 25px; border-radius: 5px; cursor: pointer; text-transform: uppercase; padding:3px 0; background: #00a453 !important; color: #ffffff; text-align: center; border: none;}
+
+ .lineitems-drag{
+    color:red !important;
+    background: #454444 !important;
+    text-align: left;
+    width:75% !important;
+    cursor:move;
+    padding: 5px !important;  border-radius: 5px !important; margin: 0 5px 0 0 !important; float: left !important;  font-size: 12px !important;
+  }
+  
+    .cdk-drag-placeholder {
+      opacity: 0;
+      cursor:move;
+    }
+    
+    .cdk-drag-animating {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+  
+  .dragged{
+      background-color: #aaa !important;
+      height: 34px;
+  }
+  .dragged select{
+      background-color: #aaa !important;
+      height: 34px;
+  }
+
+ .verContainer{
+    height: 600px;
+    position: relative;
+   
+ }
+ .vertical-center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+ }
+  
+
+
+    .drag{font-size: 10px; font-style: italic; font-family: 'OpenSans-Italic';margin: -3px 0 15px; ;}
+
+    .select-box-list-container{
+        display:flex; 
+        flex-direction:row;
+    }
+    
+    .vertical{
+        display:flex; 
+        flex-direction:column;
+    }
+    .vertical1{
+        display:flex; 
+        flex-direction:column;
+       // padding-left: 120px;
+    }
+    
+    .select-box-list{
+        /* border: 1px solid rgb(24, 23, 23); */
+        /* width:auto;
+        height: auto; */
+        /* overflow-y: scroll; */
+        width: 100%;
+        /* background-color: rgba(0, 0, 0, 0.425); */
+        // margin-bottom: 10px;
+        padding: 0px 5px 15px 5px;
+        // border: 3px solid white;
+        font-size: 14px;
+         justify-content: space-between;
+         border-radius: 5px;
+         
+    }
+    
+    .select-box-list::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    .select-box-list::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        border-radius: 5px;
+    }
+    
+    .select-box-list::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    
+    .select-box-list-item{
+        /* padding: 10px 5px; */
+        /* padding: 10px; */
+        /* border: 1px solid gray; */
+        /* border-radius: 5px; */
+    
+        min-height: 30px;
+        //background:rgba(0, 0, 0, 0.87) ;
+        border-radius: 7px;
+        //overflow: hidden;
+        display: block;
+        margin-left: 5px;
+      //  padding-top: 10px 5px;
+        width:100%;
+    //padding-left: 10px;
+    margin-bottom:2px ;
+    //border: 3px solid white;
+    color: white;
+    // justify-content: space-between;
+    white-space: nowrap;
+    }
+    
+   .selected{
+        background-color: #aaa !important;
+        height: 34px;
+        
+    }
+    
+    .select-box-buttons{
+        vertical-align: center;
+        // padding: 20px;
+        display:flex; 
+        flex-direction:column;
+        width:80px;
+        height: 250px;
+        //padding-left: 50px;
+        padding-top: 100px;
+    }
+    
+    .select-box-preview span{
+        /* background-color: BLUE;
+        border: 0.25px solid gray;
+        border-radius: 25px;
+        padding:10px; */
+        overflow: hidden;
+        display: block;
+        min-height: 30px;
+        color:white;
+        background:rgba(0, 0, 0, 0.87) ;
+        border-radius: 7px;
+        /* box-sizing: border-box; */
+        border-radius: 7px;
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        width:100%
+    }
+    
+    .select-box-placeholder span{
+        background-color: BLUE;
+        border: 0.25px solid black;
+        /* border-radius: 25px; */
+        padding:10px;
+        overflow: hidden;
+        display: block;
+        min-height: 30px;
+        color:white;
+        background:rgba(0, 0, 0, 0.87) ;
+        border-radius: 7px;
+        width:100%
+    }
+    
+    .selectbox-search{
+        height:25px;
+        width:250px;
+        color:#fff;
+    }
+   
+
+    .terms_cond{ font-family: 'OpenSans-Semibold' !important;
+        p{margin: 0;}
+        .drag{font-size: 10px; font-style: italic; font-family: 'OpenSans-Italic';margin: -3px 0 15px; ;}
+        .search{
+            input{width: 80%; height: 28px;text-align: left; padding: 5px 45px 5px 10px;outline: none;border-radius: 3px ;
+                border:none;font-size: 12px;margin: 0 !important; background-color: #cccccc !important; color: #000 !important; 
+                background: url(../../../../assets/images/Search-lt.png) 96% no-repeat ;}
+        }
+        .button{width: 100%; color: #8d8d8d; font-size: 12px; float: left; margin: 0px 5px 15px 0;
+             .outlinebtn{
+             width: 69%;
+             height: auto;
+             padding: 5px;
+             border: 1px solid #000000;
+             border-radius: 5px;
+             color: #000000;
+             background: #ffffff;
+             margin: 0 5px 0 0;
+             float: left;
+             font-size: 12px;
+        }
+    
+        }
+        input{width: 80%; height: 28px;text-align: left; padding: 5px ;outline: none;border-radius: 3px ;
+            border: 1px solid #b6b6b6;font-size: 12px;margin:0 0 10px!important; background-color: #ffffff !important; color: #000;}
+        select{width: 100%; height: 30px; outline: none;margin:0 0 10px!important;  border: 1px solid #b6b6b6 !important; padding: 0 10px !important; color: #000 !important; font-size: 12px; border-radius: 3px;background: url(../../../../assets/images/Arrow-dwncircle.png) 98% no-repeat #ffffff; appearance: none;}
+    
+        .term{max-height: 411px; overflow: auto; overflow-x: hidden; direction: rtl; padding: 0 0 0 10px; font-family: 'OpenSans-Semibold'; }
+        .term::-webkit-scrollbar {width: 6px;background-color: #aaa; border-radius: 5px; }
+        .term::-webkit-scrollbar-thumb {width: 6px;background: #00a453; border-radius: 5px;}
+        .save_btn{width: 100px; height: 25px; border-radius: 5px; cursor: pointer; text-transform: uppercase; padding:3px ; background: #00a453 !important; color: #ffffff !important; text-align: center;;;}
+
+        .input-icons span {
+            position: absolute;
+        }
+          
+        .input-icons {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            text-align: left;
+            padding: 5px 10px 5px 20px;
+        }
+    }
+
+    .details{ font-family: 'OpenSans-Semibold';
+        input{width: 80%; height: 28px;text-align: left; padding: 5px ;outline: none;border-radius: 3px ;
+            border: 1px solid #b6b6b6;font-size: 12px;margin:0 0 10px!important; background-color: #ffffff !important; color: #333333 !important;}
+        select{width: 80%; height: 30px; outline: none;margin:0 0 10px!important;  border: 1px solid #b6b6b6 !important; padding: 0 10px !important; color: #333333; font-size: 12px; border-radius: 3px;background: url(../../../../assets/images/Arrow-dwncircle.png) 98% no-repeat #ffffff; appearance: none;}
+    
+    }
+
+    .num{padding: 1px 6px; border-radius: 50px; border: 1px solid #7c7c7c; text-align: center; color: #7c7c7c;  font-family: 'OpenSans-Semibold'; font-size: 14px;
+        margin-left: 2px;color:#000;}
+    
+    .rightItem{
+        border: 1px solid #ffffff;
+    border-radius: 5px;
+        color: #ffffff;
+        width:80%;
+        height: 28px;text-align: left;
+    }
+    
+    .startDate{
+        input[type=date]:invalid+span:after {
+            content:"Date";
+            position:absolute;
+            left:10px;
+            top:9px;
+            color: #ccc;
+          }
+          .insentive_dates{
+            width: 154px;
+            height: 35px;
+          }
+          
+          // input[type=date]:focus:invalid+span:before {
+          //   display:none;
+          // }
+          
+          input:not(:focus):invalid {
+            color:transparent;
+          }
+          
+          label.wrapper {
+              position:relative;
+          }
+        
+          input[type="date"]{
+            background-color: #505050;
+            border-style: none;
+            border-radius: 4px;
+            color: white;
+            background: #454444;
+        }
+        
+        //   -------icon---------
+          //   input[type="date"]::-webkit-calendar-picker-indicator {
+          //     color: rgba(0, 0, 0, 0);
+          //     opacity: 1;
+          //     display: block;
+          //     background: url(https://mywildalberta.ca/Images/GFX-MWA-Parks-Reservations.png) no-repeat;
+          //     width: 20px;
+          //     height: 20px;
+          //     border-width: thin;
+          // }
+        //   -------icon---------
+        ::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+      
+        input[type="date"]:in-range::-webkit-datetime-edit-year-field, 
+        input[type="date"]:in-range::-webkit-datetime-edit-month-field, 
+        input[type="date"]:in-range::-webkit-datetime-edit-day-field, 
+        input[type="date"]:in-range::-webkit-datetime-edit-text 
+        { 	color: transparent; }
+      
+        input[type="date"]::-webkit-datetime-edit-day-field:focus,
+        input[type="date"]::-webkit-datetime-edit-month-field:focus,
+        input[type="date"]::-webkit-datetime-edit-year-field:focus {
+          background-color: #505050;
+      }
+        
+        }
+        .arrow{
+            position: relative;
+            bottom: 55px;
+            cursor: pointer;
+            left: 30px;
+        }
+        
+        .disabled{
+            cursor: default;
+            opacity: .4;
+            pointer-events: none;
+           }
+           .modelHghlet{
+            background-color: #aaa !important;
+           }
+
+           .btn_save{width: 100px !important; height: 25px !important; border-radius: 5px; cursor: pointer !important; text-transform: uppercase !important; padding:3px 0 !important; background: #00a453 !important; color: #fff !important; text-align: center !important;}
+           .btn_back{width: 100px !important; height: 25px !important; border-radius: 5px; cursor: pointer !important; text-transform: uppercase !important; padding:3px 0 !important; background: #252525 !important; color: #fff !important; text-align: center !important;border: 1px solid #949393 !important;}
+           .btn_reset{width: 100px !important; height: 25px !important; border-radius: 5px; cursor: pointer !important; text-transform: uppercase !important; padding:3px 0 !important; background: #757171 !important; color: #fff !important; text-align: center !important;}    
+           
+           .detailscls{margin-bottom: 12px;font-weight: 500;}
+
+           angular2-multiselect div .selected-list{
+               border: 1px solid #000 !important;
+               border-radius: 5px;
+           }
+
+           .notes{
+            font-size: 12px;
+            color: gray;
+            float: right;
+            margin-right: 50%;
+            margin-top: -2%;
+        }
+
+}
+
+::ng-deep .selected-list .c-btn{ min-height: 0px; width: 98% !important;}
+
+
